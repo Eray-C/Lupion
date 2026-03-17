@@ -1,4 +1,4 @@
-namespace Empty_ERP_Template.Business.Responses;
+﻿namespace Lupion.Business.Responses;
 
 public class LoginResponse
 {

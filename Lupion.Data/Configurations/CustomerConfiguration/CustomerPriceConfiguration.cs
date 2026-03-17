@@ -1,4 +1,4 @@
-using Empty_ERP_Template.Data.Entities.CustomerEntities;
+﻿using Lupion.Data.Entities.CustomerEntities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

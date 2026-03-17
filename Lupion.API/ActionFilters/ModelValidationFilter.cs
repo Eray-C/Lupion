@@ -1,9 +1,9 @@
-using FluentValidation;
+﻿using FluentValidation;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
-namespace Empty_ERP_Template.API.ActionFilters;
+namespace Lupion.API.ActionFilters;
 
 public class ModelValidationFilter(IServiceProvider serviceProvider) : IAsyncActionFilter
 {

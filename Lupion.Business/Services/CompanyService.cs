@@ -1,7 +1,7 @@
-using Empty_ERP_Template.Data;
-using Empty_ERP_Template.Data.Entities;
+﻿using Lupion.Data;
+using Lupion.Data.Entities;
 
-namespace Empty_ERP_Template.Business.Services;
+namespace Lupion.Business.Services;
 
 public class CompanyService(ManagementDBContext context)
 {

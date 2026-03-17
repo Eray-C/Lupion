@@ -1,5 +1,5 @@
-
-namespace Empty_ERP_Template.Business.Attributes;
+﻿
+namespace Lupion.Business.Attributes;
 
 
 [AttributeUsage(AttributeTargets.Method, AllowMultiple = false)]

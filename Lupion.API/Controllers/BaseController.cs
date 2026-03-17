@@ -1,7 +1,7 @@
-using Empty_ERP_Template.Business.Responses;
+﻿using Lupion.Business.Responses;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Empty_ERP_Template.API.Controllers;
+namespace Lupion.API.Controllers;
 
 public class BaseController : ControllerBase
 {

@@ -1,11 +1,11 @@
-@using Empty_ERP_Template.Data.Entities.SharedEntities
+ï»¿@using Lupion.Data.Entities.SharedEntities
 @model IEnumerable<Menu>
 
 @{
     var menus = Model;
     var parentMenus = menus.Where(x => x.ParentId == default).OrderBy(x => x.Order).ToList();
 
-    // ParentId -> Menu listesi eþleþmesini cache’le
+    // ParentId -> Menu listesi eÅŸleÅŸmesini cacheâ€™le
     var menuLookup = menus
         .Where(m => m.ParentId != default)
         .GroupBy(m => m.ParentId)

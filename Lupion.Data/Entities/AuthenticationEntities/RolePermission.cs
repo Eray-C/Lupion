@@ -1,6 +1,6 @@
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace Empty_ERP_Template.Data.Entities.AuthenticationEntities;
+namespace Lupion.Data.Entities.AuthenticationEntities;
 
 public class RolePermission
 {

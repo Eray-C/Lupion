@@ -1,8 +1,8 @@
-using Empty_ERP_Template.Data;
-using Empty_ERP_Template.Data.Entities.SharedEntities;
+﻿using Lupion.Data;
+using Lupion.Data.Entities.SharedEntities;
 using Microsoft.EntityFrameworkCore;
 
-namespace Empty_ERP_Template.Business.Services;
+namespace Lupion.Business.Services;
 
 public class MenuService(DBContext dbContext, CacheService cacheService)
 {

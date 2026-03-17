@@ -1,12 +1,12 @@
-using AutoMapper;
-using Empty_ERP_Template.Business.DTOs.Customer;
-using Empty_ERP_Template.Business.Exceptions;
-using Empty_ERP_Template.Business.Requests.Customer;
-using Empty_ERP_Template.Data;
-using Empty_ERP_Template.Data.Entities.CustomerEntities;
+﻿using AutoMapper;
+using Lupion.Business.DTOs.Customer;
+using Lupion.Business.Exceptions;
+using Lupion.Business.Requests.Customer;
+using Lupion.Data;
+using Lupion.Data.Entities.CustomerEntities;
 using Microsoft.EntityFrameworkCore;
 
-namespace Empty_ERP_Template.Business.Services;
+namespace Lupion.Business.Services;
 
 public class CustomerService(DBContext context, DBContextFactory contextFactory, IMapper mapper)
 {

@@ -1,11 +1,11 @@
-using Empty_ERP_Template.Data.Entities.SharedEntities;
+﻿using Lupion.Data.Entities.SharedEntities;
 
-namespace Empty_ERP_Template.Data.Entities.AttachmentEntities;
+namespace Lupion.Data.Entities.AttachmentEntities;
 public class Attachments : Entity<int>
 {
     public required string FileName { get; set; }
     public string? FileType { get; set; }
-    /// <summary>Types tablosundan (örn. PersonnelDocumentType) dosya tipi.</summary>
+    /// <summary>Types tablosundan (Ã¶rn. PersonnelDocumentType) dosya tipi.</summary>
     public int? DocumentTypeId { get; set; }
     public virtual GeneralType? DocumentType { get; set; }
     public int? OriginalSize { get; set; }

@@ -1,9 +1,9 @@
-using Empty_ERP_Template.MVC.ActionFilter;
+﻿using Lupion.MVC.ActionFilter;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
-namespace Empty_ERP_Template.MVC;
+namespace Lupion.MVC;
 
 public static class ServiceCollectionExtensions
 {

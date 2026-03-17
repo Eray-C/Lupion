@@ -1,9 +1,9 @@
-using Empty_ERP_Template.Business.Helpers;
+﻿using Lupion.Business.Helpers;
 using Microsoft.Extensions.Caching.Distributed;
 using StackExchange.Redis;
 using System.Text.Json;
 
-namespace Empty_ERP_Template.Business.Services;
+namespace Lupion.Business.Services;
 
 public class RedisCacheService(IDistributedCache cache, TenantContext tenant)
 {

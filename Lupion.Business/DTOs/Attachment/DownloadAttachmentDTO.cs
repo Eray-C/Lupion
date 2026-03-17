@@ -1,4 +1,4 @@
-namespace Empty_ERP_Template.Business.DTOs.Attachment;
+﻿namespace Lupion.Business.DTOs.Attachment;
 public class DownloadAttachmentDTO
 {
     public string FileName { get; set; } = string.Empty;

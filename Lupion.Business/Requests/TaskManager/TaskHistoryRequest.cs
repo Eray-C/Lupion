@@ -1,4 +1,4 @@
-namespace Empty_ERP_Template.Business.Requests.TaskManager;
+﻿namespace Lupion.Business.Requests.TaskManager;
 
 public class TaskHistoryRequest
 {

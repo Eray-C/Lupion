@@ -1,7 +1,7 @@
-using Empty_ERP_Template.Data.Entities.SharedEntities;
+﻿using Lupion.Data.Entities.SharedEntities;
 
 
-namespace Empty_ERP_Template.Data.Entities.PersonnelEntities;
+namespace Lupion.Data.Entities.PersonnelEntities;
 
 public class PersonnelLicense : Entity<int>
 {

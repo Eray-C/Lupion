@@ -1,11 +1,11 @@
-using Microsoft.Data.SqlClient;
+﻿using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage;
 using System.Text;
 using System.Text.Json;
 
-namespace Empty_ERP_Template.Data.Extensions;
+namespace Lupion.Data.Extensions;
 
 public static class DbContextExtensions
 {

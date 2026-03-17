@@ -1,4 +1,4 @@
-namespace Empty_ERP_Template.Business.DTOs.TaskManager;
+﻿namespace Lupion.Business.DTOs.TaskManager;
 
 public class TaskDTO(
     int? id,

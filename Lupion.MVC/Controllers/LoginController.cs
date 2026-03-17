@@ -1,11 +1,11 @@
-using Empty_ERP_Template.Business.Exceptions;
-using Empty_ERP_Template.Business.Requests.Authentication;
-using Empty_ERP_Template.Business.Responses;
-using Empty_ERP_Template.Business.Services;
+﻿using Lupion.Business.Exceptions;
+using Lupion.Business.Requests.Authentication;
+using Lupion.Business.Responses;
+using Lupion.Business.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Empty_ERP_Template.MVC.Controllers;
+namespace Lupion.MVC.Controllers;
 
 public class LoginController(AuthService authService) : BaseController
 {
@@ -51,7 +51,7 @@ public class LoginController(AuthService authService) : BaseController
                     Token = token
                 },
                 Success = true,
-                Message = "Giriş işlemi başarılı"
+                Message = "GiriÅŸ iÅŸlemi baÅŸarÄ±lÄ±"
             };
 
             return Ok(response);
@@ -80,7 +80,7 @@ public class LoginController(AuthService authService) : BaseController
         try
         {
             await authService.GeneratePasswordResetTokenAsync(request);
-            return Ok(new BaseResponse { Success = true, Message = "Şifre sıfırlama e-postası gönderildi" });
+            return Ok(new BaseResponse { Success = true, Message = "Åifre sÄ±fÄ±rlama e-postasÄ± gÃ¶nderildi" });
         }
         catch (Exception ex)
         {
@@ -94,7 +94,7 @@ public class LoginController(AuthService authService) : BaseController
         try
         {
             await authService.ResetPasswordAsync(request);
-            return Ok(new BaseResponse { Success = true, Message = "Şifre güncellendi" });
+            return Ok(new BaseResponse { Success = true, Message = "Åifre gÃ¼ncellendi" });
         }
         catch (Exception ex)
         {
@@ -110,7 +110,7 @@ public class LoginController(AuthService authService) : BaseController
         var response = new BaseResponse
         {
             Success = true,
-            Message = "Çıkış işlemi başarılı"
+            Message = "Ã‡Ä±kÄ±ÅŸ iÅŸlemi baÅŸarÄ±lÄ±"
         };
 
         return Ok(response);

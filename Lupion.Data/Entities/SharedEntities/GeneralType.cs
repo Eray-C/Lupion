@@ -1,6 +1,6 @@
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Empty_ERP_Template.Data.Entities.SharedEntities;
+namespace Lupion.Data.Entities.SharedEntities;
 
 [Table("Types")]
 public class GeneralType : Entity<int>

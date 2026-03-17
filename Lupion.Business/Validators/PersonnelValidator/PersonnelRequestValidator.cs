@@ -1,32 +1,32 @@
-using Empty_ERP_Template.Business.Requests.Personnel;
+ï»¿using Lupion.Business.Requests.Personnel;
 using FluentValidation;
 
-namespace Empty_ERP_Template.Business.Validators.PersonnelValidator;
+namespace Lupion.Business.Validators.PersonnelValidator;
 
 public class PersonnelRequestValidator : AbstractValidator<PersonnelRequest>
 {
     public PersonnelRequestValidator()
     {
         RuleFor(x => x.FirstName)
-            .NotEmpty().WithMessage("Ad boþ olamaz")
+            .NotEmpty().WithMessage("Ad boÅŸ olamaz")
             .MaximumLength(100).WithMessage("Ad 100 karakterden uzun olamaz");
 
         RuleFor(x => x.LastName)
-            .NotEmpty().WithMessage("Soyad boþ olamaz")
+            .NotEmpty().WithMessage("Soyad boÅŸ olamaz")
             .MaximumLength(100).WithMessage("Soyad 100 karakterden uzun olamaz");
 
         RuleFor(x => x.IdentityNumber)
-            .MaximumLength(50).WithMessage("Kimlik numarasý 50 karakterden uzun olamaz");
+            .MaximumLength(50).WithMessage("Kimlik numarasÄ± 50 karakterden uzun olamaz");
 
         RuleFor(x => x.DateOfBirth)
             .LessThan(DateTime.Today).When(x => x.DateOfBirth.HasValue)
-            .WithMessage("Doðum tarihi bugünden büyük olamaz");
+            .WithMessage("DoÄŸum tarihi bugÃ¼nden bÃ¼yÃ¼k olamaz");
 
         RuleFor(x => x.EndDate)
             .GreaterThan(x => x.StartDate).When(x => x.StartDate.HasValue && x.EndDate.HasValue)
-            .WithMessage("Bitiþ tarihi baþlangýç tarihinden büyük olmalýdýr");
+            .WithMessage("BitiÅŸ tarihi baÅŸlangÄ±Ã§ tarihinden bÃ¼yÃ¼k olmalÄ±dÄ±r");
         RuleFor(x => x.StatusTypeId)
-            .NotEmpty().WithMessage("Personnelin durumu boþ olamaz");
+            .NotEmpty().WithMessage("Personnelin durumu boÅŸ olamaz");
 
         RuleFor(x => x.Notes)
             .MaximumLength(1000).WithMessage("Notlar 1000 karakterden uzun olamaz");

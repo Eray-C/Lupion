@@ -1,4 +1,4 @@
-namespace Empty_ERP_Template.Data.Entities.AuthenticationEntities;
+﻿namespace Lupion.Data.Entities.AuthenticationEntities;
 
 public class User : Entity<int>
 {

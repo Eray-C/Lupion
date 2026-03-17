@@ -1,6 +1,6 @@
-using Empty_ERP_Template.Business.DTOs.Authentication;
+﻿using Lupion.Business.DTOs.Authentication;
 
-namespace Empty_ERP_Template.MVC.ViewModels;
+namespace Lupion.MVC.ViewModels;
 
 public class RolePermissionsViewModel
 {

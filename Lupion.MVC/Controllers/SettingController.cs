@@ -1,8 +1,8 @@
-using Empty_ERP_Template.Business.Services;
-using Empty_ERP_Template.MVC.ViewModels;
+﻿using Lupion.Business.Services;
+using Lupion.MVC.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Empty_ERP_Template.MVC.Controllers;
+namespace Lupion.MVC.Controllers;
 
 [Route("settings")]
 public class SettingController(SettingsService settingsService) : BaseController

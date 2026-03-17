@@ -1,12 +1,12 @@
-using AutoMapper;
-using Empty_ERP_Template.Business.DTOs.Authentication;
-using Empty_ERP_Template.Business.DTOs.Shared;
-using Empty_ERP_Template.Business.Requests.Authentication;
-using Empty_ERP_Template.Business.Requests.Shared;
-using Empty_ERP_Template.Data.Entities.AuthenticationEntities;
-using Empty_ERP_Template.Data.Entities.SharedEntities;
+﻿using AutoMapper;
+using Lupion.Business.DTOs.Authentication;
+using Lupion.Business.DTOs.Shared;
+using Lupion.Business.Requests.Authentication;
+using Lupion.Business.Requests.Shared;
+using Lupion.Data.Entities.AuthenticationEntities;
+using Lupion.Data.Entities.SharedEntities;
 
-namespace Empty_ERP_Template.Business.MapProfiles;
+namespace Lupion.Business.MapProfiles;
 
 public class MappingProfile : Profile
 {

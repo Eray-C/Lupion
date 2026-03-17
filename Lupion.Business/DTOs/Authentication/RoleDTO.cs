@@ -1,6 +1,6 @@
-using Empty_ERP_Template.Data.Entities;
+﻿using Lupion.Data.Entities;
 
-namespace Empty_ERP_Template.Business.DTOs.Authentication;
+namespace Lupion.Business.DTOs.Authentication;
 
 public class RoleDTO : Entity<int>
 {

@@ -1,4 +1,4 @@
-namespace Empty_ERP_Template.Business.Requests.Personnel;
+﻿namespace Lupion.Business.Requests.Personnel;
 public class PersonnelSalaryRequest
 {
     public int? Id { get; set; }

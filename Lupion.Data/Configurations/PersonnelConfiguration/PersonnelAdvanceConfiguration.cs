@@ -1,8 +1,8 @@
-using Empty_ERP_Template.Data.Entities.PersonnelEntities;
+﻿using Lupion.Data.Entities.PersonnelEntities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Empty_ERP_Template.Data.Configurations.PersonnelConfiguration;
+namespace Lupion.Data.Configurations.PersonnelConfiguration;
 
 public class PersonnelAdvanceConfiguration : IEntityTypeConfiguration<PersonnelAdvance>
 {

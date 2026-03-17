@@ -1,6 +1,6 @@
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
-namespace Empty_ERP_Template.Business.Helpers;
+namespace Lupion.Business.Helpers;
 
 public static class EfExtensions
 {

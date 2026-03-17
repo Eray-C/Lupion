@@ -1,6 +1,6 @@
-using Empty_ERP_Template.Data.Entities;
+﻿using Lupion.Data.Entities;
 
-namespace Empty_ERP_Template.Business.DTOs.Shared;
+namespace Lupion.Business.DTOs.Shared;
 
 public class GeneralTypeDTO : Entity<int>
 {

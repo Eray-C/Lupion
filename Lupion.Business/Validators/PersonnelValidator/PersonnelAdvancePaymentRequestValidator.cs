@@ -1,7 +1,7 @@
-using Empty_ERP_Template.Business.Requests.Personnel;
+﻿using Lupion.Business.Requests.Personnel;
 using FluentValidation;
 
-namespace Empty_ERP_Template.Business.Validators.PersonnelValidator;
+namespace Lupion.Business.Validators.PersonnelValidator;
 
 public class PersonnelAdvancePaymentRequestValidator : AbstractValidator<PersonnelAdvancePaymentRequest>
 {

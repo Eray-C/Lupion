@@ -1,7 +1,7 @@
-using System.Net;
+﻿using System.Net;
 using System.Text.Json;
 
-namespace Empty_ERP_Template.API.Middlewares;
+namespace Lupion.API.Middlewares;
 
 public class GlobalExceptionMiddleware
 {
@@ -29,7 +29,7 @@ public class GlobalExceptionMiddleware
         {
             if (ex is ObjectDisposedException || context.Response.HasStarted)
             {
-                _logger.LogWarning(ex, "Response stream kapandı, exception handle edildi.");
+                _logger.LogWarning(ex, "Response stream kapandÄ±, exception handle edildi.");
                 return;
             }
 
@@ -39,7 +39,7 @@ public class GlobalExceptionMiddleware
 
     private async Task HandleExceptionAsync(HttpContext context, Exception ex)
     {
-        _logger.LogError(ex, "Global exception yakalandı.");
+        _logger.LogError(ex, "Global exception yakalandÄ±.");
 
         var (statusCode, message) = GetStatusCodeAndMessage(ex);
 
@@ -62,11 +62,11 @@ public class GlobalExceptionMiddleware
     {
         return ex switch
         {
-            UnauthorizedAccessException => ((int)HttpStatusCode.Unauthorized, "Yetkisiz erişim."),
-            FileNotFoundException => ((int)HttpStatusCode.NotFound, "Dosya bulunamadı."),
-            Minio.Exceptions.MinioException => ((int)HttpStatusCode.BadRequest, "Dosya yüklenemedi."),
+            UnauthorizedAccessException => ((int)HttpStatusCode.Unauthorized, "Yetkisiz eriÅŸim."),
+            FileNotFoundException => ((int)HttpStatusCode.NotFound, "Dosya bulunamadÄ±."),
+            Minio.Exceptions.MinioException => ((int)HttpStatusCode.BadRequest, "Dosya yÃ¼klenemedi."),
             InvalidOperationException => ((int)HttpStatusCode.BadRequest, ex.Message),
-            _ => ((int)HttpStatusCode.InternalServerError, "Beklenmeyen hata oluştu.")
+            _ => ((int)HttpStatusCode.InternalServerError, "Beklenmeyen hata oluÅŸtu.")
         };
     }
 }

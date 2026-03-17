@@ -1,7 +1,7 @@
-using Empty_ERP_Template.Data.Entities.AuthenticationEntities;
+﻿using Lupion.Data.Entities.AuthenticationEntities;
 using System.ComponentModel.DataAnnotations;
 
-namespace Empty_ERP_Template.Data.Entities;
+namespace Lupion.Data.Entities;
 
 public class Company : Entity<int>
 {

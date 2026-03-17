@@ -1,8 +1,8 @@
-using Empty_ERP_Template.Business.Requests.Personnel;
-using Empty_ERP_Template.Business.Services;
+﻿using Lupion.Business.Requests.Personnel;
+using Lupion.Business.Services;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Empty_ERP_Template.API.Controllers;
+namespace Lupion.API.Controllers;
 
 [ApiController]
 [Route("api/personnel")]
@@ -30,7 +30,7 @@ public class PersonnelController(PersonnelService personnelService) : BaseContro
     {
         var result = await personnelService.AddAsync(request);
 
-        return Ok(result, "Personnel başarıyla kaydedildi");
+        return Ok(result, "Personnel baÅŸarÄ±yla kaydedildi");
     }
 
     [HttpPut("{id:int}")]
@@ -38,7 +38,7 @@ public class PersonnelController(PersonnelService personnelService) : BaseContro
     {
         await personnelService.UpdateAsync(id, request);
 
-        return Ok("Personnel başarıyla güncellendi.");
+        return Ok("Personnel baÅŸarÄ±yla gÃ¼ncellendi.");
     }
 
     [HttpDelete("{id:int}")]
@@ -46,7 +46,7 @@ public class PersonnelController(PersonnelService personnelService) : BaseContro
     {
         await personnelService.DeleteAsync(id);
 
-        return Ok("Personnel başarıyla silindi.");
+        return Ok("Personnel baÅŸarÄ±yla silindi.");
     }
 
 
@@ -204,7 +204,7 @@ public class PersonnelController(PersonnelService personnelService) : BaseContro
     public async Task<IActionResult> CloseAdvanceAsync(int id)
     {
         await personnelService.CloseAdvanceAsync(id);
-        return Ok("Avans kapatıldı.");
+        return Ok("Avans kapatÄ±ldÄ±.");
     }
 
     [HttpGet("payment-history/{personnelId:int}")]
@@ -218,7 +218,7 @@ public class PersonnelController(PersonnelService personnelService) : BaseContro
     public async Task<IActionResult> RecordAdvancePayment([FromBody] PersonnelAdvancePaymentRequest request)
     {
         await personnelService.RecordAdvancePaymentAsync(request);
-        return Ok("Ödeme kaydedildi.");
+        return Ok("Ã–deme kaydedildi.");
     }
 
     [HttpGet("contact/{personnelId:int}")]
@@ -321,34 +321,34 @@ public class PersonnelController(PersonnelService personnelService) : BaseContro
     {
         await personnelService.SaveMonthlyPayrollAsync(request);
 
-        return Ok("Bordro başarıyla kaydedildi.");
+        return Ok("Bordro baÅŸarÄ±yla kaydedildi.");
     }
 
     [HttpPost("payroll/{payrollId:int}/realize")]
     public async Task<IActionResult> MarkPayrollAsRealized(int payrollId)
     {
         await personnelService.MarkPayrollAsRealizedAsync(payrollId);
-        return Ok("Ödeme gerçekleşti olarak kaydedildi.");
+        return Ok("Ã–deme gerÃ§ekleÅŸti olarak kaydedildi.");
     }
 
     [HttpDelete("payroll/period/{year:int}/{month:int}")]
     public async Task<IActionResult> DeletePayrollPeriod(int year, int month)
     {
         await personnelService.SoftDeletePeriodPayrollsAsync(year, month);
-        return Ok("Bordro kayıtları silindi.");
+        return Ok("Bordro kayÄ±tlarÄ± silindi.");
     }
 
     [HttpPost("payroll/soft-delete-period")]
     public async Task<IActionResult> SoftDeletePeriodPayrolls([FromQuery] int year, [FromQuery] int month)
     {
         await personnelService.SoftDeletePeriodPayrollsAsync(year, month);
-        return Ok("Bordro kayıtları silindi, sisteme tekrar hesaplatıldı.");
+        return Ok("Bordro kayÄ±tlarÄ± silindi, sisteme tekrar hesaplatÄ±ldÄ±.");
     }
 
     [HttpPost("payroll/realize-all")]
     public async Task<IActionResult> MarkAllPayrollsInPeriodAsRealized([FromBody] PersonnelPayrollRealizeRequest request)
     {
         await personnelService.MarkAllPayrollsInPeriodAsRealizedAsync(request);
-        return Ok("Tüm ödemeler gerçekleşti olarak kaydedildi.");
+        return Ok("TÃ¼m Ã¶demeler gerÃ§ekleÅŸti olarak kaydedildi.");
     }
 }

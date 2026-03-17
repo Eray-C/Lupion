@@ -1,6 +1,6 @@
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace Empty_ERP_Template.Data.Entities;
+namespace Lupion.Data.Entities;
 
 public class AuditLog
 {

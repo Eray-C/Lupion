@@ -1,9 +1,9 @@
-using Empty_ERP_Template.Business.Services;
-using Empty_ERP_Template.MVC.Models;
+﻿using Lupion.Business.Services;
+using Lupion.MVC.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace Empty_ERP_Template.MVC.Controllers;
+namespace Lupion.MVC.Controllers;
 
 public class CacheController(CacheService cacheService) : Controller
 {

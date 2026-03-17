@@ -1,4 +1,4 @@
-namespace Empty_ERP_Template.Business.Requests.Attachment;
+﻿namespace Lupion.Business.Requests.Attachment;
 public class AttachmentRequest
 {
     public string? FileName { get; set; }

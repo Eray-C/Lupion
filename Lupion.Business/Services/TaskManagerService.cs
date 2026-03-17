@@ -1,14 +1,14 @@
-using AutoMapper;
-using Empty_ERP_Template.Business.DTOs.Shared;
-using Empty_ERP_Template.Business.DTOs.TaskManager;
-using Empty_ERP_Template.Business.Exceptions;
-using Empty_ERP_Template.Business.Requests.TaskManager;
-using Empty_ERP_Template.Data;
-using Empty_ERP_Template.Data.Entities.TaskManagerEntities;
+﻿using AutoMapper;
+using Lupion.Business.DTOs.Shared;
+using Lupion.Business.DTOs.TaskManager;
+using Lupion.Business.Exceptions;
+using Lupion.Business.Requests.TaskManager;
+using Lupion.Data;
+using Lupion.Data.Entities.TaskManagerEntities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 
-namespace Empty_ERP_Template.Business.Services;
+namespace Lupion.Business.Services;
 
 public class TaskManagerService(DBContext context, IMapper mapper, IHttpContextAccessor httpContextAccessor)
     : BaseService(httpContextAccessor)

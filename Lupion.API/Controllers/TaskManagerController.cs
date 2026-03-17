@@ -1,9 +1,9 @@
-using Empty_ERP_Template.Business.DTOs.Shared;
-using Empty_ERP_Template.Business.Requests.TaskManager;
-using Empty_ERP_Template.Business.Services;
+﻿using Lupion.Business.DTOs.Shared;
+using Lupion.Business.Requests.TaskManager;
+using Lupion.Business.Services;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Empty_ERP_Template.API.Controllers;
+namespace Lupion.API.Controllers;
 
 [ApiController]
 [Route("api/task-manager")]
@@ -41,7 +41,7 @@ public class TaskManagerController(TaskManagerService taskManagerService, Shared
     public async Task<IActionResult> CreateAsync([FromBody] TaskRequest request)
     {
         var id = await taskManagerService.CreateAsync(request);
-        return Ok(id, "Görev başarıyla oluşturuldu.");
+        return Ok(id, "GÃ¶rev baÅŸarÄ±yla oluÅŸturuldu.");
     }
 
     [HttpGet("tasks/next-number")]
@@ -55,7 +55,7 @@ public class TaskManagerController(TaskManagerService taskManagerService, Shared
     public async Task<IActionResult> UpdateAsync(int id, [FromBody] TaskRequest request)
     {
         await taskManagerService.UpdateAsync(id, request);
-        return Ok("Görev başarıyla güncellendi.");
+        return Ok("GÃ¶rev baÅŸarÄ±yla gÃ¼ncellendi.");
     }
 
     [HttpPost("tasks/{id:int}/status")]
@@ -63,19 +63,19 @@ public class TaskManagerController(TaskManagerService taskManagerService, Shared
     {
         if (id != request.TaskId)
         {
-            return BadRequest("İstek yolu ile gövde task kimlikleri eşleşmiyor.");
+            return BadRequest("Ä°stek yolu ile gÃ¶vde task kimlikleri eÅŸleÅŸmiyor.");
         }
 
 
         await taskManagerService.UpdateStatusAsync(request);
-        return Ok("Görev durumu güncellendi.");
+        return Ok("GÃ¶rev durumu gÃ¼ncellendi.");
     }
 
     [HttpDelete("tasks/{id:int}")]
     public async Task<IActionResult> DeleteAsync(int id)
     {
         await taskManagerService.DeleteAsync(id);
-        return Ok("Görev başarıyla silindi.");
+        return Ok("GÃ¶rev baÅŸarÄ±yla silindi.");
     }
 
     [HttpGet("lookups")]
@@ -99,7 +99,7 @@ public class TaskManagerController(TaskManagerService taskManagerService, Shared
     public async Task<IActionResult> UnarchiveTask(int id)
     {
         await taskManagerService.UnarchiveAsync(id);
-        return Ok("Görev arşivden geri alındı.");
+        return Ok("GÃ¶rev arÅŸivden geri alÄ±ndÄ±.");
     }
 
 }

@@ -1,10 +1,10 @@
-using Empty_ERP_Template.Business.Exceptions;
-using Empty_ERP_Template.Data;
+ï»¿using Lupion.Business.Exceptions;
+using Lupion.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query;
 using System.Linq.Expressions;
 
-namespace Empty_ERP_Template.Business.Repository;
+namespace Lupion.Business.Repository;
 
 public class Repository<T> where T : class
 {
@@ -17,7 +17,7 @@ public class Repository<T> where T : class
         _dbSet = context.Set<T>();
     }
 
-    // Tek kayýt (predicate zorunlu deðil), include ve tracking opsiyonlarý
+    // Tek kayÄ±t (predicate zorunlu deÄŸil), include ve tracking opsiyonlarÄ±
     public async Task<T?> GetAsync(
         Expression<Func<T, bool>>? predicate = null,
         Func<IQueryable<T>, IIncludableQueryable<T, object>>? include = null,
@@ -98,7 +98,7 @@ public class Repository<T> where T : class
         }
         else
         {
-            throw new InvalidOperationException($"{typeof(T).Name} entity'sinde IsDeleted alaný yok.");
+            throw new InvalidOperationException($"{typeof(T).Name} entity'sinde IsDeleted alanÄ± yok.");
         }
     }
 

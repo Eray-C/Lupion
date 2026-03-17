@@ -1,8 +1,8 @@
-using AutoMapper;
-using Empty_ERP_Template.Business.DTOs.Personnel;
-using Empty_ERP_Template.Data.Entities.PersonnelEntities;
+﻿using AutoMapper;
+using Lupion.Business.DTOs.Personnel;
+using Lupion.Data.Entities.PersonnelEntities;
 
-namespace Empty_ERP_Template.Business.MapProfiles.PersonnelProfiles;
+namespace Lupion.Business.MapProfiles.PersonnelProfiles;
 
 public class PayrollUpdatedByNameResolver : IValueResolver<PaidPayroll, PayrollPeriodListDTO, string?>
 {

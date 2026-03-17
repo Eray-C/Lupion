@@ -1,6 +1,6 @@
-using Empty_ERP_Template.Business.Interfaces;
+﻿using Lupion.Business.Interfaces;
 
-namespace Empty_ERP_Template.Business.Requests.Customer;
+namespace Lupion.Business.Requests.Customer;
 
 public class CustomerRequest() : IHasId
 {

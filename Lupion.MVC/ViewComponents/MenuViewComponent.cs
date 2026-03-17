@@ -1,7 +1,7 @@
-using Empty_ERP_Template.Business.Services;
+﻿using Lupion.Business.Services;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Empty_ERP_Template.MVC.ViewComponents;
+namespace Lupion.MVC.ViewComponents;
 
 public class MenuViewComponent(MenuService service) : ViewComponent
 {

@@ -1,14 +1,14 @@
-using Empty_ERP_Template.Data.Entities;
-using Empty_ERP_Template.Data.Entities.AttachmentEntities;
-using Empty_ERP_Template.Data.Entities.AuthenticationEntities;
-using Empty_ERP_Template.Data.Entities.CustomerEntities;
-using Empty_ERP_Template.Data.Entities.PersonnelEntities;
-using Empty_ERP_Template.Data.Entities.SharedEntities;
-using Empty_ERP_Template.Data.Entities.TaskManagerEntities;
-using Empty_ERP_Template.Data.Extensions;
+﻿using Lupion.Data.Entities;
+using Lupion.Data.Entities.AttachmentEntities;
+using Lupion.Data.Entities.AuthenticationEntities;
+using Lupion.Data.Entities.CustomerEntities;
+using Lupion.Data.Entities.PersonnelEntities;
+using Lupion.Data.Entities.SharedEntities;
+using Lupion.Data.Entities.TaskManagerEntities;
+using Lupion.Data.Extensions;
 using Microsoft.EntityFrameworkCore;
 
-namespace Empty_ERP_Template.Data;
+namespace Lupion.Data;
 
 public class DBContext(DbContextOptions<DBContext> options) : DbContext(options)
 {

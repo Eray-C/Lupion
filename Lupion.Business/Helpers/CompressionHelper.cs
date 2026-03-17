@@ -1,6 +1,6 @@
-using System.IO.Compression;
+﻿using System.IO.Compression;
 
-namespace Empty_ERP_Template.Business.Helpers;
+namespace Lupion.Business.Helpers;
 
 public static class CompressionHelper
 {

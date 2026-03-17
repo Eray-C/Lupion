@@ -1,7 +1,7 @@
-using Empty_ERP_Template.Data.Entities.SharedEntities;
+﻿using Lupion.Data.Entities.SharedEntities;
 using System.ComponentModel.DataAnnotations;
 
-namespace Empty_ERP_Template.Data.Entities;
+namespace Lupion.Data.Entities;
 
 public class Entity<T> : ISoftDeletable
 {

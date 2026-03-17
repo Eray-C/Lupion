@@ -1,4 +1,4 @@
-namespace Empty_ERP_Template.Business.DTOs.Dashboard;
+﻿namespace Lupion.Business.DTOs.Dashboard;
 public record CityShipmentDTO
 {
     public required string CityCode { get; set; }

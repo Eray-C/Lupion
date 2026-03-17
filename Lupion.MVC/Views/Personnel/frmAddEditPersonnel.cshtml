@@ -1,4 +1,4 @@
-@using Empty_ERP_Template.Business.DTOs.Shared
+ï»¿@using Lupion.Business.DTOs.Shared
 @model (IEnumerable<GeneralTypeDTO> genderTypes, IEnumerable<GeneralTypeDTO> personnelStatusTypes, IEnumerable<GeneralTypeDTO> departmentTypes, IEnumerable<GeneralTypeDTO> personnelTypes, IEnumerable<GeneralTypeDTO> maritalStatusTypes)
 
 @{
@@ -23,7 +23,7 @@
                 <div class="col-md-3">
                     <label for="GenderTypeId" class="form-label fw-bold">Cinsiyet</label>
                     <select class="form-select" id="GenderTypeId" name="GenderTypeId">
-                        <option value="">Seçiniz</option>
+                        <option value="">SeÃ§iniz</option>
                         @foreach (var item in Model.genderTypes)
                         {
                             <option value="@item.Id">@item.Name</option>
@@ -31,7 +31,7 @@
                     </select>
                 </div>
                 <div class="col-md-3">
-                    <label for="Photo" class="form-label fw-bold w-100 ">Fotoðraf</label>
+                    <label for="Photo" class="form-label fw-bold w-100 ">FotoÄŸraf</label>
                     <input type="file" class="form-control mb-2" id="Photo" name="Photo"
                            accept="image/*" onchange="previewPersonnelPhoto(event)" />
                 </div>
@@ -39,11 +39,11 @@
 
             <div class="row mb-3">
                 <div class="col-md-3">
-                    <label for="DateOfBirth" class="form-label fw-bold">Doðum Tarihi</label>
+                    <label for="DateOfBirth" class="form-label fw-bold">DoÄŸum Tarihi</label>
                     <input type="date" class="form-control" id="DateOfBirth" name="DateOfBirth" />
                 </div>
                 <div class="col-md-3">
-                    <label for="PlaceOfBirth" class="form-label fw-bold">Doðum Yeri</label>
+                    <label for="PlaceOfBirth" class="form-label fw-bold">DoÄŸum Yeri</label>
                     <input type="text" class="form-control" id="PlaceOfBirth" name="PlaceOfBirth" />
                 </div>
                 <div class="col-md-3">
@@ -53,7 +53,7 @@
                 <div class="col-md-3">
                     <label for="MaritalStatusTypeId" class="form-label fw-bold">Medeni Durum</label>
                     <select class="form-select" id="MaritalStatusTypeId" name="MaritalStatusTypeId">
-                        <option value="">Seçiniz</option>
+                        <option value="">SeÃ§iniz</option>
                         @foreach (var item in Model.maritalStatusTypes)
                         {
                             <option value="@item.Id">@item.Name</option>
@@ -66,7 +66,7 @@
                 <div class="col-md-3">
                     <label for="PersonnelTypeId" class="form-label fw-bold">Personel Tipi</label>
                     <select class="form-select" id="PersonnelTypeId" name="PersonnelTypeId">
-                        <option value="">Seçiniz</option>
+                        <option value="">SeÃ§iniz</option>
                         @foreach (var item in Model.personnelTypes)
                         {
                             <option value="@item.Id">@item.Name</option>
@@ -76,7 +76,7 @@
                 <div class="col-md-3">
                     <label for="DepartmentTypeId" class="form-label fw-bold">Departman</label>
                     <select class="form-select" id="DepartmentTypeId" name="DepartmentTypeId">
-                        <option value="">Seçiniz</option>
+                        <option value="">SeÃ§iniz</option>
                         @foreach (var item in Model.departmentTypes)
                         {
                             <option value="@item.Id">@item.Name</option>
@@ -84,11 +84,11 @@
                     </select>
                 </div>
                 <div class="col-md-3">
-                    <label for="StartDate" class="form-label fw-bold">Ýþe Baþlama Tarihi</label>
+                    <label for="StartDate" class="form-label fw-bold">Ä°ÅŸe BaÅŸlama Tarihi</label>
                     <input type="date" class="form-control" id="StartDate" name="StartDate" />
                 </div>
                 <div class="col-md-3">
-                    <label for="EndDate" class="form-label fw-bold">Ýþten Ayrýlma Tarihi</label>
+                    <label for="EndDate" class="form-label fw-bold">Ä°ÅŸten AyrÄ±lma Tarihi</label>
                     <input type="date" class="form-control" id="EndDate" name="EndDate" />
                 </div>
             </div>
@@ -101,7 +101,7 @@
                 <div class="col-md-3">
                     <label for="StatusTypeId" class="form-label fw-bold">Durumu</label>
                     <select class="form-select" id="StatusTypeId" name="StatusTypeId">
-                        <option value="">Seçiniz</option>
+                        <option value="">SeÃ§iniz</option>
                         @foreach (var item in Model.personnelStatusTypes)
                         {
                             <option value="@item.Id">@item.Name</option>

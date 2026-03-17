@@ -1,4 +1,4 @@
-namespace Empty_ERP_Template.Business.DTOs.Authentication;
+﻿namespace Lupion.Business.DTOs.Authentication;
 
 public class RolePermissionItemDTO
 {

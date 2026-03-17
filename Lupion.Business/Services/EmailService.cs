@@ -1,9 +1,9 @@
-using Empty_ERP_Template.Data;
+﻿using Lupion.Data;
 using Microsoft.EntityFrameworkCore;
 using System.Net;
 using System.Net.Mail;
 
-namespace Empty_ERP_Template.Business.Services;
+namespace Lupion.Business.Services;
 
 public class EmailService(ManagementDBContext managementDBContext)
 {
@@ -14,7 +14,7 @@ public class EmailService(ManagementDBContext managementDBContext)
                                     .FirstOrDefaultAsync(x => x.IsActive);
 
         if (account == null)
-            throw new Exception("Aktif e-posta hesabı bulunamadı.");
+            throw new Exception("Aktif e-posta hesabÄ± bulunamadÄ±.");
 
         using var client = new SmtpClient(account.Host, account.Port)
         {
@@ -24,8 +24,8 @@ public class EmailService(ManagementDBContext managementDBContext)
 
         using var message = new MailMessage(account.From ?? account.UserName, email)
         {
-            Subject = " - Şifre Sıfırlama",
-            Body = $"Şifre sıfırlama kodunuz: {token}\n\nBu kod 10 dakika geçerlidir. Kodunuzu kimseyle paylaşmayın."
+            Subject = " - Åifre SÄ±fÄ±rlama",
+            Body = $"Åifre sÄ±fÄ±rlama kodunuz: {token}\n\nBu kod 10 dakika geÃ§erlidir. Kodunuzu kimseyle paylaÅŸmayÄ±n."
         };
 
         await client.SendMailAsync(message);

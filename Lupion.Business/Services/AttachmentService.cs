@@ -1,10 +1,10 @@
-using AutoMapper;
-using Empty_ERP_Template.Business.DTOs.Attachment;
-using Empty_ERP_Template.Business.Exceptions;
-using Empty_ERP_Template.Business.Requests.Attachment;
-using Empty_ERP_Template.Business.Services;
-using Empty_ERP_Template.Data;
-using Empty_ERP_Template.Data.Entities.AttachmentEntities;
+﻿using AutoMapper;
+using Lupion.Business.DTOs.Attachment;
+using Lupion.Business.Exceptions;
+using Lupion.Business.Requests.Attachment;
+using Lupion.Business.Services;
+using Lupion.Data;
+using Lupion.Data.Entities.AttachmentEntities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 

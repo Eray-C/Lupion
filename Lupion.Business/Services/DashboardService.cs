@@ -1,13 +1,13 @@
-using AutoMapper;
+﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
-using Empty_ERP_Template.Business.DTOs.Dashboard;
-using Empty_ERP_Template.Data;
-using Empty_ERP_Template.Data.Extensions;
+using Lupion.Business.DTOs.Dashboard;
+using Lupion.Data;
+using Lupion.Data.Extensions;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System.Data;
 
-namespace Empty_ERP_Template.Business.Services;
+namespace Lupion.Business.Services;
 
 public class DashboardService(DBContext context, IMapper mapper)
 {

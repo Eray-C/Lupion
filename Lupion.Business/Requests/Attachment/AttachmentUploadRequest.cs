@@ -1,6 +1,6 @@
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 
-namespace Empty_ERP_Template.Business.Requests.Attachment;
+namespace Lupion.Business.Requests.Attachment;
 public class AttachmentUploadRequest
 {
     public List<IFormFile> Files { get; set; } = new();
@@ -17,7 +17,7 @@ public class AttachmentUploadRequest
 
     public List<string>? Comments { get; set; }
 
-    /// <summary>Her dosya için Types tablosundan dosya tipi id (örn. PersonnelDocumentType).</summary>
+    /// <summary>Her dosya iÃ§in Types tablosundan dosya tipi id (Ã¶rn. PersonnelDocumentType).</summary>
     public List<int?>? DocumentTypeIds { get; set; }
 }
 

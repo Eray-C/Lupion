@@ -1,8 +1,8 @@
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Minio;
 using Minio.DataModel.Args;
 
-namespace Empty_ERP_Template.Business.Services
+namespace Lupion.Business.Services
 {
     public class MinioService
     {

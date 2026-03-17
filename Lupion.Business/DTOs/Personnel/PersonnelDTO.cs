@@ -1,4 +1,4 @@
-namespace Empty_ERP_Template.Business.DTOs.Personnel
+﻿namespace Lupion.Business.DTOs.Personnel
 {
     public class PersonnelDTO
     {

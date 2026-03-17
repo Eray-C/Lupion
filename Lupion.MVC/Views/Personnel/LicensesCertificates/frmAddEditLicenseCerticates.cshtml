@@ -1,4 +1,4 @@
-@using Empty_ERP_Template.Business.DTOs.Shared
+ï»¿@using Lupion.Business.DTOs.Shared
 @model IEnumerable<GeneralTypeDTO>
 
 @{
@@ -10,9 +10,9 @@
 
     <div class="row mb-3">
         <div class="col-md-3">
-            <label for="LicenseTypeId" class="form-label fw-bold">Ehliyet / Sertifika Türü</label>
+            <label for="LicenseTypeId" class="form-label fw-bold">Ehliyet / Sertifika TÃ¼rÃ¼</label>
             <select class="form-select" id="LicenseTypeId" name="LicenseTypeId" required>
-                <option value="">Seçiniz</option>
+                <option value="">SeÃ§iniz</option>
                 @foreach (var item in Model)
                 {
                     <option value="@item.Id">@item.Name</option>
@@ -24,7 +24,7 @@
             <input type="text" class="form-control" id="LicenseNumber" name="LicenseNumber" maxlength="50" />
         </div>
         <div class="col-md-3">
-            <label for="Category" class="form-label fw-bold">Sýnýf / Kategori</label>
+            <label for="Category" class="form-label fw-bold">SÄ±nÄ±f / Kategori</label>
             <input type="text" class="form-control" id="Category" name="Category" maxlength="50" />
         </div>
         <div class="col-md-3">
@@ -35,11 +35,11 @@
 
     <div class="row mb-3">
         <div class="col-md-3">
-            <label for="IssueDate" class="form-label fw-bold">Veriliþ Tarihi</label>
+            <label for="IssueDate" class="form-label fw-bold">VeriliÅŸ Tarihi</label>
             <input type="date" class="form-control" id="IssueDate" name="IssueDate" />
         </div>
         <div class="col-md-3">
-            <label for="ExpiryDate" class="form-label fw-bold">Geçerlilik Bitiþ Tarihi</label>
+            <label for="ExpiryDate" class="form-label fw-bold">GeÃ§erlilik BitiÅŸ Tarihi</label>
             <input type="date" class="form-control" id="ExpiryDate" name="ExpiryDate" />
         </div>
 

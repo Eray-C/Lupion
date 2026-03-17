@@ -1,8 +1,8 @@
-using Empty_ERP_Template.Business.DTOs.Shared;
-using Empty_ERP_Template.Data;
+﻿using Lupion.Business.DTOs.Shared;
+using Lupion.Data;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Empty_ERP_Template.MVC.ViewComponents;
+namespace Lupion.MVC.ViewComponents;
 
 public class LocationSelectorViewComponent : ViewComponent
 {

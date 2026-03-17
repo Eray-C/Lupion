@@ -1,8 +1,8 @@
-using Empty_ERP_Template.Business.DTOs.Authentication;
+﻿using Lupion.Business.DTOs.Authentication;
 using Microsoft.AspNetCore.Http;
 using System.Security.Claims;
 
-namespace Empty_ERP_Template.Business.Services;
+namespace Lupion.Business.Services;
 
 public class BaseService(IHttpContextAccessor httpContextAccessor)
 {

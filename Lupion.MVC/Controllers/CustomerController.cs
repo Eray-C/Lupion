@@ -1,6 +1,6 @@
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
-namespace Empty_ERP_Template.MVC.Controllers;
+namespace Lupion.MVC.Controllers;
 
 [Route("customer")]
 public class CustomerController() : BaseController

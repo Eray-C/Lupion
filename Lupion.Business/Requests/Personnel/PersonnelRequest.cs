@@ -1,6 +1,6 @@
-using Empty_ERP_Template.Business.Interfaces;
+﻿using Lupion.Business.Interfaces;
 
-namespace Empty_ERP_Template.Business.Requests.Personnel;
+namespace Lupion.Business.Requests.Personnel;
 
 public class PersonnelRequest : IHasId
 {

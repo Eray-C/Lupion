@@ -1,9 +1,9 @@
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 
-namespace Empty_ERP_Template.MVC.ActionFilter;
+namespace Lupion.MVC.ActionFilter;
 
 public class JwtUserViewBagFilter : IActionFilter
 {
@@ -42,7 +42,7 @@ public class JwtUserViewBagFilter : IActionFilter
         }
         catch
         {
-            // Hatalı veya geçersiz token varsa sessizce geç
+            // HatalÄ± veya geÃ§ersiz token varsa sessizce geÃ§
         }
     }
 

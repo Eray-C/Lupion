@@ -1,9 +1,9 @@
-using Empty_ERP_Template.Business.Requests.Authentication;
-using Empty_ERP_Template.Business.Responses;
-using Empty_ERP_Template.Business.Services;
+﻿using Lupion.Business.Requests.Authentication;
+using Lupion.Business.Responses;
+using Lupion.Business.Services;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Empty_ERP_Template.API.Controllers;
+namespace Lupion.API.Controllers;
 
 [Route("api/auth")]
 [ApiController]
@@ -14,24 +14,24 @@ public class AuthController(AuthService authService) : BaseController
     {
         var token = await authService.LoginAsync(loginRequest);
         var response = new LoginResponse { Token = token };
-        return Ok(response, "Giriş işlemi başarılı");
+        return Ok(response, "GiriÅŸ iÅŸlemi baÅŸarÄ±lÄ±");
     }
 
     [HttpPost("logout")]
-    public IActionResult Logout() => Ok("Çıkış işlemi başarılı");
+    public IActionResult Logout() => Ok("Ã‡Ä±kÄ±ÅŸ iÅŸlemi baÅŸarÄ±lÄ±");
 
     [HttpPost("register")]
     public async Task<IActionResult> RegisterAsync([FromBody] RegisterRequest registerRequest)
     {
         await authService.RegisterAsync(registerRequest);
 
-        return Ok("Kayıt başarılı");
+        return Ok("KayÄ±t baÅŸarÄ±lÄ±");
     }
     [HttpPut("update/{id}")]
     public async Task<IActionResult> UpdateAsync(int id, [FromBody] RegisterRequest registerRequest)
     {
         await authService.UpdateAsync(id, registerRequest);
 
-        return Ok("Kayıt başarılı");
+        return Ok("KayÄ±t baÅŸarÄ±lÄ±");
     }
 }

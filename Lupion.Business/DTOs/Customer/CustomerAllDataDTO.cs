@@ -1,4 +1,4 @@
-namespace Empty_ERP_Template.Business.DTOs.Customer;
+﻿namespace Lupion.Business.DTOs.Customer;
 
 public class CustomerAllDataDTO
 {

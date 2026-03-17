@@ -1,7 +1,7 @@
-using Empty_ERP_Template.Business.Requests.Attachment;
+﻿using Lupion.Business.Requests.Attachment;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Empty_ERP_Template.API.Controllers;
+namespace Lupion.API.Controllers;
 
 [ApiController]
 [Route("api/attachments")]
@@ -26,7 +26,7 @@ public class AttachmentsController(AttachmentService attachmentService) : BaseCo
     {
         var result = await attachmentService.GetPresignedUrlAsync(id);
         if (result == null)
-            return NotFound(new { success = false, message = "Dosya bulunamadı" });
+            return NotFound(new { success = false, message = "Dosya bulunamadÄ±" });
 
         return Ok(new { success = true, url = result.Value.Url, fileName = result.Value.FileName });
     }
@@ -35,6 +35,6 @@ public class AttachmentsController(AttachmentService attachmentService) : BaseCo
     {
         await attachmentService.DeleteAsync(id);
 
-        return Ok("Dosya başarıyla silindi!");
+        return Ok("Dosya baÅŸarÄ±yla silindi!");
     }
 }

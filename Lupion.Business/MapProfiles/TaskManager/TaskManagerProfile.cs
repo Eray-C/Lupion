@@ -1,9 +1,9 @@
-using AutoMapper;
-using Empty_ERP_Template.Business.DTOs.TaskManager;
-using Empty_ERP_Template.Business.Requests.TaskManager;
-using Empty_ERP_Template.Data.Entities.TaskManagerEntities;
+﻿using AutoMapper;
+using Lupion.Business.DTOs.TaskManager;
+using Lupion.Business.Requests.TaskManager;
+using Lupion.Data.Entities.TaskManagerEntities;
 
-namespace Empty_ERP_Template.Business.MapProfiles.TaskManager;
+namespace Lupion.Business.MapProfiles.TaskManager;
 
 public class TaskManagerProfile : Profile
 {

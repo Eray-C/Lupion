@@ -1,11 +1,11 @@
-using Empty_ERP_Template.Business.Helpers;
-using Empty_ERP_Template.Data;
-using Empty_ERP_Template.Data.Entities;
+﻿using Lupion.Business.Helpers;
+using Lupion.Data;
+using Lupion.Data.Entities;
 using System.Diagnostics;
 using System.Security.Claims;
 using System.Text;
 
-namespace Empty_ERP_Template.API.Middlewares;
+namespace Lupion.API.Middlewares;
 
 public class RequestResponseLoggingMiddleware(RequestDelegate next, ILogger<RequestResponseLoggingMiddleware> logger, IServiceScopeFactory scopeFactory)
 {

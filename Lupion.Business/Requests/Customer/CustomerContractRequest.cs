@@ -1,4 +1,4 @@
-namespace Empty_ERP_Template.Business.Requests.Customer;
+﻿namespace Lupion.Business.Requests.Customer;
 
 public class CustomerContractRequest()
 {

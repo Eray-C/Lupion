@@ -1,9 +1,9 @@
-using Empty_ERP_Template.Business.DTOs.TaskManager;
-using Empty_ERP_Template.Business.Services;
-using Empty_ERP_Template.MVC.Models;
+﻿using Lupion.Business.DTOs.TaskManager;
+using Lupion.Business.Services;
+using Lupion.MVC.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Empty_ERP_Template.MVC.Controllers;
+namespace Lupion.MVC.Controllers;
 
 [Route("task-manager")]
 public class TaskManagerController(TaskManagerService taskManagerService, SharedService sharedService) : BaseController

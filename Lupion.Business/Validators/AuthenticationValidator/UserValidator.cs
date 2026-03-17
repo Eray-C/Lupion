@@ -1,9 +1,9 @@
-using Empty_ERP_Template.Business.Requests.Authentication;
-using Empty_ERP_Template.Business.Services;
+ï»¿using Lupion.Business.Requests.Authentication;
+using Lupion.Business.Services;
 using FluentValidation;
 using Microsoft.AspNetCore.Http;
 
-namespace Empty_ERP_Template.Business.Validators.AuthenticationValidator;
+namespace Lupion.Business.Validators.AuthenticationValidator;
 
 public class UserValidator : AbstractValidator<RegisterRequest>
 {
@@ -17,19 +17,19 @@ public class UserValidator : AbstractValidator<RegisterRequest>
 
         RuleFor(x => x.Email)
             .MustAsync(BeUniqueEmail)
-            .WithMessage("Bu email zaten kayýtlý")
+            .WithMessage("Bu email zaten kayÄ±tlÄ±")
             .When(_ => _httpContextAccessor.HttpContext?.Request.Method == "POST");
 
 
         RuleFor(x => x.Username)
             .MustAsync(BeUniqueUsername)
-            .WithMessage("Bu kullanýcý adý zaten kayýtlý")
+            .WithMessage("Bu kullanÄ±cÄ± adÄ± zaten kayÄ±tlÄ±")
             .When(_ => _httpContextAccessor.HttpContext?.Request.Method == "POST");
 
 
         RuleFor(x => x.Password)
             .NotEmpty()
-            .WithMessage("Þifre zorunludur")
+            .WithMessage("Åžifre zorunludur")
             .When(_ => _httpContextAccessor.HttpContext?.Request.Method == "POST");
     }
 

@@ -1,4 +1,4 @@
-namespace Empty_ERP_Template.Data.Entities.TaskManagerEntities;
+﻿namespace Lupion.Data.Entities.TaskManagerEntities;
 
 public class TaskItem : Entity<int>
 {

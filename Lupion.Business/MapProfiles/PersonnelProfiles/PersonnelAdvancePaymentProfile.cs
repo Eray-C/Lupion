@@ -1,16 +1,16 @@
-using AutoMapper;
-using Empty_ERP_Template.Business.DTOs.Personnel;
-using Empty_ERP_Template.Business.Requests.Personnel;
-using Empty_ERP_Template.Data.Entities.PersonnelEntities;
+﻿using AutoMapper;
+using Lupion.Business.DTOs.Personnel;
+using Lupion.Business.Requests.Personnel;
+using Lupion.Data.Entities.PersonnelEntities;
 
-namespace Empty_ERP_Template.Business.MapProfiles.PersonnelProfiles;
+namespace Lupion.Business.MapProfiles.PersonnelProfiles;
 
 public class PersonnelAdvancePaymentProfile : Profile
 {
     public PersonnelAdvancePaymentProfile()
     {
         CreateMap<PersonnelAdvancePayment, PersonnelAdvancePaymentDTO>()
-            .ForMember(dest => dest.SourceInfo, opt => opt.MapFrom(src => src.PersonnelPayrollId != null ? "Bordrodan ödendi" : "Manuel"));
+            .ForMember(dest => dest.SourceInfo, opt => opt.MapFrom(src => src.PersonnelPayrollId != null ? "Bordrodan Ã¶dendi" : "Manuel"));
         CreateMap<PersonnelAdvancePaymentRequest, PersonnelAdvancePayment>();
     }
 }

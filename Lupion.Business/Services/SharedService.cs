@@ -1,12 +1,12 @@
-using AutoMapper;
-using Empty_ERP_Template.Business.DTOs.Shared;
-using Empty_ERP_Template.Business.Exceptions;
-using Empty_ERP_Template.Business.Requests.Shared;
-using Empty_ERP_Template.Data;
-using Empty_ERP_Template.Data.Entities.SharedEntities;
+﻿using AutoMapper;
+using Lupion.Business.DTOs.Shared;
+using Lupion.Business.Exceptions;
+using Lupion.Business.Requests.Shared;
+using Lupion.Data;
+using Lupion.Data.Entities.SharedEntities;
 using Microsoft.EntityFrameworkCore;
 
-namespace Empty_ERP_Template.Business.Services;
+namespace Lupion.Business.Services;
 
 public class SharedService(DBContext context, CacheService cacheService, IMapper mapper)
 {

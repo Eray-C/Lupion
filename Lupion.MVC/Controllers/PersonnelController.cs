@@ -1,8 +1,8 @@
-using Empty_ERP_Template.Business.Common;
-using Empty_ERP_Template.Business.Services;
+﻿using Lupion.Business.Common;
+using Lupion.Business.Services;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Empty_ERP_Template.MVC.Controllers;
+namespace Lupion.MVC.Controllers;
 
 [Route("personnel")]
 public class PersonnelController(SharedService sharedService) : BaseController

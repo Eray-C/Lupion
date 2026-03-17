@@ -1,4 +1,4 @@
-namespace Empty_ERP_Template.Business.Helpers;
+﻿namespace Lupion.Business.Helpers;
 
 public class MimeTypeHelper
 {

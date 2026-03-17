@@ -1,8 +1,8 @@
-using Empty_ERP_Template.Business.Requests.Authentication;
-using Empty_ERP_Template.Business.Services;
+﻿using Lupion.Business.Requests.Authentication;
+using Lupion.Business.Services;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Empty_ERP_Template.API.Controllers;
+namespace Lupion.API.Controllers;
 
 [ApiController]
 [Route("api/settings")]
@@ -40,7 +40,7 @@ public class SettingController(UserService userService, SettingsService settings
     public async Task<IActionResult> UpdateRoleAsync(int id, [FromBody] RoleRequest request)
     {
         await settingsService.UpdateRoleAsync(id, request);
-        return Ok("Rol güncellendi");
+        return Ok("Rol gÃ¼ncellendi");
     }
 
     [HttpDelete("roles/{id:int}")]
@@ -63,6 +63,6 @@ public class SettingController(UserService userService, SettingsService settings
     public async Task<IActionResult> SaveRolePermissionsAsync([FromBody] SaveRolePermissionsRequest request)
     {
         await settingsService.SaveRolePermissionsAsync(request);
-        return Ok("İzinler kaydedildi");
+        return Ok("Ä°zinler kaydedildi");
     }
 }

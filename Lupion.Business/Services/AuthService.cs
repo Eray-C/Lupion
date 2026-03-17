@@ -1,8 +1,8 @@
-using Empty_ERP_Template.Business.Exceptions;
-using Empty_ERP_Template.Business.Requests.Authentication;
-using Empty_ERP_Template.Data;
-using Empty_ERP_Template.Data.Entities.AuthenticationEntities;
-using Empty_ERP_Template.Data.Entities.SharedEntities;
+﻿using Lupion.Business.Exceptions;
+using Lupion.Business.Requests.Authentication;
+using Lupion.Data;
+using Lupion.Data.Entities.AuthenticationEntities;
+using Lupion.Data.Entities.SharedEntities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -14,7 +14,7 @@ using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace Empty_ERP_Template.Business.Services;
+namespace Lupion.Business.Services;
 
 public class AuthService(IConfiguration configuration, IHttpContextAccessor httpContextAccessor, DBContext context, ManagementDBContext managementDBContext, EmailService emailService) : BaseService(httpContextAccessor)
 {
@@ -37,7 +37,7 @@ public class AuthService(IConfiguration configuration, IHttpContextAccessor http
 
             if (user is null || !VerifyPassword(request.Password, user.PasswordHash, user.PasswordSalt))
             {
-                throw new UnauthorizedAccessException("Geçersiz kullanıcı adı veya şifre");
+                throw new UnauthorizedAccessException("GeÃ§ersiz kullanÄ±cÄ± adÄ± veya ÅŸifre");
             }
 
             return GenerateJwtToken(user);
@@ -194,13 +194,13 @@ public class AuthService(IConfiguration configuration, IHttpContextAccessor http
     {
         var user = await managementDBContext.Users.FirstOrDefaultAsync(x => x.Email == request.Email && x.IsActive);
         if (user is null)
-            throw new Exception("Kullanıcı bulunamadı");
+            throw new Exception("KullanÄ±cÄ± bulunamadÄ±");
 
         var since = DateTime.UtcNow.Subtract(ResetRequestWindow);
         var recentCount = await managementDBContext.PasswordResetTokens
             .CountAsync(x => x.UserId == user.Id && x.CreatedAt >= since);
         if (recentCount >= ResetCodeMaxRequestsPerWindow)
-            throw new Exception("Çok fazla deneme. Lütfen 15 dakika sonra tekrar deneyin.");
+            throw new Exception("Ã‡ok fazla deneme. LÃ¼tfen 15 dakika sonra tekrar deneyin.");
 
         var code = Random.Shared.Next(100000, 999999).ToString();
         var expiresAt = DateTime.UtcNow.AddMinutes(ResetCodeExpiryMinutes);
@@ -215,11 +215,11 @@ public class AuthService(IConfiguration configuration, IHttpContextAccessor http
     public async Task ResetPasswordAsync(ResetPasswordRequest request)
     {
         if (string.IsNullOrWhiteSpace(request.Token) || request.Token.Length != 6 || !request.Token.All(char.IsDigit))
-            throw new Exception("Geçersiz doğrulama kodu formatı.");
+            throw new Exception("GeÃ§ersiz doÄŸrulama kodu formatÄ±.");
 
         var user = await managementDBContext.Users.FirstOrDefaultAsync(x => x.Email == request.Email && x.IsActive);
         if (user is null)
-            throw new Exception("Kullanıcı bulunamadı.");
+            throw new Exception("KullanÄ±cÄ± bulunamadÄ±.");
 
         var resetToken = await managementDBContext.PasswordResetTokens
             .FirstOrDefaultAsync(x => x.UserId == user.Id && x.Token == request.Token && !x.Used);
@@ -234,16 +234,16 @@ public class AuthService(IConfiguration configuration, IHttpContextAccessor http
                 activeToken.FailedAttempts++;
                 await managementDBContext.SaveChangesAsync();
                 if (activeToken.FailedAttempts >= ResetCodeMaxFailedAttempts)
-                    throw new Exception("Kod bloke edildi. Lütfen yeni kod talep edin.");
+                    throw new Exception("Kod bloke edildi. LÃ¼tfen yeni kod talep edin.");
             }
-            throw new Exception("Geçersiz doğrulama kodu.");
+            throw new Exception("GeÃ§ersiz doÄŸrulama kodu.");
         }
 
         if (resetToken.ExpiresAt < DateTime.UtcNow)
-            throw new Exception("Doğrulama kodunun süresi dolmuş. Lütfen yeni kod talep edin.");
+            throw new Exception("DoÄŸrulama kodunun sÃ¼resi dolmuÅŸ. LÃ¼tfen yeni kod talep edin.");
 
         if (resetToken.FailedAttempts >= ResetCodeMaxFailedAttempts)
-            throw new Exception("Kod bloke edildi. Lütfen yeni kod talep edin.");
+            throw new Exception("Kod bloke edildi. LÃ¼tfen yeni kod talep edin.");
 
         var (hash, salt) = CreatePasswordHash(request.Password);
         user.PasswordHash = hash;

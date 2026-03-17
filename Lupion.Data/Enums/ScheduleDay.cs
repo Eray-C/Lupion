@@ -1,9 +1,9 @@
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace Empty_ERP_Template.Data.Enums;
+namespace Lupion.Data.Enums;
 
 /// <summary>
-/// Planlı sevkiyat günleri. Değerler .NET DayOfWeek ile uyumlu (0 = Pazar, 6 = Cumartesi).
+/// PlanlÄ± sevkiyat gÃ¼nleri. DeÄŸerler .NET DayOfWeek ile uyumlu (0 = Pazar, 6 = Cumartesi).
 /// </summary>
 public enum ScheduleDay
 {
@@ -13,13 +13,13 @@ public enum ScheduleDay
     [Display(Name = "Pazartesi")]
     Pazartesi = 1,
 
-    [Display(Name = "Salı")]
+    [Display(Name = "SalÄ±")]
     Sali = 2,
 
-    [Display(Name = "Çarşamba")]
+    [Display(Name = "Ã‡arÅŸamba")]
     Carsamba = 3,
 
-    [Display(Name = "Perşembe")]
+    [Display(Name = "PerÅŸembe")]
     Persembe = 4,
 
     [Display(Name = "Cuma")]

@@ -1,7 +1,7 @@
-using Empty_ERP_Template.API;
-using Empty_ERP_Template.API.Middlewares;
-using Empty_ERP_Template.Business;
-using Empty_ERP_Template.Business.Middlewares;
+﻿using Lupion.API;
+using Lupion.API.Middlewares;
+using Lupion.Business;
+using Lupion.Business.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 

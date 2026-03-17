@@ -1,13 +1,13 @@
-using Empty_ERP_Template.API;
-using Empty_ERP_Template.API.ActionFilters;
-using Empty_ERP_Template.API.JsonConverters;
+﻿using Lupion.API;
+using Lupion.API.ActionFilters;
+using Lupion.API.JsonConverters;
 using FluentValidation;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
-namespace Empty_ERP_Template.API;
+namespace Lupion.API;
 
 public static class ServiceCollectionExtensions
 {

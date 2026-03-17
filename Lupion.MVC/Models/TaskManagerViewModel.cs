@@ -1,7 +1,7 @@
-using Empty_ERP_Template.Business.DTOs.Shared;
-using Empty_ERP_Template.Business.DTOs.TaskManager;
+﻿using Lupion.Business.DTOs.Shared;
+using Lupion.Business.DTOs.TaskManager;
 
-namespace Empty_ERP_Template.MVC.Models;
+namespace Lupion.MVC.Models;
 
 public record TaskManagerViewModel(
     IEnumerable<TaskDTO> Tasks,

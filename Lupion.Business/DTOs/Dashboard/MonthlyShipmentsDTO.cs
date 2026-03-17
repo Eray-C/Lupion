@@ -1,4 +1,4 @@
-namespace Empty_ERP_Template.Business.DTOs.Dashboard;
+﻿namespace Lupion.Business.DTOs.Dashboard;
 public class MonthlyShipmentsDTO
 {
     public string PeriodDescription { get; set; }

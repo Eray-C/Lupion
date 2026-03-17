@@ -1,7 +1,7 @@
-using Empty_ERP_Template.Data.Entities.SharedEntities;
+﻿using Lupion.Data.Entities.SharedEntities;
 using Microsoft.EntityFrameworkCore;
 
-namespace Empty_ERP_Template.Data.Extensions;
+namespace Lupion.Data.Extensions;
 
 public static class EfExtensions
 {

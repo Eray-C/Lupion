@@ -1,4 +1,4 @@
-@using Empty_ERP_Template.Business.DTOs.Shared
+ï»¿@using Lupion.Business.DTOs.Shared
 @model (IEnumerable<GeneralTypeDTO> relationshipTypes, IEnumerable<GeneralTypeDTO> genderTypes)
 
 @{
@@ -19,9 +19,9 @@
         </div>
 
         <div class="col-md-3">
-            <label for="RelationshipTypeId" class="form-label fw-bold">Yakýnlýk Tipi</label>
+            <label for="RelationshipTypeId" class="form-label fw-bold">YakÄ±nlÄ±k Tipi</label>
             <select id="RelationshipTypeId" name="RelationshipTypeId" class="form-select">
-                <option value="">Seçiniz...</option>
+                <option value="">SeÃ§iniz...</option>
                 @foreach (var item in Model.relationshipTypes)
                 {
                     <option value="@item.Id">@item.Name</option>
@@ -32,7 +32,7 @@
         <div class="col-md-3">
             <label for="GenderTypeId" class="form-label fw-bold">Cinsiyet</label>
             <select id="GenderTypeId" name="GenderTypeId" class="form-select">
-                <option value="">Seçiniz...</option>
+                <option value="">SeÃ§iniz...</option>
                 @foreach (var item in Model.genderTypes)
                 {
                     <option value="@item.Id">@item.Name</option>
@@ -43,7 +43,7 @@
 
     <div class="row mb-3">
         <div class="col-md-3">
-            <label for="DateOfBirth" class="form-label fw-bold">Doðum Tarihi</label>
+            <label for="DateOfBirth" class="form-label fw-bold">DoÄŸum Tarihi</label>
             <input id="DateOfBirth" name="DateOfBirth" type="date" class="form-control" />
         </div>
   

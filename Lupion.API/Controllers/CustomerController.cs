@@ -1,8 +1,8 @@
-using Empty_ERP_Template.Business.Requests.Customer;
-using Empty_ERP_Template.Business.Services;
+﻿using Lupion.Business.Requests.Customer;
+using Lupion.Business.Services;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Empty_ERP_Template.API.Controllers;
+namespace Lupion.API.Controllers;
 
 [ApiController]
 [Route("api/customer")]
@@ -19,21 +19,21 @@ public class CustomerController(CustomerService customerService) : BaseControlle
     public async Task<IActionResult> AddAsync([FromBody] CustomerRequest request)
     {
         var id = await customerService.AddAsync(request);
-        return Ok(id, "Müşteri başarıyla kaydedildi");
+        return Ok(id, "MÃ¼ÅŸteri baÅŸarÄ±yla kaydedildi");
     }
 
     [HttpPut("{id:int}")]
     public async Task<IActionResult> UpdateAsync(int id, [FromBody] CustomerRequest request)
     {
         await customerService.UpdateAsync(id, request);
-        return Ok("Müşteri başarıyla güncellendi.");
+        return Ok("MÃ¼ÅŸteri baÅŸarÄ±yla gÃ¼ncellendi.");
     }
 
     [HttpDelete("{id:int}")]
     public async Task<IActionResult> DeleteAsync(int id)
     {
         await customerService.DeleteAsync(id);
-        return Ok("Müşteri başarıyla silindi.");
+        return Ok("MÃ¼ÅŸteri baÅŸarÄ±yla silindi.");
     }
 
     [HttpGet("contract/{customerId:int}")]

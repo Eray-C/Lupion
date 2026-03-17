@@ -1,4 +1,4 @@
-@using Empty_ERP_Template.Business.DTOs.Shared
+ï»¿@using Lupion.Business.DTOs.Shared
 @model IEnumerable<GeneralTypeDTO>
 
 @{
@@ -14,7 +14,7 @@
             <select id="@($"{p}CityId")"
                     name="@($"{p}CityId")"
                     class="form-select">
-                <option value="">@ViewBag.CityLabel Seç</option>
+                <option value="">@ViewBag.CityLabel SeÃ§</option>
                 @foreach (var c in Model)
                 {
                     <option value="@c.Id" selected="@(ViewBag.SelectedCity == c.Id)">
@@ -30,7 +30,7 @@
                     name="@($"{p}TownId")"
                     class="form-select"
                     disabled>
-                <option value="">@ViewBag.TownLabel Seç</option>
+                <option value="">@ViewBag.TownLabel SeÃ§</option>
             </select>
         </div>
 
@@ -48,10 +48,10 @@
 
         townSelect
             .prop("disabled", true)
-            .html(`<option>Yükleniyor...</option>`);
+            .html(`<option>YÃ¼kleniyor...</option>`);
 
         if (!cityId) {
-            townSelect.html(`<option value="">@ViewBag.TownLabel Seç</option>`);
+            townSelect.html(`<option value="">@ViewBag.TownLabel SeÃ§</option>`);
             return;
         }
 
@@ -61,7 +61,7 @@
 
                 townSelect
                     .prop("disabled", false)
-                    .html(`<option value="">@ViewBag.TownLabel Seç</option>`);
+                    .html(`<option value="">@ViewBag.TownLabel SeÃ§</option>`);
 
                 res.data.forEach(x => {
                     townSelect.append(

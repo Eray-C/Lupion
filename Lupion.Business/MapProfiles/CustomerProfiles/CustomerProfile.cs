@@ -1,9 +1,9 @@
-using AutoMapper;
-using Empty_ERP_Template.Business.DTOs.Customer;
-using Empty_ERP_Template.Business.Requests.Customer;
-using Empty_ERP_Template.Data.Entities.CustomerEntities;
+﻿using AutoMapper;
+using Lupion.Business.DTOs.Customer;
+using Lupion.Business.Requests.Customer;
+using Lupion.Data.Entities.CustomerEntities;
 
-namespace Empty_ERP_Template.Business.MapProfiles.CustomerProfiles;
+namespace Lupion.Business.MapProfiles.CustomerProfiles;
 
 public class CustomerProfile : Profile
 {

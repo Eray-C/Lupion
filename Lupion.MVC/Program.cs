@@ -1,6 +1,6 @@
-using Empty_ERP_Template.Business;
-using Empty_ERP_Template.Business.Middlewares;
-using Empty_ERP_Template.MVC;
+﻿using Lupion.Business;
+using Lupion.Business.Middlewares;
+using Lupion.MVC;
 
 var builder = WebApplication.CreateBuilder(args);
 

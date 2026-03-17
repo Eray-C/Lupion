@@ -1,4 +1,4 @@
-namespace Empty_ERP_Template.MVC.Models;
+﻿namespace Lupion.MVC.Models;
 
 public class FourCardLayout(
     string leftTopTitle = "",

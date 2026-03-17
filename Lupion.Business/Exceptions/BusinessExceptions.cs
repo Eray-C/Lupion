@@ -1,4 +1,4 @@
-namespace Empty_ERP_Template.Business.Exceptions;
+﻿namespace Lupion.Business.Exceptions;
 
 public class BusinessException : Exception
 {
@@ -9,22 +9,22 @@ public class BusinessException : Exception
 
 public class RecordNotFoundException : BusinessException
 {
-    public RecordNotFoundException() : base("Kayıt bulunamadı!") { }
+    public RecordNotFoundException() : base("KayÄ±t bulunamadÄ±!") { }
 }
 
 public class FileNotFoundException : BusinessException
 {
-    public FileNotFoundException() : base("Dosya bulunamadı!") { }
+    public FileNotFoundException() : base("Dosya bulunamadÄ±!") { }
 }
 
 public class PlateAlreadyExistsException : BusinessException
 {
-    public PlateAlreadyExistsException() : base("Bu plakaya sahip araç zaten mevcut!") { }
+    public PlateAlreadyExistsException() : base("Bu plakaya sahip araÃ§ zaten mevcut!") { }
 }
 
 public class UserRegistrationException : BusinessException
 {
-    public UserRegistrationException() : base("Kullanıcı kaydı sırasında bir hata oluştu.") { }
+    public UserRegistrationException() : base("KullanÄ±cÄ± kaydÄ± sÄ±rasÄ±nda bir hata oluÅŸtu.") { }
 }
 
 public class ConflictException : BusinessException
@@ -34,5 +34,5 @@ public class ConflictException : BusinessException
 
 public class LoginInProgressException : BusinessException
 {
-    public LoginInProgressException() : base("Giriş işlemi zaten devam ediyor. Lütfen bekleyin.") { }
+    public LoginInProgressException() : base("GiriÅŸ iÅŸlemi zaten devam ediyor. LÃ¼tfen bekleyin.") { }
 }

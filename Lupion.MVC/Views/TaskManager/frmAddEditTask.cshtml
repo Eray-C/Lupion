@@ -1,4 +1,4 @@
-@model Empty_ERP_Template.MVC.Models.TaskFormViewModel
+﻿@model Lupion.MVC.Models.TaskFormViewModel
 @{
     Layout = null;
     var task = Model.Task;
@@ -11,7 +11,7 @@
     <div class="row">
         <div class="col-md-3">
             <div class="form-group">
-                <label class="fw-bold" for="TaskNumber">İş Numarası</label>
+                <label class="fw-bold" for="TaskNumber">Ä°ÅŸ NumarasÄ±</label>
                 <input type="text" id="TaskNumber" name="TaskNumber" class="form-control" value="@task?.TaskNumber" readonly />
             </div>
         </div>
@@ -20,7 +20,7 @@
             <div class="form-group">
                 <label class="fw-bold" for="StatusId">Durum<span class="text-danger">*</span></label>
                 <select id="StatusId" name="StatusId" class="form-control">
-                    <option value="">Seçiniz</option>
+                    <option value="">SeÃ§iniz</option>
                     @foreach (var s in statuses)
                     {
                         <option value="@s.Id" selected="@(task?.StatusId == s.Id)">@s.Name</option>
@@ -30,9 +30,9 @@
         </div>
         <div class="col-md-2">
             <div class="form-group">
-                <label class="fw-bold" for="PriorityId">Öncelik</label>
+                <label class="fw-bold" for="PriorityId">Ã–ncelik</label>
                 <select id="PriorityId" name="PriorityId" class="form-control">
-                    <option value="">Seçiniz</option>
+                    <option value="">SeÃ§iniz</option>
                     @foreach (var p in priorities)
                     {
                         <option value="@p.Id" selected="@(task?.PriorityId == p.Id)" style="color:@p.Code">@p.Name</option>
@@ -59,7 +59,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="form-group">
-                <label class="fw-bold" for="Description">İş Açıklaması</label>
+                <label class="fw-bold" for="Description">Ä°ÅŸ AÃ§Ä±klamasÄ±</label>
                 <textarea id="Description"
                           name="Description"
                           class="form-control"

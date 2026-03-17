@@ -1,6 +1,6 @@
-using Empty_ERP_Template.Business.Interfaces;
+﻿using Lupion.Business.Interfaces;
 
-namespace Empty_ERP_Template.Business.Requests.Authentication;
+namespace Lupion.Business.Requests.Authentication;
 public class RegisterRequest : IHasId
 {
     public int? Id { get; set; }

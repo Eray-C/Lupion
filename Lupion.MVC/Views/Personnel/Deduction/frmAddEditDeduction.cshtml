@@ -1,5 +1,5 @@
-@using Empty_ERP_Template.Business.DTOs.Shared
-@using Empty_ERP_Template.Data.Entities.SharedEntities
+﻿@using Lupion.Business.DTOs.Shared
+@using Lupion.Data.Entities.SharedEntities
 @model (IEnumerable<GeneralTypeDTO> Types, IReadOnlyList<(int Value, string Name)> Months, IEnumerable<Currency> Currencies)
 
 @{
@@ -14,7 +14,7 @@
     <input type="hidden" id="PersonnelId" name="PersonnelId" />
     <div class="row mb-3">
         <div class="col-md-6">
-            <label for="Year" class="form-label fw-bold">Yıl</label>
+            <label for="Year" class="form-label fw-bold">YÄ±l</label>
             <input type="number" class="form-control" id="Year" name="Year" min="2000" max="2100" value="@DateTime.Now.Year" required />
         </div>
         <div class="col-md-6">
@@ -31,7 +31,7 @@
         <div class="col-md-4">
             <label for="TypeId" class="form-label fw-bold">Kesinti Tipi</label>
             <select class="form-select" id="TypeId" name="TypeId" required>
-                <option value="">Seçiniz</option>
+                <option value="">SeÃ§iniz</option>
                 @foreach (var item in deductionTypes)
                 {
                     <option value="@item.Id">@item.Name</option>
@@ -41,7 +41,7 @@
         <div class="col-md-4">
             <label for="CurrencyCode" class="form-label fw-bold">Para Birimi</label>
             <select class="form-select" id="CurrencyCode" name="CurrencyCode">
-                <option value="">Seçiniz</option>
+                <option value="">SeÃ§iniz</option>
                 @foreach (var item in currencies)
                 {
                     <option value="@item.Code">@item.Name</option>

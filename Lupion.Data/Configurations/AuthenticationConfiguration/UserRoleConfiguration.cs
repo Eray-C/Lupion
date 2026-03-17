@@ -1,8 +1,8 @@
-using Empty_ERP_Template.Data.Entities.AuthenticationEntities;
+﻿using Lupion.Data.Entities.AuthenticationEntities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Empty_ERP_Template.Data.Configurations.AuthenticationConfiguration;
+namespace Lupion.Data.Configurations.AuthenticationConfiguration;
 
 public class UserRoleConfiguration : IEntityTypeConfiguration<UserRole>
 {

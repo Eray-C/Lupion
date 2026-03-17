@@ -1,10 +1,10 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Empty_ERP_Template.Business.Helpers;
+namespace Lupion.Business.Helpers;
 
 public class StringHelper
 {

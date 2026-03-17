@@ -1,4 +1,4 @@
-namespace Empty_ERP_Template.Business.Requests.Shared
+﻿namespace Lupion.Business.Requests.Shared
 {
     public class GeneralTypeRequest
     {

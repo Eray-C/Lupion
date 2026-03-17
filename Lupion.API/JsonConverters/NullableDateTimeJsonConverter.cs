@@ -1,7 +1,7 @@
-using System.Text.Json;
+﻿using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace Empty_ERP_Template.API.JsonConverters;
+namespace Lupion.API.JsonConverters;
 
 public class NullableDateTimeJsonConverter : JsonConverter<DateTime?>
 {

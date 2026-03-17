@@ -1,6 +1,6 @@
-{
+﻿{
   "profiles": {
-    "Empty_ERP_Template MVC HTTP": {
+    "Lupion MVC HTTP": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {
@@ -9,7 +9,7 @@
       "dotnetRunMessages": true,
       "applicationUrl": "http://localhost:4002"
     },
-    "Empty_ERP_Template MVC HTTPS": {
+    "Lupion MVC HTTPS": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {

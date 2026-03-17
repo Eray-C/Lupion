@@ -1,6 +1,6 @@
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Empty_ERP_Template.Data.Entities.PersonnelEntities;
+namespace Lupion.Data.Entities.PersonnelEntities;
 
 [Table("PersonnelPaymentHistory")]
 public class PersonnelPaymentHistory : Entity<int>

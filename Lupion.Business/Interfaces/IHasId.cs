@@ -1,4 +1,4 @@
-namespace Empty_ERP_Template.Business.Interfaces;
+﻿namespace Lupion.Business.Interfaces;
 
 public interface IHasId
 {

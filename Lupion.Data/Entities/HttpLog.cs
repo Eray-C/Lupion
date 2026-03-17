@@ -1,4 +1,4 @@
-namespace Empty_ERP_Template.Data.Entities;
+﻿namespace Lupion.Data.Entities;
 public class HttpLog
 {
     public long Id { get; set; }

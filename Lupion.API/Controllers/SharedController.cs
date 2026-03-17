@@ -1,8 +1,8 @@
-using Empty_ERP_Template.Business.Requests.Shared;
-using Empty_ERP_Template.Business.Services;
+﻿using Lupion.Business.Requests.Shared;
+using Lupion.Business.Services;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Empty_ERP_Template.API.Controllers;
+namespace Lupion.API.Controllers;
 
 [ApiController]
 [Route("api/shared")]

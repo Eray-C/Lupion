@@ -1,8 +1,8 @@
-using AutoMapper;
-using Empty_ERP_Template.Business.DTOs.Attachment;
-using Empty_ERP_Template.Business.Helpers;
-using Empty_ERP_Template.Business.Requests.Attachment;
-using Empty_ERP_Template.Data.Entities.AttachmentEntities;
+﻿using AutoMapper;
+using Lupion.Business.DTOs.Attachment;
+using Lupion.Business.Helpers;
+using Lupion.Business.Requests.Attachment;
+using Lupion.Data.Entities.AttachmentEntities;
 
 public class AttachmentProfile : Profile
 {

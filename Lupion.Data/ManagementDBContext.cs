@@ -1,9 +1,9 @@
-using Empty_ERP_Template.Data.Entities;
-using Empty_ERP_Template.Data.Entities.AuthenticationEntities;
-using Empty_ERP_Template.Data.Extensions;
+﻿using Lupion.Data.Entities;
+using Lupion.Data.Entities.AuthenticationEntities;
+using Lupion.Data.Extensions;
 using Microsoft.EntityFrameworkCore;
 
-namespace Empty_ERP_Template.Data;
+namespace Lupion.Data;
 
 public class ManagementDBContext(DbContextOptions<ManagementDBContext> options) : DbContext(options)
 {

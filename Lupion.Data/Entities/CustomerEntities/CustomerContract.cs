@@ -1,4 +1,4 @@
-namespace Empty_ERP_Template.Data.Entities.CustomerEntities;
+﻿namespace Lupion.Data.Entities.CustomerEntities;
 
 public class CustomerContract() : Entity<int>
 {

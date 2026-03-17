@@ -1,9 +1,9 @@
-using Empty_ERP_Template.Business.Interfaces;
-using Empty_ERP_Template.Data;
+﻿using Lupion.Business.Interfaces;
+using Lupion.Data;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
-namespace Empty_ERP_Template.Business.Helpers;
+namespace Lupion.Business.Helpers;
 
 public class IsAnyExist(DBContext context)
 {

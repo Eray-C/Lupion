@@ -1,7 +1,7 @@
-using Empty_ERP_Template.Data.Entities.SharedEntities;
+﻿using Lupion.Data.Entities.SharedEntities;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Empty_ERP_Template.Data.Entities.PersonnelEntities;
+namespace Lupion.Data.Entities.PersonnelEntities;
 
 [Table("PersonnelDeductions")]
 public class PersonnelDeduction : Entity<int>

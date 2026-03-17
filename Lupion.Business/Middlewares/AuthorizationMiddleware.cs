@@ -1,10 +1,10 @@
-using Empty_ERP_Template.Business.Helpers;
-using Empty_ERP_Template.Business.Services;
+﻿using Lupion.Business.Helpers;
+using Lupion.Business.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using System.Security.Claims;
 
-namespace Empty_ERP_Template.Business.Middlewares;
+namespace Lupion.Business.Middlewares;
 
 public class AuthorizationMiddleware(RequestDelegate next)
 {

@@ -1,16 +1,16 @@
-using Empty_ERP_Template.Business.Helpers;
-using Empty_ERP_Template.Business.Infrastructure;
-using Empty_ERP_Template.Business.MapProfiles;
-using Empty_ERP_Template.Business.Repository;
-using Empty_ERP_Template.Business.Services;
-using Empty_ERP_Template.Data;
+﻿using Lupion.Business.Helpers;
+using Lupion.Business.Infrastructure;
+using Lupion.Business.MapProfiles;
+using Lupion.Business.Repository;
+using Lupion.Business.Services;
+using Lupion.Data;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace Empty_ERP_Template.Business;
+namespace Lupion.Business;
 
 public static class ServiceCollectionExtensions
 {
@@ -95,7 +95,7 @@ public static class ServiceCollectionExtensions
             var companyCode = user.FindFirst("CompanyCode").Value;
 
             var companyService = serviceProvider.GetRequiredService<CompanyService>();
-            var company = companyService.GetCompanyByCode(companyCode) ?? throw new Exception("Tenant bulunamadı");
+            var company = companyService.GetCompanyByCode(companyCode) ?? throw new Exception("Tenant bulunamadÄ±");
 
             return company.ConnectionString;
         }

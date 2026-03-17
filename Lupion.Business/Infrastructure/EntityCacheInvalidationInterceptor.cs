@@ -1,8 +1,8 @@
-using Empty_ERP_Template.Business.Services;
+﻿using Lupion.Business.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 
-namespace Empty_ERP_Template.Business.Infrastructure;
+namespace Lupion.Business.Infrastructure;
 
 public class EntityCacheInvalidationInterceptor(RedisCacheService cache) : SaveChangesInterceptor
 {

@@ -1,7 +1,7 @@
-using Empty_ERP_Template.Business.Requests.Personnel;
+ï»¿using Lupion.Business.Requests.Personnel;
 using FluentValidation;
 
-namespace Empty_ERP_Template.Business.Validators.PersonnelValidator;
+namespace Lupion.Business.Validators.PersonnelValidator;
 
 public class PersonnelContactValidator : AbstractValidator<PersonnelContactRequest>
 {
@@ -9,14 +9,14 @@ public class PersonnelContactValidator : AbstractValidator<PersonnelContactReque
     {
         RuleFor(x => x.PersonnelId)
             .GreaterThan(0)
-            .WithMessage("Personnel bilgisi seçilmelidir.");
+            .WithMessage("Personnel bilgisi seÃ§ilmelidir.");
 
         RuleFor(x => x.PersonalEmail)
-            .EmailAddress().WithMessage("Kiþisel e-posta adresi geçerli formatta olmalýdýr.")
+            .EmailAddress().WithMessage("KiÅŸisel e-posta adresi geÃ§erli formatta olmalÄ±dÄ±r.")
             .When(x => !string.IsNullOrEmpty(x.PersonalEmail));
 
         RuleFor(x => x.WorkEmail)
-            .EmailAddress().WithMessage("Ýþ e-posta adresi geçerli formatta olmalýdýr.")
+            .EmailAddress().WithMessage("Ä°ÅŸ e-posta adresi geÃ§erli formatta olmalÄ±dÄ±r.")
             .When(x => !string.IsNullOrEmpty(x.WorkEmail));
 
         RuleFor(x => x.MobilePhone)
@@ -26,22 +26,22 @@ public class PersonnelContactValidator : AbstractValidator<PersonnelContactReque
             .MaximumLength(50).WithMessage("Ev telefonu en fazla 50 karakter olabilir.");
 
         RuleFor(x => x.WorkPhone)
-            .MaximumLength(50).WithMessage("Ýþ telefonu en fazla 50 karakter olabilir.");
+            .MaximumLength(50).WithMessage("Ä°ÅŸ telefonu en fazla 50 karakter olabilir.");
 
         RuleFor(x => x.AddressLine1)
-            .MaximumLength(250).WithMessage("Adres satýrý 1 en fazla 250 karakter olabilir.");
+            .MaximumLength(250).WithMessage("Adres satÄ±rÄ± 1 en fazla 250 karakter olabilir.");
 
         RuleFor(x => x.AddressLine2)
-            .MaximumLength(250).WithMessage("Adres satýrý 2 en fazla 250 karakter olabilir.");
+            .MaximumLength(250).WithMessage("Adres satÄ±rÄ± 2 en fazla 250 karakter olabilir.");
 
         RuleFor(x => x.CityId)
-            .MaximumLength(100).WithMessage("Þehir bilgisi en fazla 100 karakter olabilir.");
+            .MaximumLength(100).WithMessage("Åžehir bilgisi en fazla 100 karakter olabilir.");
 
         RuleFor(x => x.StateId)
-            .MaximumLength(100).WithMessage("Ýl bilgisi en fazla 100 karakter olabilir.");
+            .MaximumLength(100).WithMessage("Ä°l bilgisi en fazla 100 karakter olabilir.");
 
         RuleFor(x => x.CountryId)
-            .MaximumLength(100).WithMessage("Ülke bilgisi en fazla 100 karakter olabilir.");
+            .MaximumLength(100).WithMessage("Ãœlke bilgisi en fazla 100 karakter olabilir.");
 
         RuleFor(x => x.PostalCode)
             .MaximumLength(20).WithMessage("Posta kodu en fazla 20 karakter olabilir.");

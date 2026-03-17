@@ -1,6 +1,6 @@
-using Microsoft.AspNetCore.Html;
+﻿using Microsoft.AspNetCore.Html;
 
-namespace Empty_ERP_Template.MVC.Models;
+namespace Lupion.MVC.Models;
 
 public class TripleCardLayout(
     IHtmlContent leftTitle,

@@ -1,6 +1,6 @@
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace Empty_ERP_Template.Data.Entities.SharedEntities;
+namespace Lupion.Data.Entities.SharedEntities;
 
 public class Menu
 {

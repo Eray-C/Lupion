@@ -1,10 +1,10 @@
-using Empty_ERP_Template.Business.Services;
-using Empty_ERP_Template.Data;
+﻿using Lupion.Business.Services;
+using Lupion.Data;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
-namespace Empty_ERP_Template.Business;
+namespace Lupion.Business;
 
 public class DBContextFactory(IHttpContextAccessor httpContextAccessor, CompanyService companyService)
 {
@@ -18,7 +18,7 @@ public class DBContextFactory(IHttpContextAccessor httpContextAccessor, CompanyS
         {
             var companyCode = user.FindFirst("CompanyCode").Value;
 
-            var company = companyService.GetCompanyByCode(companyCode) ?? throw new Exception("Tenant bulunamad�");
+            var company = companyService.GetCompanyByCode(companyCode) ?? throw new Exception("Tenant bulunamadı");
 
             optionsBuilder.UseSqlServer(company.ConnectionString).LogTo(Console.WriteLine, LogLevel.Information);
         }

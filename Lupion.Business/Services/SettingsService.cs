@@ -1,12 +1,12 @@
-using AutoMapper;
-using Empty_ERP_Template.Business.DTOs.Authentication;
-using Empty_ERP_Template.Business.Exceptions;
-using Empty_ERP_Template.Business.Requests.Authentication;
-using Empty_ERP_Template.Data;
-using Empty_ERP_Template.Data.Entities.AuthenticationEntities;
+﻿using AutoMapper;
+using Lupion.Business.DTOs.Authentication;
+using Lupion.Business.Exceptions;
+using Lupion.Business.Requests.Authentication;
+using Lupion.Data;
+using Lupion.Data.Entities.AuthenticationEntities;
 using Microsoft.EntityFrameworkCore;
 
-namespace Empty_ERP_Template.Business.Services;
+namespace Lupion.Business.Services;
 
 public class SettingsService(DBContext context, ManagementDBContext managementContext, IMapper mapper)
 {

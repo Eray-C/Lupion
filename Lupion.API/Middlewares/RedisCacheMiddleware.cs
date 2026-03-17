@@ -1,5 +1,5 @@
-using Empty_ERP_Template.Business.Attributes;
-using Empty_ERP_Template.Business.Services;
+ï»¿using Lupion.Business.Attributes;
+using Lupion.Business.Services;
 using Microsoft.AspNetCore.Mvc.Controllers;
 using System.Reflection;
 public class RedisCacheMiddleware
@@ -46,16 +46,16 @@ public class RedisCacheMiddleware
 
         try
         {
-            await _next(context); // controller'ý çalýþtýr
+            await _next(context); // controller'Ä± Ã§alÄ±ÅŸtÄ±r
             memoryStream.Seek(0, SeekOrigin.Begin);
             var responseBody = await new StreamReader(memoryStream).ReadToEndAsync();
 
-            // ? Client’a yaz
+            // ? Clientâ€™a yaz
             memoryStream.Seek(0, SeekOrigin.Begin);
-            context.Response.ContentLength = null; // body deðiþtiði için zorunlu
+            context.Response.ContentLength = null; // body deÄŸiÅŸtiÄŸi iÃ§in zorunlu
             await memoryStream.CopyToAsync(originalBodyStream);
 
-            // ? Cache’e kaydet
+            // ? Cacheâ€™e kaydet
             if (context.Response.StatusCode == 200 && !string.IsNullOrWhiteSpace(responseBody))
             {
                 var expiry = cacheAttr.DurationMinutes.HasValue

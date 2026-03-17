@@ -1,4 +1,4 @@
-namespace Empty_ERP_Template.Business.Requests.Authentication;
+﻿namespace Lupion.Business.Requests.Authentication;
 
 public class RoleRequest
 {

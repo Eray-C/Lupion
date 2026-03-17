@@ -1,4 +1,4 @@
-namespace Empty_ERP_Template.Data.Entities.SharedEntities;
+﻿namespace Lupion.Data.Entities.SharedEntities;
 
 public interface ISoftDeletable
 {

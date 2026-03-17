@@ -1,7 +1,7 @@
-using Empty_ERP_Template.Business.Services;
+ï»¿using Lupion.Business.Services;
 using Microsoft.AspNetCore.Http;
 
-namespace Empty_ERP_Template.Business.Helpers;
+namespace Lupion.Business.Helpers;
 
 public class TenantContext
 {
@@ -20,8 +20,8 @@ public class TenantContext
     }
 
     /// <summary>
-    /// HTTP Context'teki kullanýcýdan CompanyCode alýr ve
-    /// buna göre tenant (þirket) bilgisini set eder.
+    /// HTTP Context'teki kullanÄ±cÄ±dan CompanyCode alÄ±r ve
+    /// buna gÃ¶re tenant (ÅŸirket) bilgisini set eder.
     /// </summary>
     private void InitializeTenant()
     {
@@ -31,12 +31,12 @@ public class TenantContext
         if (user?.Identity?.IsAuthenticated != true)
             return;
 
-        // Kullanýcýnýn claim'lerinden "CompanyCode" deðerini al
+        // KullanÄ±cÄ±nÄ±n claim'lerinden "CompanyCode" deÄŸerini al
         var companyCode = user.FindFirst("CompanyCode")?.Value;
         if (string.IsNullOrEmpty(companyCode))
             return;
 
-        // Þirket bilgisini ManagementDB'den çek
+        // Åžirket bilgisini ManagementDB'den Ã§ek
         var company = _companyService.GetCompanyByCode(companyCode);
         if (company == null)
             return;

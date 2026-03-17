@@ -1,13 +1,13 @@
-using AutoMapper;
-using Empty_ERP_Template.Business.DTOs.Authentication;
-using Empty_ERP_Template.Business.Exceptions;
-using Empty_ERP_Template.Data;
-using Empty_ERP_Template.Data.Entities.AuthenticationEntities;
+﻿using AutoMapper;
+using Lupion.Business.DTOs.Authentication;
+using Lupion.Business.Exceptions;
+using Lupion.Data;
+using Lupion.Data.Entities.AuthenticationEntities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
 
-namespace Empty_ERP_Template.Business.Services;
+namespace Lupion.Business.Services;
 
 public class UserService(IHttpContextAccessor httpContextAccessor, ManagementDBContext managementDBContext,
     DBContext context, IMapper mapper, CacheService cacheService)

@@ -4,8 +4,8 @@
     <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <AssemblyName>Empty_ERP_Template.API</AssemblyName>
-    <RootNamespace>Empty_ERP_Template.API</RootNamespace>
+    <AssemblyName>Lupion.API</AssemblyName>
+    <RootNamespace>Lupion.API</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -15,8 +15,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Empty_ERP_Template.Business\Empty_ERP_Template.Business.csproj" />
-    <ProjectReference Include="..\Empty_ERP_Template.Data\Empty_ERP_Template.Data.csproj" />
+    <ProjectReference Include="..\Lupion.Business\Lupion.Business.csproj" />
+    <ProjectReference Include="..\Lupion.Data\Lupion.Data.csproj" />
   </ItemGroup>
 
 </Project>

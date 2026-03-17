@@ -4,8 +4,8 @@
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <AssemblyName>Empty_ERP_Template.Business</AssemblyName>
-    <RootNamespace>Empty_ERP_Template.Business</RootNamespace>
+    <AssemblyName>Lupion.Business</AssemblyName>
+    <RootNamespace>Lupion.Business</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -27,7 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Empty_ERP_Template.Data\Empty_ERP_Template.Data.csproj" />
+    <ProjectReference Include="..\Lupion.Data\Lupion.Data.csproj" />
   </ItemGroup>
 
   <ItemGroup>

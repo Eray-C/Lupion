@@ -4,8 +4,8 @@
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <AssemblyName>Empty_ERP_Template.Data</AssemblyName>
-    <RootNamespace>Empty_ERP_Template.Data</RootNamespace>
+    <AssemblyName>Lupion.Data</AssemblyName>
+    <RootNamespace>Lupion.Data</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

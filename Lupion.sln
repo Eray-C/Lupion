@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.12.35521.163
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Empty_ERP_Template.API", "Empty_ERP_Template.API\Empty_ERP_Template.API.csproj", "{1C105FBB-DA18-468E-96CA-6F7EBC35BFD3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lupion.API", "Lupion.API\Lupion.API.csproj", "{1C105FBB-DA18-468E-96CA-6F7EBC35BFD3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Empty_ERP_Template.Business", "Empty_ERP_Template.Business\Empty_ERP_Template.Business.csproj", "{AC7F9C4B-3890-47ED-BB05-1C97ADF8E8B9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lupion.Business", "Lupion.Business\Lupion.Business.csproj", "{AC7F9C4B-3890-47ED-BB05-1C97ADF8E8B9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Empty_ERP_Template.Data", "Empty_ERP_Template.Data\Empty_ERP_Template.Data.csproj", "{7A54BE3C-B341-41C7-A5B9-A297CD57F396}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lupion.Data", "Lupion.Data\Lupion.Data.csproj", "{7A54BE3C-B341-41C7-A5B9-A297CD57F396}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Empty_ERP_Template.MVC", "Empty_ERP_Template.MVC\Empty_ERP_Template.MVC.csproj", "{D1649E32-AF20-4094-B7FE-A677C0FBF38B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lupion.MVC", "Lupion.MVC\Lupion.MVC.csproj", "{D1649E32-AF20-4094-B7FE-A677C0FBF38B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

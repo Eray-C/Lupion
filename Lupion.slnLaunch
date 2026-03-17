@@ -1,0 +1,17 @@
+[
+  {
+    "Name": "LUPION",
+    "Projects": [
+      {
+        "Path": "Lupion.API\\Lupion.API.csproj",
+        "Action": "Start",
+        "DebugTarget": "Lupion HTTPS"
+      },
+      {
+        "Path": "Lupion.MVC\\Lupion.MVC.csproj",
+        "Action": "Start",
+        "DebugTarget": "Lupion MVC HTTPS"
+      }
+    ]
+  }
+]

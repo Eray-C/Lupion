@@ -1,0 +1,26 @@
+@{
+    ViewBag.Title = "Müşteri";
+}
+@{
+    var layoutModel = new TwoCardLayout
+    {
+        LeftTitle = "Müşteriler",
+        LeftContentHtml = "<div id='customers_datagrid' class='h-100 w-100'></div>",
+        RightTitle = "Detaylar",
+        RightContentHtml = await Html.PartialAsync("_RightContent")
+    };
+}
+
+<partial name="_TwoCardLayout" model="layoutModel" />
+
+@{
+    var settingContent = @"";
+}
+
+<partial name="_SettingsLayout" model="settingContent" />
+
+<script src="~/js/customer/customer.js"></script>
+
+<script>
+    initSplitterForTwoCard("customer")
+</script>

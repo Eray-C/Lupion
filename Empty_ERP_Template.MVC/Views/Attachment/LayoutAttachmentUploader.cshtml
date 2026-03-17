@@ -1,0 +1,538 @@
+
+<style>
+    .upload-area {
+        padding: 25px 20px;
+        text-align: center;
+        border-bottom: 2px dashed #e0e0e0;
+    }
+
+    .upload-box {
+        border: 3px dashed #1d2b64;
+        border-radius: 12px;
+        padding: 15px 0px;
+        cursor: pointer;
+        transition: all 0.3s;
+        background-color: #f8f9ff;
+        position: relative;
+        overflow: hidden;
+    }
+
+        .upload-box:hover {
+            background-color: #eef1ff;
+            transform: translateY(-3px);
+            border-color: #5c258d;
+        }
+
+        .upload-box i {
+            font-size: 30px;
+            transition: all 0.3s;
+        }
+
+        .upload-box:hover i {
+            color: #5c258d;
+            transform: scale(1.1);
+        }
+
+        .upload-box h2 {
+            color: #333;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .upload-box p {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+
+
+    .file-grid {
+        padding: 20px;
+    }
+
+        .file-grid h2 {
+            font-size: 1.6rem;
+            color: #333;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 2px solid #1d2b64;
+            padding-bottom: 10px;
+        }
+
+            .file-grid h2 i {
+                color: #1d2b64;
+            }
+
+
+    .grid-items {
+        max-height: 400px;
+        overflow-y: auto;
+        border: 1px solid #e0e0e0;
+        border-radius: 0 0 8px 8px;
+    }
+
+    .grid-item {
+        display: grid;
+        grid-template-columns: 70px 2fr 1fr 0px;
+        padding: 15px;
+        border-bottom: 1px solid #eee;
+        transition: all 0.3s;
+        align-items: center;
+    }
+
+    .document-type-select {
+        max-width: 180px;
+        padding: 6px 10px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 0.9rem;
+    }
+
+        .grid-item:hover {
+            background-color: #f8f9ff;
+        }
+
+    .file-icon {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        font-size: 20px;
+        color: white;
+    }
+
+        .file-icon.image {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+        }
+
+        .file-icon.jpg {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+        }
+
+        .file-icon.png {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+        }
+
+        .file-icon.jpeg {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+        }
+
+        .file-icon.pdf {
+            background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+        }
+
+        .file-icon.video {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+
+        .file-icon.audio {
+            background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+        }
+
+        .file-icon.document {
+            background: linear-gradient(135deg, #5ee7df 0%, #b490ca 100%);
+        }
+
+        .file-icon.xlsx {
+            background: linear-gradient(135deg, #207c32 0%, #4CAF50 100%);
+        }
+
+        .file-icon.docx {
+            background: linear-gradient(135deg, #2b579a 0%, #4285F4 100%);
+        }
+
+        .file-icon.other {
+            background: linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%);
+        }
+
+    .file-name {
+        font-weight: 600;
+        color: #333;
+        word-break: break-all;
+    }
+
+    .file-type {
+        color: #555;
+        font-size: 0.9rem;
+    }
+
+    .file-actions {
+        display: flex;
+        gap: 8px;
+        justify-content: flex-end;
+    }
+
+    .action-btn {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s;
+        font-size: 14px;
+        border: none;
+        color: white;
+    }
+
+    .preview-btn {
+        background: linear-gradient(135deg, #1d2b64 0%, #5c258d 100%);
+    }
+
+    .download-btn {
+        background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    }
+
+    .delete-btn {
+        background: linear-gradient(135deg, #ff5858 0%, #f09819 100%);
+    }
+
+
+
+    .doc-type-row {
+        grid-column: 1 / -1;
+        margin-top: 8px;
+    }
+
+    .note-section {
+        display: block;
+        margin-top: 10px;
+        padding-top: 10px;
+        border-top: 1px dashed #e0e0e0;
+        grid-column: 1 / -1;
+    }
+
+    .note-section .note-input {
+        width: 100%;
+    }
+
+    .doc-type-wrap {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .doc-type-wrap label {
+        margin: 0;
+        font-size: 0.9rem;
+        color: #555;
+        white-space: nowrap;
+    }
+
+    .note-input {
+        flex: 1;
+        padding: 10px 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        transition: all 0.3s;
+    }
+
+        .note-input:focus {
+            outline: none;
+            border-color: #5c258d;
+            box-shadow: 0 0 0 2px rgba(92, 37, 141, 0.2);
+        }
+
+    .save-btn {
+        background: linear-gradient(to right, #1d2b64, #5c258d);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        padding: 0 20px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+
+        .save-btn:hover {
+            background: linear-gradient(to right, #5c258d, #1d2b64);
+            transform: translateY(-2px);
+        }
+
+    .preview-container {
+        position: fixed;
+        top: 5%;
+        left: 5%;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.8);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    }
+
+    .preview-content {
+        background: white;
+        border-radius: 10px;
+        padding: 25px;
+        max-width: 90%;
+        max-height: 90%;
+        overflow: auto;
+        position: relative;
+        box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    }
+
+    .preview-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #1d2b64;
+    }
+
+        .preview-header h2 {
+            font-size: 1.6rem;
+            color: #333;
+        }
+
+    .close-preview {
+        background: #ff4757;
+        color: white;
+        border: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        font-size: 20px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s;
+    }
+
+        .close-preview:hover {
+            transform: rotate(90deg);
+        }
+
+    .preview-body {
+        max-height: 600px;
+        overflow: auto;
+        padding: 10px;
+    }
+
+    .preview-image {
+        max-width: 100%;
+        max-height: 500px;
+        display: block;
+        margin: 0 auto;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .preview-pdf {
+        width: 100%;
+        height: 500px;
+        border: none;
+        border-radius: 8px;
+    }
+
+    .save-all-container {
+        text-align: center;
+        padding: 20px;
+        background: #f8f9ff;
+        border-top: 1px solid #e0e0e0;
+    }
+
+    .save-all-btn {
+        display: inline-block;
+        background: linear-gradient(to right, #43e97b, #38f9d7);
+        color: white;
+        padding: 14px 40px;
+        border-radius: 50px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        border: none;
+        transition: all 0.3s;
+        box-shadow: 0 5px 15px rgba(67, 233, 123, 0.3);
+    }
+
+        .save-all-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(67, 233, 123, 0.4);
+        }
+
+        .save-all-btn:active {
+            transform: translateY(1px);
+        }
+
+    footer {
+        text-align: center;
+        padding: 20px;
+        color: #666;
+        font-size: 0.9rem;
+        border-top: 1px solid #eee;
+        background: #f8f9ff;
+    }
+
+</style>
+
+
+<div class="upload-area">
+    <div class="upload-box" id="dropArea">
+        <i class="fas fa-cloud-upload-alt"></i>
+        <h2>Dosyalarınızı Sürükleyip Bırakın</h2>
+        <p>veya</p>
+        <button class="btn" id="browseBtn">
+            <i class="fas fa-folder-open"></i> Dosya Seçin
+        </button>
+        <input type="file" id="fileInput" multiple style="display: none;">
+    </div>
+</div>
+
+@{
+    var documentTypeCategory = ViewBag.DocumentTypeCategory as string;
+}
+<div class="file-grid" data-document-type-category="@(documentTypeCategory ?? "")">
+    <h6><i class="fas fa-list"></i> Eklenen Dosyalar</h6>
+    <div class="grid-items" id="fileGrid">
+    </div>
+</div>
+
+<button class="btn btn-primary footer_btn" id="" onclick="uploadAttachments($('#DocumentFieldName').val(), $('#DocumentFieldId').val())">Ekle</button>
+
+<script>
+    window.attachmentDocumentTypeCategory = @Html.Raw(documentTypeCategory != null ? "\"" + documentTypeCategory.Replace("\\", "\\\\").Replace("\"", "\\\"") + "\"" : "null");
+</script>
+<script>
+    $(document).ready(function () {
+        var documentTypeCategory = window.attachmentDocumentTypeCategory;
+        // Sadece dışarıdan documentTypeCategory verilmişse tipleri yükle (örn. PersonnelDocumentType)
+        if (documentTypeCategory && typeof baseAPIURL !== 'undefined') {
+            $.ajax({
+                url: baseAPIURL + 'shared/types/' + documentTypeCategory,
+                type: 'GET',
+                headers: (function() { var t = localStorage.getItem('access_token'); return t ? { 'Authorization': 'Bearer ' + t } : {}; })(),
+                success: function(res) {
+                    window.attachmentDocumentTypes = (res && res.data) ? res.data : [];
+                },
+                error: function() { window.attachmentDocumentTypes = []; }
+            });
+        } else {
+            window.attachmentDocumentTypes = [];
+        }
+
+        // Dosya seçme işlemi
+        $('#browseBtn').click(function () {
+            $('#fileInput').click();
+        });
+
+        // Dosya seçildiğinde
+        $('#fileInput').change(function (e) {
+            handleFiles(e.target.files);
+        });
+
+        // Sürükle bırak işlemleri
+        const dropArea = $('#dropArea')[0];
+
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            dropArea.addEventListener(eventName, preventDefaults, false);
+        });
+
+        function preventDefaults(e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+
+        ['dragenter', 'dragover'].forEach(eventName => {
+            dropArea.addEventListener(eventName, highlight, false);
+        });
+
+        ['dragleave', 'drop'].forEach(eventName => {
+            dropArea.addEventListener(eventName, unhighlight, false);
+        });
+
+        function highlight() {
+            $(dropArea).css({
+                'background-color': '#e0e7ff',
+                'border-color': '#5c258d'
+            });
+        }
+
+        function unhighlight() {
+            $(dropArea).css({
+                'background-color': '#f8f9ff',
+                'border-color': '#1d2b64'
+            });
+        }
+
+        dropArea.addEventListener('drop', handleDrop, false);
+
+        function handleDrop(e) {
+            const dt = e.dataTransfer;
+            const files = dt.files;
+            handleFiles(files);
+        }
+
+        function handleFiles(files) {
+            if (files.length === 0) return;
+
+            for (let i = 0; i < files.length; i++) {
+                addFileToGrid(files[i]);
+            }
+        }
+            function addFileToGrid(file) {
+                const fileType = getFileType(file);
+                const iconClass = getIconClass(fileType);
+                const fileIcon = getFileIcon(file.type);
+                var showDocType = !!documentTypeCategory;
+                var docTypeOptions = (window.attachmentDocumentTypes || []).map(function(t) {
+                    return '<option value="' + (t.id || '') + '">' + (t.name || '') + '</option>';
+                }).join('');
+                var docTypeBlock = showDocType ? '<div class="doc-type-row"><div class="doc-type-wrap"><label>Belge Tipi</label><select class="document-type-select"><option value="">Seçiniz</option>' + docTypeOptions + '</select></div></div>' : '';
+                const gridItem = $(`
+                    <div class="grid-item" data-file-type="${fileType}">
+                        <div class="file-icon ${iconClass}">
+                            <i class="${fileIcon}"></i>
+                        </div>
+                        <div class="file-name">${file.name}</div>
+                        <div class="file-actions">
+                            <button class="action-btn delete-btn">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                        ${docTypeBlock}
+                        <div class="note-section">
+                            <input type="text" class="note-input" placeholder="Not ekle...">
+                        </div>
+                    </div>
+                `);
+
+                gridItem.data("file", file);
+
+                $('#fileGrid').append(gridItem);
+
+                gridItem.find('.preview-btn').click(function () {
+                    previewFileDocumentUploaderModal(file);
+                });
+
+                gridItem.find('.delete-btn').click(function () {
+                    gridItem.remove();
+                });
+            }
+
+
+
+
+        function getIconClass(type) {
+            return type;
+        }
+
+
+
+
+    });
+
+
+
+
+</script>

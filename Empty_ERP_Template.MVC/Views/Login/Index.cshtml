@@ -1,0 +1,116 @@
+@{
+    ViewBag.Title = "Giriş";
+    Layout = null;
+}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="assets/images/favicon-32x32.png" type="image/png" />
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/bootstrap-extended.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
+    <link href="assets/css/app.css" rel="stylesheet">
+    <link href="assets/css/icons.css" rel="stylesheet">
+    <link href="~/css/login.css" rel="stylesheet">
+    <title>Empty_ERP_Template ERP</title>
+</head>
+<body class="login-body">
+    <div id="ajaxLoader" style="display:none;">Yükleniyor...</div>
+    <div class="d-flex justify-content-center align-items-center min-vh-100">
+        <div class="login-card">
+            <div class="text-center mb-4">
+                <img src="assets/images/logo-icon.png" width="180" alt="" />
+            </div>
+            <h3 class="text-center mb-4">Giriş Yap</h3>
+            <form id="loginForm">
+                <div class="mb-3">
+                    <label for="EmailOrUserName" class="form-label">Email Adresi</label>
+                    <input type="email" class="form-control" id="EmailOrUserName" placeholder="Email adresi ya da kullanıcı adınızı giriniz." required>
+                </div>
+                <div class="mb-3">
+                    <label for="Password" class="form-label">Şifre</label>
+                    <input type="password" class="form-control" id="Password" placeholder="Şifre giriniz." required>
+                </div>
+                <div class="d-grid mb-3">
+                    <button type="submit" class="btn btn-cheetah"><i class="bx bxs-lock-open"></i> Giriş Yap</button>
+                </div>
+                <div class="text-end">
+                    <a href="#" id="forgotPasswordLink">Şifreni unuttun mu?</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal fade" id="forgotPasswordModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Şifre Sıfırlama</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="ResetEmail" class="form-label fw-bold">Email</label>
+                        <input type="email" class="form-control" id="ResetEmail" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-cheetah" id="sendResetEmail">Gönder</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="resetPasswordModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h6 class="modal-title">Şifre Güncelle</h6>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="ResetEmailConfirm" class="form-label fw-bold">Email</label>
+                        <input type="email" class="form-control" id="ResetEmailConfirm" readonly />
+                    </div>
+                    <div class="mb-3">
+                        <label for="ResetCode" class="form-label fw-bold">6 Haneli Doğrulama Kodu</label>
+                        <input type="text" class="form-control" id="ResetCode" maxlength="6" pattern="[0-9]{6}" inputmode="numeric" autocomplete="one-time-code" placeholder="000000" />
+                        <small class="text-muted">E-postanıza gelen 6 haneli kodu girin. Kod 10 dakika geçerlidir.</small>
+                    </div>
+                    <div class="mb-3">
+                        <label for="NewPassword" class="form-label fw-bold">Yeni Şifre</label>
+                        <input type="password" class="form-control" id="NewPassword" minlength="6" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-cheetah" id="resetPasswordButton">Şifreyi Güncelle</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="~/js/Login/Login.js"></script>
+    <script src="~/js/Utility/AlertCreator.js"></script>
+    <script src="~/js/Utility/DocumentEvents.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+</body>
+</html>
+<style>
+    #ajaxLoader {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 16px 24px;
+        background-color: rgba(0, 0, 0, 0.75);
+        color: white;
+        font-size: 18px;
+        border-radius: 8px;
+        z-index: 9999;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+    }
+</style>

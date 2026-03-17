@@ -1,0 +1,24 @@
+.login-body {
+    background: linear-gradient(135deg, #ffffff, #ffffff);
+    font-family: 'Roboto', sans-serif;
+}
+
+.login-card {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.btn-cheetah {
+    background-color: #ff7f00;
+    border-color: #ff7f00;
+    color: #fff;
+}
+.btn-cheetah:hover {
+    background-color: #ff8800;
+    border-color: #ff8800;
+    color: #fff;
+}

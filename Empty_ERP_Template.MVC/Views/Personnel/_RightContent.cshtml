@@ -1,0 +1,221 @@
+@{
+    Layout = null;
+}
+<div class="w-100">
+    <ul class="nav nav-tabs" id="personnelTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="general-tab" data-bs-toggle="tab" data-bs-target="#general" type="button" role="tab" aria-controls="general" aria-selected="true">
+                Genel Görünüm
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="licences-tab" data-bs-toggle="tab" data-bs-target="#licences" type="button" role="tab" aria-controls="licences" aria-selected="false">
+                Ehliyet ve Sertifikalar
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="wages-tab" data-bs-toggle="tab" data-bs-target="#wages" type="button" role="tab" aria-controls="wages" aria-selected="false">
+                Maaş ve Ücret Bilgileri
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">
+                İletişim Bilgileri
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="evaluation-tab" data-bs-toggle="tab" data-bs-target="#evaluation" type="button" role="tab" aria-controls="evaluation" aria-selected="false">
+                Değerlendirmeler
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="attachments-tab" data-bs-toggle="tab" data-bs-target="#attachments" type="button" role="tab" aria-controls="attachments" aria-selected="false" onclick="createFileField('GeneralPersonnel',personnelId,'PersonnelDocumentType')">
+                Dosyalar
+            </button>
+        </li>
+    </ul>
+
+    <div class="tab-content p-3" id="personnelTabsContent" style="overflow-y:auto;">
+        <div class="tab-pane fade show active" id="general" role="tabpanel" aria-labelledby="general-tab">
+            <div class="card mb-3">
+                <div class="card-header fw-bold">Genel Bilgiler</div>
+                <div class="card-body">
+                    <form id="previewPersonnelForm">
+                        <div class="row">
+                            <div class="col-md-10">
+                                <div class="row mb-3">
+                                    <div class="col-md-3">
+                                        <label for="FirstName" class="form-label fw-bold">Ad</label>
+                                        <input type="text" class="form-control" id="FirstName" name="FirstName" required readonly />
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="LastName" class="form-label fw-bold">Soyad</label>
+                                        <input type="text" class="form-control" id="LastName" name="LastName" required readonly />
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="GenderTypeName" class="form-label fw-bold">Cinsiyet</label>
+                                        <input type="text" class="form-control" id="GenderName" name="GenderName" readonly />
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="StatusTypeName" class="form-label fw-bold">Durumu</label>
+                                        <input type="text" class="form-control" id="StatusName" name="StatusName" readonly />
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <div class="col-md-3">
+                                        <label for="DateOfBirth" class="form-label fw-bold">Doğum Tarihi</label>
+                                        <input type="date" class="form-control" id="DateOfBirth" name="DateOfBirth" readonly />
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="PlaceOfBirth" class="form-label fw-bold">Doğum Yeri</label>
+                                        <input type="text" class="form-control" id="PlaceOfBirth" name="PlaceOfBirth" readonly />
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="IdentityNumber" class="form-label fw-bold">Kimlik No</label>
+                                        <input type="text" class="form-control" id="IdentityNumber" name="IdentityNumber" readonly />
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="MaritalStatusTypeName" class="form-label fw-bold">Medeni Durum</label>
+                                        <input type="text" class="form-control" id="MaritalStatusName" name="MaritalStatusName" readonly />
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-md-3">
+                                        <label for="PersonnelTypeName" class="form-label fw-bold">Personel Tipi</label>
+                                        <input type="text" class="form-control" id="PersonnelTypeName" name="PersonnelTypeName" readonly />
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="DepartmentTypeName" class="form-label fw-bold">Departman</label>
+                                        <input type="text" class="form-control" id="DepartmentName" name="DepartmentName" readonly />
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="StartDate" class="form-label fw-bold">İşe Başlama Tarihi</label>
+                                        <input type="date" class="form-control" id="StartDate" name="StartDate" readonly />
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="EndDate" class="form-label fw-bold">İşten Ayrılma Tarihi</label>
+                                        <input type="date" class="form-control" id="EndDate" name="EndDate" readonly />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-2 d-flex flex-column">
+                                <label for="Photo" class="form-label fw-bold">Fotoğraf</label>
+                                <img id="Photo" name="Photo" class="img-fluid rounded border"
+                                     style="object-fit: cover; height:170px;" alt="Fotoğraf" src="/assets/images/avatars/blank-image.jpg" />
+                            </div>
+                        </div>
+
+
+                        <div class="row mb-3">
+                            <div class="col-md-3">
+                                <label for="Nationality" class="form-label fw-bold">Uyruk</label>
+                                <input type="text" class="form-control" id="Nationality" name="Nationality" readonly />
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-12">
+                                <label for="Notes" class="form-label fw-bold">Notlar</label>
+                                <textarea class="form-control" id="Notes" name="Notes" rows="3" readonly></textarea>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="tab-pane fade" id="licences" role="tabpanel" aria-labelledby="licences-tab">
+            <div class="card mb-3">
+                <div class="card-header fw-bold">Ehliyet ve Sertifikalar</div>
+                <div class="card-body">
+                    <div id="personnel_licenses_datagrid"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-pane fade" id="wages" role="tabpanel" aria-labelledby="wages-tab">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card mb-3">
+                        <div class="card-header fw-bold">Maaş Bilgileri</div>
+                        <div class="card-body">
+                            <div id="personnel_salaries_datagrid"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="card mb-3">
+                        <div class="card-header fw-bold">Bonus</div>
+                        <div class="card-body">
+                            <div id="personnel_bonuses_datagrid"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card mb-3">
+                        <div class="card-header fw-bold">Kesintiler</div>
+                        <div class="card-body">
+                            <div id="personnel_deductions_datagrid"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="card mb-3">
+                        <div class="card-header fw-bold">Avanslar</div>
+                        <div class="card-body">
+                            <div id="personnel_advances_datagrid"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="card mb-3">
+                        <div class="card-header fw-bold">Ödeme Geçmişi</div>
+                        <div class="card-body">
+                            <div id="personnel_payment_history_datagrid"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+            <div class="card mb-3">
+                <div class="card-header fw-bold">İletişim Bilgileri</div>
+                <div class="card-body">
+                    <div id="personnel_contacts_datagrid"></div>
+                </div>
+            </div>
+            <div class="card mb-3">
+                <div class="card-header fw-bold">Yakınlarına Ait İletişim Bilgileri</div>
+                <div class="card-body">
+                    <div id="personnel_relative_contacts_datagrid"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="tab-pane fade" id="evaluation" role="tabpanel" aria-labelledby="evaluation-tab">
+            <div class="card mb-3">
+                <div class="card-header fw-bold">Değerlendirmeler</div>
+                <div class="card-body">
+                    Yakında gelecek...
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-pane fade" id="attachments" role="tabpanel" aria-labelledby="attachments-tab">
+            <div class="card mb-3">
+                <div class="card-header fw-bold">Dosyalar</div>
+                <div class="card-body">
+                    @{
+                        Html.RenderPartial("/Views/Attachment/LayoutAttachment.cshtml");
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

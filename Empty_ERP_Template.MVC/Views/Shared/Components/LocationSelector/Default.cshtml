@@ -1,0 +1,75 @@
+@using Empty_ERP_Template.Business.DTOs.Shared
+@model IEnumerable<GeneralTypeDTO>
+
+@{
+    string p = ViewBag.Prefix;
+}
+<div class="d-flex flex-column gap-1">
+
+
+    <div class="d-flex gap-2">
+
+        <div class="w-50 d-flex flex-column gap-1">
+            <label class="form-label small fw-semibold">@ViewBag.CityLabel</label>
+            <select id="@($"{p}CityId")"
+                    name="@($"{p}CityId")"
+                    class="form-select">
+                <option value="">@ViewBag.CityLabel Seç</option>
+                @foreach (var c in Model)
+                {
+                    <option value="@c.Id" selected="@(ViewBag.SelectedCity == c.Id)">
+                        @c.Name
+                    </option>
+                }
+            </select>
+        </div>
+
+        <div class="w-50 d-flex flex-column gap-1">
+            <label class="form-label small fw-semibold">@ViewBag.TownLabel</label>
+            <select id="@($"{p}TownId")"
+                    name="@($"{p}TownId")"
+                    class="form-select"
+                    disabled>
+                <option value="">@ViewBag.TownLabel Seç</option>
+            </select>
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    $(document).on("change", "#@(p)CityId", function () {
+
+        const cityId = $(this).val();
+        const townSelect = $("#@(p)TownId");
+
+        townSelect
+            .prop("disabled", true)
+            .html(`<option>Yükleniyor...</option>`);
+
+        if (!cityId) {
+            townSelect.html(`<option value="">@ViewBag.TownLabel Seç</option>`);
+            return;
+        }
+
+        genericAjax({
+            url: `shared/types/Town/${cityId}`,
+            success: function (res) {
+
+                townSelect
+                    .prop("disabled", false)
+                    .html(`<option value="">@ViewBag.TownLabel Seç</option>`);
+
+                res.data.forEach(x => {
+                    townSelect.append(
+                        `<option value="${x.id}">${x.name}</option>`
+                    );
+                });
+            }
+        });
+    });
+
+</script>

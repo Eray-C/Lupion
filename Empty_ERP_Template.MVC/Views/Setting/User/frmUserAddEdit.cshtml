@@ -1,0 +1,68 @@
+@using Empty_ERP_Template.Business.DTOs;
+@using Empty_ERP_Template.Business.DTOs.Authentication
+@model List<RoleDTO>
+@{
+    Layout = null;
+}
+<form id="userAddEditForm">
+    <input type="hidden"id="Id">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="mb-3">
+                <label for="FirstName" class="form-label fw-bold">Adý</label>
+                <input type="text" class="form-control" id="FirstName" name="FirstName" required>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="mb-3">
+                <label for="LastName" class="form-label fw-bold">Soyadý</label>
+                <input type="text" class="form-control" id="LastName" name="LastName" required>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="mb-3">
+                <label for="Username" class="form-label fw-bold">Kullanýcý adý</label>
+                <input type="text" class="form-control" id="Username" name="Username" required>
+            </div>
+        </div>
+
+        <div class="col-md-4" id="PasswordContainer">
+            <div class="mb-3">
+                <label for="Password" class="form-label fw-bold">Þifre</label>
+                <input type="password" class="form-control" id="Password" name="Password" required>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="mb-3">
+                <label for="Email" class="form-label fw-bold">Email</label>
+                <input type="email" class="form-control" id="Email" name="Email" required>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="mb-3">
+                <label for="RoleIds" class="form-label fw-bold">Rol</label>
+                <select class="selectpicker form-control" multiple data-live-search="true" title="Rolleri seçiniz..." required name="RoleIds" id="RoleIds">
+                    <option value="" disabled>Seçiniz</option>
+                    @foreach (var role in Model)
+                    {
+                        <option value="@role.Id">@role.Name</option>
+                    }
+                </select>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="mb-3">
+                <label for="IsActive" class="form-label fw-bold">Durumu</label>
+                <select class="form-select" id="IsActive" name="IsActive" required bool>
+                    <option value="">Seçiniz...</option>
+                    <option value="1">Aktif</option>
+                    <option value="0">Pasif</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8 d-flex align-items-end">
+        <button type="button" class="btn btn-primary footer_btn" onclick="upsertUser()">Kaydet</button>
+    </div>
+</form>

@@ -1,0 +1,70 @@
+@{
+    ViewBag.Title = "Personel";
+}
+@{
+
+    var layoutModel = new TwoCardLayout
+            {
+                LeftTitle = "Personel",
+                LeftContentHtml = "<div id='personnels_datagrid' class='h-100 w-100'></div>",
+                RightTitle = "Detaylar",
+                RightContentHtml = Html.Partial("_RightContent")
+            };
+}
+
+
+<partial name="_TwoCardLayout" model="layoutModel" />
+
+
+@{
+    var settingContent = @"
+            <div class='switcher-group mb-4'>
+                <h6 class='custom_header'>Tipler</h6>
+                <ul class='list-unstyled'>
+                    <li class='mb-2'>
+                        <a href='#' class='d-flex align-items-center  text-decoration-none' onclick='openPersonnelTypeForm()'>
+                            <i class='fas fa-plus-circle me-2 text-primary' ></i> Personel Tipleri
+                        </a>
+                    </li> 
+                    <li class='mb-2'>
+                        <a href='#' class='d-flex align-items-center  text-decoration-none' onclick='openLicenseTypeForm()'>
+                            <i class='fas fa-plus-circle me-2 text-primary' ></i> Ehliyet & Sertifika Tipleri
+                        </a>
+                    </li>
+                    <li class='mb-2'>
+                        <a href='#' class='d-flex align-items-center  text-decoration-none' onclick='openRelationshipTypeForm()'>
+                            <i class='fas fa-plus-circle me-2 text-primary' ></i> Akrabalık Tipleri
+                        </a>
+                    </li>
+                    <li class='mb-2'>
+                        <a href='#' class='d-flex align-items-center  text-decoration-none' onclick='openDocumentTypeForm()'>
+                            <i class='fas fa-plus-circle me-2 text-primary' ></i> Dosya Tipleri
+                        </a>
+                    </li>
+                    <li class='mb-2'>
+                        <a href='#' class='d-flex align-items-center  text-decoration-none' onclick='openBonusTypeForm()'>
+                            <i class='fas fa-plus-circle me-2 text-primary' ></i> Bonus Tipleri
+                        </a>
+                    </li>
+                    <li class='mb-2'>
+                        <a href='#' class='d-flex align-items-center  text-decoration-none' onclick='openDeductionTypeForm()'>
+                            <i class='fas fa-plus-circle me-2 text-primary' ></i> Kesinti Tipleri
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+    ";
+}
+
+
+<partial name="_SettingsLayout" model="settingContent" />
+
+<script src="~/js/personnel/personnel.js"></script>
+
+
+<script>
+    initSplitterForTwoCard("personnel")
+</script>
+
+

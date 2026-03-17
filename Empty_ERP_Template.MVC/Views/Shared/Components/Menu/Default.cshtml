@@ -1,0 +1,81 @@
+@using Empty_ERP_Template.Data.Entities.SharedEntities
+@model IEnumerable<Menu>
+
+@{
+    var menus = Model;
+    var parentMenus = menus.Where(x => x.ParentId == default).OrderBy(x => x.Order).ToList();
+
+    // ParentId -> Menu listesi eþleþmesini cache’le
+    var menuLookup = menus
+        .Where(m => m.ParentId != default)
+        .GroupBy(m => m.ParentId)
+        .ToDictionary(g => g.Key, g => g.OrderBy(m => m.Order).ToList());
+}
+
+@functions {
+    void RenderMenuItems(int parentId, Dictionary<int?, List<Menu>> lookup)
+    {
+        if (!lookup.ContainsKey(parentId))
+            return;
+
+        foreach (var menu in lookup[parentId])
+        {
+            if (menu.Type == "Menu")
+            {
+                var hasSubMenu = lookup.ContainsKey(menu.Id);
+
+                if (hasSubMenu)
+                {
+                    <li>
+                        <a class="has-arrow" href="javascript:;">
+                            <div class="parent-icon">
+                                <i class='@menu.Icon' title="@menu.Title"></i>
+                            </div>
+                            <div class="menu-title">@menu.Text</div>
+                        </a>
+                        <ul>
+                            @{
+                                RenderMenuItems(menu.Id, lookup);
+                            }
+                        </ul>
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        <a class="" href="@menu.URL">
+                            <div class="parent-icon">
+                                <i class='@menu.Icon'></i>
+                            </div>
+                            <div class="menu-title">@menu.Text</div>
+                        </a>
+                    </li>
+                }
+            }
+        }
+    }
+}
+
+<ul class="metismenu" id="menu">
+    @foreach (var parentMenu in parentMenus)
+    {
+        if (parentMenu.Type == "Menu")
+        {
+            <li>
+                <a class="" href="@parentMenu.URL">
+                    <div class="parent-icon">
+                        <i class='@parentMenu.Icon'></i>
+                    </div>
+                    <div class="menu-title">@parentMenu.Text</div>
+                </a>
+            </li>
+        }
+
+        if (parentMenu.Type == "Group")
+        {
+            <li class="menu-label">@parentMenu.Text</li>
+        }
+
+        RenderMenuItems(parentMenu.Id, menuLookup);
+    }
+</ul>

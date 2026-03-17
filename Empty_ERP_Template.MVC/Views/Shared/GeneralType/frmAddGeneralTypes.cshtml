@@ -1,0 +1,26 @@
+﻿@{
+    Layout = null;
+}
+<form id="generalTypeForm">
+    <input type="hidden" id="Id" name="Id">
+    <input type="hidden" id="Category" name="Category">
+    <input type="hidden" id="ParentId" name="ParentId">
+
+    <div class="row g-3">
+        <div class="col-md-6">
+            <label for="Name" class="form-label">Tip</label>
+            <input type="text" class="form-control" id="Name" name="Name">
+        </div>
+
+
+        <div class="col-md-6">
+            <label for="Description" class="form-label">Açıklama</label>
+            <input type="text" class="form-control" id="Description" name="Description" maxlength="50">
+        </div>
+
+        <div class="col-12 mt-4 text-end">
+            <button type="button" class="btn btn-primary footer_btn" onclick="upsertGeneralType()">Kaydet</button>
+        </div>
+
+    </div>
+</form>

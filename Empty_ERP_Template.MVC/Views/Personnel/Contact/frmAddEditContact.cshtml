@@ -1,0 +1,51 @@
+@{
+    Layout = null;
+}
+<form id="personnelContactForm">
+    <input type="hidden" id="Id" name="Id" />
+    <input type="hidden" id="PersonnelId" name="PersonnelId" />
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <label for="PersonalEmail" class="form-label fw-bold">Kişisel Email</label>
+            <input id="PersonalEmail" name="PersonalEmail" type="email" class="form-control" maxlength="100" />
+        </div>
+        <div class="col-md-6">
+            <label for="WorkEmail" class="form-label fw-bold">İş Email</label>
+            <input id="WorkEmail" name="WorkEmail" type="email" class="form-control" maxlength="100" />
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <label for="MobilePhone" class="form-label fw-bold">Mobil Telefon</label>
+            <input id="MobilePhone" name="MobilePhone" class="form-control" maxlength="50" />
+        </div>
+        <div class="col-md-6">
+            <label for="HomePhone" class="form-label fw-bold">Ev Telefonu</label>
+            <input id="HomePhone" name="HomePhone" class="form-control" maxlength="50" />
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-12">
+            <label for="AddressLine1" class="form-label fw-bold">Açık Adres</label>
+            <input id="AddressLine1" name="AddressLine1" class="form-control" maxlength="250" />
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-12">
+            @await Component.InvokeAsync("LocationSelector", new { prefix = "Contact", cityLabel = "İl", townLabel = "İlçe" })
+        </div>
+    </div>
+    <input type="hidden" id="CityId" name="CityId" />
+    <input type="hidden" id="StateId" name="StateId" />
+    <div class="row mt-3">
+        <div class="col-md-12 d-flex justify-content-end gap-2">
+            <button type="button" class="btn btn-primary footer_btn" onclick="upsertPersonnelContact()">Kaydet</button>
+        </div>
+    </div>
+</form>
+<script>
+    $(document).off("change", "#ContactCityId, #ContactTownId").on("change", "#ContactCityId, #ContactTownId", function () {
+        $("#personnelContactForm #CityId").val($("#ContactCityId").val() || "");
+        $("#personnelContactForm #StateId").val($("#ContactTownId").val() || "");
+    });
+</script>

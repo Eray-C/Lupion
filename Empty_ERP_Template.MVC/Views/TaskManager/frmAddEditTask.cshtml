@@ -1,0 +1,85 @@
+@model Empty_ERP_Template.MVC.Models.TaskFormViewModel
+@{
+    Layout = null;
+    var task = Model.Task;
+    var statuses = Model.Statuses;
+    var priorities = Model.Priorities;
+}
+<form id="addEditTechTaskForm">
+    <input type="hidden" id="Id" name="Id" value="@task?.Id" />
+
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label class="fw-bold" for="TaskNumber">İş Numarası</label>
+                <input type="text" id="TaskNumber" name="TaskNumber" class="form-control" value="@task?.TaskNumber" readonly />
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <div class="form-group">
+                <label class="fw-bold" for="StatusId">Durum<span class="text-danger">*</span></label>
+                <select id="StatusId" name="StatusId" class="form-control">
+                    <option value="">Seçiniz</option>
+                    @foreach (var s in statuses)
+                    {
+                        <option value="@s.Id" selected="@(task?.StatusId == s.Id)">@s.Name</option>
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="form-group">
+                <label class="fw-bold" for="PriorityId">Öncelik</label>
+                <select id="PriorityId" name="PriorityId" class="form-control">
+                    <option value="">Seçiniz</option>
+                    @foreach (var p in priorities)
+                    {
+                        <option value="@p.Id" selected="@(task?.PriorityId == p.Id)" style="color:@p.Code">@p.Name</option>
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="form-group">
+                <label class="fw-bold" for="TaskDate">Tarih <span class="text-danger">*</span></label>
+                <input type="date" id="TaskDate" name="TaskDate" class="form-control" value="@task?.TaskDate.ToString("yyyy-MM-dd")" />
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <div class="form-group">
+                <label class="fw-bold" for="TargetDate">Hedef Tarih</label>
+                <input type="date" id="TargetDate" name="TargetDate" class="form-control" value="@task?.TargetDate?.ToString("yyyy-MM-dd")" />
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label class="fw-bold" for="Description">İş Açıklaması</label>
+                <textarea id="Description"
+                          name="Description"
+                          class="form-control"
+                          rows="5">@task?.Description</textarea>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label class="fw-bold" for="Comment"> Not</label>
+                <textarea id="Comment"
+                          name="Comment"
+                          class="form-control"
+                          rows="5">@task?.Comment</textarea>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 mt-4 text-end">
+        <button type="button" class="btn btn-primary footer_btn" onclick="submitTask()" id="footer_btn">Kaydet</button>
+    </div>
+</form>

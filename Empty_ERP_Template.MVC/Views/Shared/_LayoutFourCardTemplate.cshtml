@@ -1,0 +1,92 @@
+@model FourCardLayout
+
+<div id="fourCardMainSplitter" class="splitter vertical h-100">
+
+    <div class="splitter-panel">
+
+        <div id="fourCardLeftSplitter" class="splitter horizontal h-100">
+
+            <div class="splitter-panel" >
+                <div class="card radius-5 h-100">
+                    <div class="card-header d-flex align-items-center">
+                        @Html.Raw(Model.LeftTopTitle)
+                        @if (!string.IsNullOrEmpty(Model.LeftTopHeaderHtml))
+                        {
+                            <div class="ms-auto">
+                                @Html.Raw(Model.LeftTopHeaderHtml)
+                            </div>
+                        }
+                    </div>
+                    <div class="card-body h-100">
+                        @Html.Raw(Model.LeftTopContentHtml)
+                    </div>
+                </div>
+            </div>
+
+            <div class="splitter-bar">
+                <div class="splitter-controls">
+                    <span class="splitter-icon" data-dir="prev"></span>
+                    <span class="splitter-icon" data-dir="next"></span>
+                </div>
+            </div>
+
+
+            <div class="splitter-panel">
+                <div class="card radius-5 h-100">
+                    <div class="card-header" id="fourCardLeftBottomHeader">
+                        <h6 class="mb-0">@Model.LeftBottomTitle</h6>
+                    </div>
+                    <div class="card-body h-100">
+                        @Html.Raw(Model.LeftBottomContentHtml)
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="splitter-bar">
+        <div class="splitter-controls">
+            <span class="splitter-icon" data-dir="prev"></span>
+            <span class="splitter-icon" data-dir="next"></span>
+        </div>
+    </div>
+
+    <div class="splitter-panel">
+
+        <div id="fourCardRightSplitter" class="splitter horizontal h-100">
+
+            <div class="splitter-panel">
+                <div class="card radius-5 h-100">
+                    <div class="card-header">
+                        <h6 class="mb-0">@Model.RightTopTitle</h6>
+                    </div>
+                    <div class="card-body h-100">
+                        @Html.Raw(Model.RightTopContentHtml)
+                    </div>
+                </div>
+            </div>
+            <div class="splitter-bar">
+                <div class="splitter-controls">
+                    <span class="splitter-icon" data-dir="prev"></span>
+                    <span class="splitter-icon" data-dir="next"></span>
+                </div>
+            </div>
+
+            <div class="splitter-panel">
+                <div class="card radius-5 h-100">
+                    <div class="card-header">
+                        <h6 class="mb-0">@Model.RightBottomTitle</h6>
+                    </div>
+                    <div class="card-body h-100">
+                        @Html.Raw(Model.RightBottomContentHtml)
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

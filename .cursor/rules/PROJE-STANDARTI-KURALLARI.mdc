@@ -1,0 +1,28 @@
+---
+description: 
+alwaysApply: true
+---
+
+Her modal için, adı “frm” ile başlayan ayrı bir PartialView oluşturulmalıdır.
+
+Tüm AJAX isteklerinde, standart olarak genericAjax helper fonksiyonu kullanılmalıdır.
+
+Alert mesajları otomatik olarak AlertCreator tarafından oluşturulmaktadır. Bu nedenle backend’den ilgili sonucu dönmek yeterlidir; ayrıca manuel alert yazılmamalıdır.
+
+View içerisine kesinlikle JavaScript kodu yazılmamalıdır (zorunlu durumlar harici).
+
+DataGrid oluşturulurken mevcut helper fonksiyonlar kullanılmalıdır.
+
+Proje kapsamında yalnızca jQuery kullanılmalı, farklı bir JavaScript kütüphanesine geçilmemelidir.
+
+Modal açılırken içindeki selectleri veya başka bir alanı dolduracak kısımlar kesinlikle ajax ile değil ilgili controller actionın içinden viewe gönderilmeli ve razor ile doldurulmalıdır.
+
+Formlardaki input idleri ve nameleri entitydeki propertyi ile birebir olmalı ve form doldurulurken fillForm helper funcı kullanılmalı form okunurken de serializeForm funcı kullanılmalıdır.
+
+Modal da başarılı işlem sonucu modalı kapatmaya gerek yoktur post işlemlerinde documentEvent.js dosyasındaki kod sayesinde zaten kapanmaktadır , manuel yazmaya gerek yoktur.
+
+ek oalrak database scriptlerinde yeni tablo oluştururken asla foreign key kullanma 
+
+
+Backendeki yapı da her zaman yeni bir modül veya form tasarlerken fluent validation, automapper, request, dto ve entity configuration kullaılmalıdır
+Her taskdan önce utility klasörü gözden geçirilmeli ve bundan sonra bu kurallar asla aşılmadan ve bu bağlamda kod yazılmaya başlanmalıdır

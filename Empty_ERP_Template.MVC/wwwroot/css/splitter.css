@@ -1,0 +1,214 @@
+/* ================= SPLITTER BASE ================= */
+
+.splitter {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative
+}
+
+    .splitter.vertical {
+        flex-direction: row
+    }
+
+    .splitter.horizontal {
+        flex-direction: column
+    }
+
+.splitter-panel {
+    flex: 1 1 auto;
+    min-width: 0;
+    min-height: 0
+}
+
+/* ================= SPLITTER BAR ================= */
+
+.splitter-bar {
+    flex: 0 0 10px;
+    position: relative;
+    z-index: 15;
+    background: #e5e7eb;
+    transition: background-color .15s ease
+}
+
+.splitter.vertical .splitter-bar {
+    cursor: col-resize
+}
+
+.splitter.horizontal .splitter-bar {
+    cursor: row-resize
+}
+
+.splitter-bar:hover {
+    background: #cbd5e1
+}
+
+
+/* ================= SPLITTER CONTROLS ================= */
+
+.splitter-controls {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-60%,-50%);
+    display: flex;
+    opacity: 1;
+    pointer-events: auto
+}
+
+/* BAR DİKEYSE (sol–sağ) → ikonlar ALT ALTA */
+.splitter.vertical .splitter-bar .splitter-controls {
+    flex-direction: column;
+    gap: 4px
+}
+
+/* BAR YATAYSA (üst–alt) → ikonlar YAN YANA */
+.splitter.horizontal .splitter-bar .splitter-controls {
+    flex-direction: row;
+    gap: 6px
+}
+
+/* ================= HANDLE ICON ================= */
+
+.splitter-icon {
+    width: 14px;
+    height: 14px;
+    position: relative;
+    cursor: pointer
+}
+
+    .splitter-icon::before,
+    .splitter-icon::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 10px;
+        height: 2px;
+        background: #6b7280;
+        transform: translate(-50%,-50%)
+    }
+
+    .splitter-icon::after {
+        transform: translate(-50%,-50%) translateY(4px)
+    }
+
+.splitter.vertical .splitter-icon::before,
+.splitter.vertical .splitter-icon::after {
+    width: 2px;
+    height: 10px
+}
+
+.splitter.vertical .splitter-icon::after {
+    transform: translate(-50%,-50%) translateX(4px)
+}
+
+.splitter-icon:hover::before,
+.splitter-icon:hover::after {
+    background: #0d6efd
+}
+
+/* ================= COLLAPSE STATES ================= */
+
+.splitter.collapsed-prev > .splitter-panel:first-child {
+    flex: 0 0 0 !important;
+    overflow: hidden
+}
+
+.splitter.collapsed-next > .splitter-panel:last-child {
+    flex: 0 0 0 !important;
+    overflow: hidden
+}
+
+/* ================= DARK MODE ================= */
+
+body.dark .splitter-bar {
+    background: #374151
+}
+
+    body.dark .splitter-bar:hover {
+        background: #4b5563
+    }
+
+body.dark .splitter-icon::before,
+body.dark .splitter-icon::after {
+    background: #9ca3af
+}
+
+body.dark .splitter-icon:hover::before,
+body.dark .splitter-icon:hover::after {
+    background: #60a5fa
+}
+
+
+/* ================= RESPONSIVE: mobilde splitter bar gizlenir, paneller üst üste (tek DOM – JS aynı elemanlara bağlanır) ================= */
+
+@media (max-width: 991.98px) {
+    .splitter-bar {
+        display: none !important;
+    }
+    #fourCardMainSplitter,
+    #twoCardMainSplitter,
+    #tripleCardMainSplitter {
+        height: auto !important;
+        min-height: 0;
+        overflow: visible;
+    }
+    #fourCardMainSplitter .splitter,
+    #twoCardMainSplitter .splitter,
+    #tripleCardMainSplitter .splitter,
+    #fourCardMainSplitter,
+    #twoCardMainSplitter,
+    #tripleCardMainSplitter {
+        flex-direction: column !important;
+        height: auto !important;
+        overflow: visible;
+    }
+    #fourCardMainSplitter .splitter-panel,
+    #twoCardMainSplitter .splitter-panel,
+    #tripleCardMainSplitter .splitter-panel,
+    #fourCardMainSplitter .splitter .splitter-panel,
+    #tripleCardMainSplitter .splitter .splitter-panel {
+        flex: 0 0 auto !important;
+        min-height: 280px !important;
+        height: auto !important;
+        min-width: 0;
+        overflow: visible;
+    }
+    #fourCardMainSplitter .card,
+    #twoCardMainSplitter .card,
+    #tripleCardMainSplitter .card {
+        height: auto !important;
+        min-height: 280px;
+    }
+    #fourCardMainSplitter .card-body,
+    #twoCardMainSplitter .card-body,
+    #tripleCardMainSplitter .card-body {
+        height: auto !important;
+        min-height: 240px;
+        overflow: auto;
+        padding: 0.75rem;
+    }
+}
+/*.card {
+    height: 100%;
+}*/
+
+.card-body {
+    height: calc(100% - 48px);
+    padding: 0;
+    position: relative;
+}
+
+.card-body > .splitter {
+    height: 100%;
+}
+.splitter-bar {
+    align-self: stretch;
+    max-height: 100%;
+}
+.splitter-bar {
+    margin: 0px 0;
+    border-radius: 2px;
+}

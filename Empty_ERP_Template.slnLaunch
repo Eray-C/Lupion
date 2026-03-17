@@ -1,0 +1,17 @@
+[
+  {
+    "Name": "EMPTY_ERP_TEMPLATE",
+    "Projects": [
+      {
+        "Path": "Empty_ERP_Template.API\\Empty_ERP_Template.API.csproj",
+        "Action": "Start",
+        "DebugTarget": "Empty_ERP_Template HTTPS"
+      },
+      {
+        "Path": "Empty_ERP_Template.MVC\\Empty_ERP_Template.MVC.csproj",
+        "Action": "Start",
+        "DebugTarget": "Empty_ERP_Template MVC HTTPS"
+      }
+    ]
+  }
+]

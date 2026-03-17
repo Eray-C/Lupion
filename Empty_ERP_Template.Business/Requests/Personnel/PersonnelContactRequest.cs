@@ -1,0 +1,18 @@
+namespace Empty_ERP_Template.Business.Requests.Personnel;
+public class PersonnelContactRequest
+{
+    public int? Id { get; set; }
+    public int PersonnelId { get; set; }
+    public string? PersonalEmail { get; set; }
+    public string? WorkEmail { get; set; }
+    public string? MobilePhone { get; set; }
+    public string? HomePhone { get; set; }
+    public string? WorkPhone { get; set; }
+    public string? AddressLine1 { get; set; }
+    public string? AddressLine2 { get; set; }
+    public string? CityId { get; set; }
+    public string? StateId { get; set; }
+    public string? CountryId { get; set; }
+    public string? PostalCode { get; set; }
+    public string? Notes { get; set; }
+}

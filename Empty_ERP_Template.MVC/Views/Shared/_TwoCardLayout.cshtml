@@ -1,0 +1,34 @@
+@model TwoCardLayout
+
+<div id="twoCardMainSplitter" class="splitter vertical h-100">
+
+    <div class="splitter-panel">
+        <div class="card radius-5 h-100">
+            <div class="card-header">
+                <h6 class="mb-0">@Model.LeftTitle</h6>
+            </div>
+            <div class="card-body h-100">
+                @Html.Raw(Model.LeftContentHtml)
+            </div>
+        </div>
+    </div>
+
+    <div class="splitter-bar">
+        <div class="splitter-controls">
+            <span class="splitter-icon" data-dir="prev"></span>
+            <span class="splitter-icon" data-dir="next"></span>
+        </div>
+    </div>
+
+    <div class="splitter-panel">
+        <div class="card radius-5 h-100">
+            <div class="card-header">
+                <h6 class="mb-0">@Html.Raw(@Model.RightTitle)</h6>
+            </div>
+            <div class="card-body h-100">
+                @Model.RightContentHtml
+            </div>
+        </div>
+    </div>
+
+</div>

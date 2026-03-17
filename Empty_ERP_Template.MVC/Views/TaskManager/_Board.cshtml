@@ -1,0 +1,48 @@
+@model Empty_ERP_Template.MVC.Models.TaskManagerViewModel
+@{
+    Layout = null;
+    var statuses = Model.Statuses.ToList();
+    var tasks = Model.Tasks.ToList();
+    var statusCount = statuses.Count;
+    var columnWidth = statusCount > 0 ? 100 / statusCount : 100;
+    var doneStatusIds = Model.DoneStatusIds ?? Array.Empty<int>();
+}
+
+@foreach (var status in statuses)
+{
+    <div class="kanban-column" style="width:@columnWidth%;">
+        <div class="kanban-column-header">
+            @status.Name (@tasks.Count(x => x.StatusId == status.Id))
+        </div>
+
+        <div class="kanban-items" id="col_@status.Id" data-status-id="@status.Id">
+            @foreach (var t in tasks.Where(x => x.StatusId == status.Id))
+            {
+                <div class="kanban-item"
+                     draggable="true"
+                     data-task-id="@t.Id"
+                     data-status="@t.StatusId"
+                     data-priority="@t.PriorityId">
+                    <div class="row" style="display: flex; flex-direction: row; justify-content: space-evenly;">
+                        <div class="col-md-12">
+                            <div class="ticket-title" onclick="openEditModal(@t.Id)">
+                                @t.Description
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="kanban-card-footer">
+                        <div class="ticket-code">@(string.IsNullOrEmpty(t.TaskNumber) ? "" : t.TaskNumber)</div>
+                        <div class="ticket-priority">@(string.IsNullOrEmpty(t.PriorityName) ? "Öncelik Yok" : t.PriorityName)</div>
+                        <button class="btn-delete-task btn-attachment-task" data-id="@t.Id" onclick="openAttachmentModal('GeneralTaskAttachments',@t.Id)" title="Dosya"><i class="fa-solid fa-paperclip"></i></button>
+                        @if (doneStatusIds.Contains(status.Id))
+                        {
+                            <button type="button" class="btn-archive-task" data-id="@t.Id" onclick="archiveTask(@t.Id)" title="Arşivle"><i class="fa-solid fa-box-archive"></i><span class="ms-1">Arşivle</span></button>
+                        }
+                        <button class="btn-delete-task" data-id="@t.Id" onclick="deleteTask(@t.Id)" title="Sil"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+}

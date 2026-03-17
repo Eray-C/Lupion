@@ -1,0 +1,20 @@
+@model Empty_ERP_Template.MVC.ViewModels.RolePermissionsViewModel
+@{
+    Layout = null;
+}
+<div class="mb-3">
+    <label for="RoleId" class="form-label fw-bold">Rol</label>
+    <select class="form-select" id="RoleId" name="RoleId">
+        <option value="">Rol seçiniz...</option>
+        @foreach (var role in Model.Roles)
+        {
+            <option value="@role.Id">@role.Name</option>
+        }
+    </select>
+</div>
+<div id="rolePermissionsGrid" style="height: 65vh; max-height: 65vh; min-height: 280px;"></div>
+<div class="d-flex justify-content-between align-items-center mt-2 w-100">
+    <div class="d-flex gap-2">
+        <button type="button" class="btn btn-primary footer_btn" onclick="saveRolePermissions()">Ýzinleri Kaydet</button>
+    </div>
+</div>

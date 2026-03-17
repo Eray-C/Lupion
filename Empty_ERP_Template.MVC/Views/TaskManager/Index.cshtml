@@ -1,0 +1,64 @@
+@using System.Text.Json
+@model Empty_ERP_Template.MVC.Models.TaskManagerViewModel
+@{
+    ViewBag.Title = "İş Takipi";
+}
+<link href="~/css/task-manager.css" rel="stylesheet" />
+<div class="task-manager-wrapper">
+    <div class="kanban-header epic-kanban-header">
+        <div class="kanban-header-inner">
+            <div class="kanban-header-search">
+                <div class="form-group epic-input-group">
+                    <i class="glyphicon glyphicon-search epic-input-icon"></i>
+                    <input type="text" id="txtSearch" class="form-control epic-input" placeholder="Ara...">
+                </div>
+            </div>
+            <div class="kanban-header-actions">
+                <button id="btnAddTask" class="btn epic-btn" onclick="openAddModal()">
+                    <i class="fa-solid fa-list-check"></i><span class="btn-label">Yeni İş Ekle</span>
+                </button>
+                <button id="btnArchive" class="btn epic-btn" onclick="toggleArchiveMode()">
+                    <i class="fa-solid fa-box-archive"></i><span class="btn-text btn-label">Arşiv</span>
+                </button>
+                <button id="btnFilter" class="btn epic-btn">
+                    <i class="fa-solid fa-filter"></i><span class="btn-label">Filtre</span>
+                    <span id="filterCount" class="badge" style="background:#3a7bd5;">0</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="kanbanBoard" class="kanban-board">
+        <partial name="_Board" model="Model" />
+    </div>
+    <div id="kanbanGridContainer" style="display:none;">
+        <partial name="_Grid" model="Model" />
+    </div>
+</div>
+
+<div id="filterDrawer" class="d-none">
+    <div class="drawer-header">
+        <span class="drawer-title">Filtreler</span>
+        <button type="button" class="drawer-close-btn" onclick="closeFilterDrawer()" title="Kapat" aria-label="Kapat">
+            <i class="fa-solid fa-times"></i>
+        </button>
+    </div>
+    <div class="drawer-body">
+        <div class="drawer-left">
+            <div class="filter-category" data-type="status">Durum <span class="fc-badge"></span></div>
+            <div class="filter-category" data-type="priority">Öncelik <span class="fc-badge"></span></div>
+            <div class="filter-clear" style="margin-top:20px;">Hepsini Temizle</div>
+        </div>
+        <div class="drawer-right">
+            <div id="drawerOptions">Filtre oluşturmaya başlamak için bir alan seçin.</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    window.taskManagerLookups = {
+        statuses: @Html.Raw(JsonSerializer.Serialize(Model.Statuses)),
+        priorities: @Html.Raw(JsonSerializer.Serialize(Model.Priorities))
+    };
+</script>
+<script src="~/js/TaskManager/TaskManager.js"></script>

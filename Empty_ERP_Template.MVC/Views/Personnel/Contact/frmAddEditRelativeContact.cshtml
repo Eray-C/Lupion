@@ -1,0 +1,90 @@
+@using Empty_ERP_Template.Business.DTOs.Shared
+@model (IEnumerable<GeneralTypeDTO> relationshipTypes, IEnumerable<GeneralTypeDTO> genderTypes)
+
+@{
+    Layout = null;
+}
+<form id="personnelRelativeContactForm">
+    <input type="hidden" id="Id" name="Id" />
+    <input type="hidden" id="PersonnelId" name="PersonnelId" />
+    <div class="row mb-3">
+        <div class="col-md-3">
+            <label for="FirstName" class="form-label fw-bold">Ad</label>
+            <input id="FirstName" name="FirstName" class="form-control" required maxlength="100" />
+        </div>
+
+        <div class="col-md-3">
+            <label for="LastName" class="form-label fw-bold">Soyad</label>
+            <input id="LastName" name="LastName" class="form-control" required maxlength="100" />
+        </div>
+
+        <div class="col-md-3">
+            <label for="RelationshipTypeId" class="form-label fw-bold">Yakýnlýk Tipi</label>
+            <select id="RelationshipTypeId" name="RelationshipTypeId" class="form-select">
+                <option value="">Seçiniz...</option>
+                @foreach (var item in Model.relationshipTypes)
+                {
+                    <option value="@item.Id">@item.Name</option>
+                }
+            </select>
+        </div>
+  
+        <div class="col-md-3">
+            <label for="GenderTypeId" class="form-label fw-bold">Cinsiyet</label>
+            <select id="GenderTypeId" name="GenderTypeId" class="form-select">
+                <option value="">Seçiniz...</option>
+                @foreach (var item in Model.genderTypes)
+                {
+                    <option value="@item.Id">@item.Name</option>
+                }
+            </select>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-3">
+            <label for="DateOfBirth" class="form-label fw-bold">Doðum Tarihi</label>
+            <input id="DateOfBirth" name="DateOfBirth" type="date" class="form-control" />
+        </div>
+  
+        <div class="col-md-3">
+            <label for="IdentityNumber" class="form-label fw-bold">Kimlik No</label>
+            <input id="IdentityNumber" name="IdentityNumber" class="form-control" maxlength="50" />
+        </div>
+  
+        <div class="col-md-3">
+            <label for="ContactPhone" class="form-label fw-bold">Telefon</label>
+            <input id="ContactPhone" name="ContactPhone" class="form-control" maxlength="50" />
+        </div>
+    
+        <div class="col-md-3">
+            <label for="ContactEmail" class="form-label fw-bold">E-Posta</label>
+            <input id="ContactEmail" name="ContactEmail" type="email" class="form-control" maxlength="100" />
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-9">
+            <label for="Address" class="form-label fw-bold">Adres</label>
+            <input id="Address" name="Address" class="form-control" maxlength="250" />
+        </div>
+        <div class="col-md-3 form-check" style="padding-top:30px;">
+            <input id="IsEmergencyContact" name="IsEmergencyContact" type="checkbox" class="form-check-input" />
+            <label class="form-check-label" for="IsEmergencyContact">Acil Durumda Aranacak</label>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-12">
+            <label for="Notes" class="form-label fw-bold">Notlar</label>
+            <textarea id="Notes" name="Notes" class="form-control" rows="3"></textarea>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-md-12 d-flex justify-content-end gap-2">
+            <button type="button" class="btn btn-primary footer_btn" onclick="upsertPersonnelRelativeContact()">Kaydet</button>
+        </div>
+    </div>
+
+</form>

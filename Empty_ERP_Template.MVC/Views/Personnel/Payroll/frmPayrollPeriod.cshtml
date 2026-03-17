@@ -1,0 +1,56 @@
+@{
+    Layout = null;
+}
+
+<form id="payrollPeriodForm">
+    <div class="row g-3 mb-3">
+        <div class="col-md-4">
+            <label for="Year" class="form-label fw-bold">Yıl</label>
+            <input type="number" class="form-control" id="Year" name="Year" min="2000" max="2100" />
+        </div>
+        <div class="col-md-4">
+            <label for="Month" class="form-label fw-bold">Ay</label>
+            <select class="form-select" id="Month" name="Month">
+                <option value="1">Ocak</option>
+                <option value="2">Şubat</option>
+                <option value="3">Mart</option>
+                <option value="4">Nisan</option>
+                <option value="5">Mayıs</option>
+                <option value="6">Haziran</option>
+                <option value="7">Temmuz</option>
+                <option value="8">Ağustos</option>
+                <option value="9">Eylül</option>
+                <option value="10">Ekim</option>
+                <option value="11">Kasım</option>
+                <option value="12">Aralık</option>
+            </select>
+        </div>
+        <div class="col-md-4 d-flex align-items-end">
+            <button type="button" class="btn btn-primary btn-sm" onclick="payrollModalListele()">
+                 Listele
+            </button>
+        </div>
+        
+    </div>
+    <div class="mb-3" style="min-height: 350px;">
+        <div id="payroll_detail_grid_container"></div>
+    </div>
+    <div class="col-12">
+        <label for="Note" class="form-label fw-bold">Not</label>
+        <textarea class="form-control" id="Note" name="Note" rows="2" maxlength="4000"></textarea>
+    </div>
+
+
+    <div class="d-flex justify-content-end gap-2 mt-10">
+
+        <button type="button" class="btn btn-success  footer_btn" onclick="payrollModalOnayla()">
+           Onayla
+        </button>
+        <button type="button" class="btn btn-secondary  footer_btn" id="btn_modal_soft_delete" onclick="payrollModalSoftDeleteAndRelist()" disabled>
+           Sisteme Tekrar Hesaplat
+        </button>
+        <button type="button" class="btn btn-primary  footer_btn" id="btn_modal_realize" onclick="payrollModalRealizeAll()" disabled>
+            Ödendi Olarak İşaretle
+        </button>
+    </div>
+</form>

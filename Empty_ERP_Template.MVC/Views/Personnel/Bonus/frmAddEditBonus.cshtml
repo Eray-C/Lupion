@@ -1,0 +1,69 @@
+@using Empty_ERP_Template.Business.DTOs.Shared
+@using Empty_ERP_Template.Data.Entities.SharedEntities
+@model (IEnumerable<GeneralTypeDTO> Types, IReadOnlyList<(int Value, string Name)> Months, IEnumerable<Currency> Currencies)
+
+@{
+    Layout = null;
+    var bonusTypes = Model.Types;
+    var months = Model.Months;
+    var currencies = Model.Currencies;
+}
+
+<form id="personnelBonusForm">
+    <input type="hidden" id="Id" name="Id" />
+    <input type="hidden" id="PersonnelId" name="PersonnelId" />
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <label for="Year" class="form-label fw-bold">Yıl</label>
+            <input type="number" class="form-control" id="Year" name="Year" min="2000" max="2100" value="@DateTime.Now.Year" required />
+        </div>
+        <div class="col-md-6">
+            <label for="Month" class="form-label fw-bold">Ay</label>
+            <select class="form-select" id="Month" name="Month" required>
+                @foreach (var m in months)
+                {
+                    <option value="@m.Value" selected="@(m.Value == DateTime.Now.Month)">@m.Name</option>
+                }
+            </select>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-md-4">
+            <label for="TypeId" class="form-label fw-bold">Bonus Tipi</label>
+            <select class="form-select" id="TypeId" name="TypeId" required>
+                <option value="">Seçiniz</option>
+                @foreach (var item in bonusTypes)
+                {
+                    <option value="@item.Id">@item.Name</option>
+                }
+            </select>
+        </div>
+        <div class="col-md-4">
+            <label for="CurrencyCode" class="form-label fw-bold">Para Birimi</label>
+            <select class="form-select" id="CurrencyCode" name="CurrencyCode">
+                <option value="">Seçiniz</option>
+                @foreach (var item in currencies)
+                {
+                    <option value="@item.Code">@item.Name</option>
+                }
+            </select>
+        </div>
+        <div class="col-md-4">
+            <label for="Amount" class="form-label fw-bold">Tutar</label>
+            <input type="number" step="0.01" class="form-control" id="Amount" name="Amount" required />
+        </div>
+    </div>
+
+   
+
+    <div class="row mb-3">
+        <div class="col-md-12">
+            <label for="Notes" class="form-label fw-bold">Not</label>
+            <textarea class="form-control" id="Notes" name="Notes" rows="2" maxlength="1000"></textarea>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-end gap-2 mt-3">
+        <button type="button" class="btn btn-primary footer_btn" onclick="upsertPersonnelBonus()">Kaydet</button>
+    </div>
+</form>

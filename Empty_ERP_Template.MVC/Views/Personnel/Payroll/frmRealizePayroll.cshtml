@@ -1,0 +1,23 @@
+@{
+    Layout = null;
+}
+
+<form id="realizePayrollForm">
+    <input type="hidden" id="RealizeYear" />
+    <input type="hidden" id="RealizeMonth" />
+    <div class="row mb-3">
+        <div class="col-12">
+            <label for="RealizedDate" class="form-label fw-bold">Gerçekleşme Tarihi</label>
+            <input type="date" class="form-control" id="RealizedDate" name="RealizedDate" required />
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-12">
+            <label for="Notes" class="form-label fw-bold">Not</label>
+            <textarea class="form-control" id="Notes" name="Notes" rows="3" maxlength="1000"></textarea>
+        </div>
+    </div>
+    <div class="d-flex justify-content-end gap-2 mt-3">
+        <button type="button" class="btn btn-primary footer_btn" onclick="submitRealizePayroll()">Ödendi Olarak İşaretle</button>
+    </div>
+</form>

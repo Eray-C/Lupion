@@ -1,0 +1,222 @@
+:root {
+    --main-color: #9f5b00;
+}
+
+body {
+    font-size: 12px !important;
+}
+.logo-icon {
+    width: 70px
+}
+
+
+
+.logo-text {
+    font-size: 20px;
+    margin-left: 10px;
+    margin-bottom: 7px;
+    letter-spacing: 1px;
+    color: var(--main-color)
+}
+
+.page-content {
+    height: calc(100vh - 60px);
+}
+
+.page-wrapper {
+    margin-bottom: 0px;
+    margin-top: 50px;
+}
+
+.row > * {
+    padding-right: calc(var(--bs-gutter-x)* .3) !important;
+    padding-left: calc(var(--bs-gutter-x)* .3) !important;
+}
+
+.card {
+    margin-bottom: 10px !important;
+    /*    margin-top: 10px;
+*/ padding: 10px;
+}
+.card-body {
+    padding: 5px;
+    overflow: auto;
+}
+
+.row {
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+}
+.grid_container,
+.page-content {
+    padding: 10px 10px 0px 10px;
+}
+
+.toggle-icon i {
+    transition: transform 0.3s ease;
+}
+
+    .toggle-icon i.rotate {
+        transform: rotate(180deg);
+    }
+
+.topbar {
+    height: 50px;
+}
+
+.sidebar-header {
+    height: 50px;
+}
+
+
+
+.modal-header {
+    padding: 10px;
+}
+
+@media screen and (min-width: 1025px) {
+    .user-box {
+        padding: 0 10px;
+    }
+
+    .user-box-icon {
+        font-size: 25px;
+    }
+    .switcher-wrapper {
+        width: 200px;
+        right: -200px;
+    }
+    .dropdown-large .notify {
+        width: 30px;
+        height: 30px;
+        font-size: 20px;
+    }
+}
+
+form .row {
+    margin-bottom: 10px;
+}
+
+.chart_JS_chart {
+    transform: scale(0.9);
+    transform-origin: center;
+}
+
+.chart-wrapper-with-counts {
+    height: 100%;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.chart-wrapper-with-counts .chart_JS_chart {
+    flex: 1;
+    min-height: 0;
+}
+
+.chart-wrapper-with-counts .chart-wrapper-counts {
+    flex-shrink: 0;
+    overflow: auto;
+}
+
+/* Genel scroll bar ayarı */
+::-webkit-scrollbar {
+    width: 4px; /* dikey scroll genişliği */
+    height: 4px; /* yatay scroll yüksekliği */
+}
+
+/* Scroll bar arka planı */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+/* Scroll bar tutamacı */
+::-webkit-scrollbar-thumb {
+    background: var(--main-color); /* main color */
+    border-radius: 10px;
+    transition: background 0.3s ease;
+}
+
+    /* Hover efekti */
+    /*::-webkit-scrollbar-thumb:hover {
+        background: color-mix(in srgb, var(--main-color) 80%, black);*/ /* koyulaşır */
+    /*}*/
+
+/* Firefox desteği */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--main-color) #f1f1f1;
+}
+
+
+
+.custom_header {
+    color: #0d6efd;
+    margin-bottom: 15px;
+    margin-top: 5px;
+    border-bottom: 2px solid #0d6efd;
+    font-size: 14px;
+}
+
+
+
+.toggle-icon {
+    color: var(--main-color);
+}
+
+.switcher-btn {
+}
+.form-check.form-switch .form-check-input {
+    width: 3.6rem;
+    height: 1.5rem;
+    cursor: pointer;
+}
+
+    .form-check.form-switch .form-check-input:checked {
+        background-size: 1.4rem 1.4rem;
+    }
+
+.form-check.form-switch .form-check-label {
+    font-size: 0.95rem;
+    padding-left: 8px;
+    cursor: pointer;
+}
+
+.nav-tabs {
+    padding-top: 10px;
+}
+
+
+
+@media (min-width: 1200px) {
+    .modal-full {
+        --bs-modal-width: 1500px;
+    }
+}
+
+.app-item-link .app-box {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .5rem;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+.app-item-link:hover .app-box {
+    transform: scale(1.12);
+    box-shadow: 0 6px 20px rgba(159, 91, 0, 0.35);
+    background-color: rgba(159, 91, 0, 0.08);
+}
+.app-item-link:hover .app-title {
+    color: var(--main-color);
+    font-weight: 600;
+}
+.app-item-link .app-title {
+    transition: color 0.25s ease, font-weight 0.25s ease;
+}
+

@@ -1,0 +1,130 @@
+@using Empty_ERP_Template.Business.DTOs.Shared
+@model (IEnumerable<GeneralTypeDTO> genderTypes, IEnumerable<GeneralTypeDTO> personnelStatusTypes, IEnumerable<GeneralTypeDTO> departmentTypes, IEnumerable<GeneralTypeDTO> personnelTypes, IEnumerable<GeneralTypeDTO> maritalStatusTypes)
+
+@{
+    Layout = null;
+}
+
+<form id="personnelForm">
+    <input type="hidden" id="Id" name="Id" />
+    <input type="hidden" id="ExistingPhoto" name="ExistingPhoto" />
+
+    <div class="row mb-3">
+        <div class="col-md-10">
+            <div class="row mb-3">
+                <div class="col-md-3">
+                    <label for="FirstName" class="form-label fw-bold">Ad</label>
+                    <input type="text" class="form-control" id="FirstName" name="FirstName" required />
+                </div>
+                <div class="col-md-3">
+                    <label for="LastName" class="form-label fw-bold">Soyad</label>
+                    <input type="text" class="form-control" id="LastName" name="LastName" required />
+                </div>
+                <div class="col-md-3">
+                    <label for="GenderTypeId" class="form-label fw-bold">Cinsiyet</label>
+                    <select class="form-select" id="GenderTypeId" name="GenderTypeId">
+                        <option value="">Seçiniz</option>
+                        @foreach (var item in Model.genderTypes)
+                        {
+                            <option value="@item.Id">@item.Name</option>
+                        }
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label for="Photo" class="form-label fw-bold w-100 ">Fotoðraf</label>
+                    <input type="file" class="form-control mb-2" id="Photo" name="Photo"
+                           accept="image/*" onchange="previewPersonnelPhoto(event)" />
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3">
+                    <label for="DateOfBirth" class="form-label fw-bold">Doðum Tarihi</label>
+                    <input type="date" class="form-control" id="DateOfBirth" name="DateOfBirth" />
+                </div>
+                <div class="col-md-3">
+                    <label for="PlaceOfBirth" class="form-label fw-bold">Doðum Yeri</label>
+                    <input type="text" class="form-control" id="PlaceOfBirth" name="PlaceOfBirth" />
+                </div>
+                <div class="col-md-3">
+                    <label for="IdentityNumber" class="form-label fw-bold">Kimlik No</label>
+                    <input type="text" class="form-control" id="IdentityNumber" name="IdentityNumber" />
+                </div>
+                <div class="col-md-3">
+                    <label for="MaritalStatusTypeId" class="form-label fw-bold">Medeni Durum</label>
+                    <select class="form-select" id="MaritalStatusTypeId" name="MaritalStatusTypeId">
+                        <option value="">Seçiniz</option>
+                        @foreach (var item in Model.maritalStatusTypes)
+                        {
+                            <option value="@item.Id">@item.Name</option>
+                        }
+                    </select>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3">
+                    <label for="PersonnelTypeId" class="form-label fw-bold">Personel Tipi</label>
+                    <select class="form-select" id="PersonnelTypeId" name="PersonnelTypeId">
+                        <option value="">Seçiniz</option>
+                        @foreach (var item in Model.personnelTypes)
+                        {
+                            <option value="@item.Id">@item.Name</option>
+                        }
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label for="DepartmentTypeId" class="form-label fw-bold">Departman</label>
+                    <select class="form-select" id="DepartmentTypeId" name="DepartmentTypeId">
+                        <option value="">Seçiniz</option>
+                        @foreach (var item in Model.departmentTypes)
+                        {
+                            <option value="@item.Id">@item.Name</option>
+                        }
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label for="StartDate" class="form-label fw-bold">Ýþe Baþlama Tarihi</label>
+                    <input type="date" class="form-control" id="StartDate" name="StartDate" />
+                </div>
+                <div class="col-md-3">
+                    <label for="EndDate" class="form-label fw-bold">Ýþten Ayrýlma Tarihi</label>
+                    <input type="date" class="form-control" id="EndDate" name="EndDate" />
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3">
+                    <label for="Nationality" class="form-label fw-bold">Uyruk</label>
+                    <input type="text" class="form-control" id="Nationality" name="Nationality" />
+                </div>
+                <div class="col-md-3">
+                    <label for="StatusTypeId" class="form-label fw-bold">Durumu</label>
+                    <select class="form-select" id="StatusTypeId" name="StatusTypeId">
+                        <option value="">Seçiniz</option>
+                        @foreach (var item in Model.personnelStatusTypes)
+                        {
+                            <option value="@item.Id">@item.Name</option>
+                        }
+                    </select>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-md-2 d-flex flex-column align-items-center mt-2">
+            <img id="personnelPPpreview" src="/assets/images/avatars/blank-image.jpg"
+                 class="img-thumbnail"
+                 style="width:200px; height:200px; object-fit:cover;" />
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="Notes" class="form-label fw-bold">Notlar</label>
+        <textarea class="form-control" id="Notes" name="Notes" rows="3"></textarea>
+    </div>
+
+    <div class="d-flex justify-content-end gap-2 mt-10">
+        <button type="button" class="btn btn-primary footer_btn" onclick="upsertPersonnel()">Kaydet</button>
+    </div>
+</form>

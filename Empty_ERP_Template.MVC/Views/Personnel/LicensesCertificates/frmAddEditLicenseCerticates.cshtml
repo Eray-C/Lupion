@@ -1,0 +1,58 @@
+@using Empty_ERP_Template.Business.DTOs.Shared
+@model IEnumerable<GeneralTypeDTO>
+
+@{
+    Layout = null;
+}
+<form id="personnelLicenseForm">
+    <input type="hidden" id="Id" name="Id" />
+    <input type="hidden" id="PersonnelId" name="PersonnelId" />
+
+    <div class="row mb-3">
+        <div class="col-md-3">
+            <label for="LicenseTypeId" class="form-label fw-bold">Ehliyet / Sertifika Türü</label>
+            <select class="form-select" id="LicenseTypeId" name="LicenseTypeId" required>
+                <option value="">Seçiniz</option>
+                @foreach (var item in Model)
+                {
+                    <option value="@item.Id">@item.Name</option>
+                }
+            </select>
+        </div>
+        <div class="col-md-3">
+            <label for="LicenseNumber" class="form-label fw-bold">Ehliyet / Sertifika No</label>
+            <input type="text" class="form-control" id="LicenseNumber" name="LicenseNumber" maxlength="50" />
+        </div>
+        <div class="col-md-3">
+            <label for="Category" class="form-label fw-bold">Sýnýf / Kategori</label>
+            <input type="text" class="form-control" id="Category" name="Category" maxlength="50" />
+        </div>
+        <div class="col-md-3">
+            <label for="IssuedBy" class="form-label fw-bold">Veren Kurum</label>
+            <input type="text" class="form-control" id="IssuedBy" name="IssuedBy" maxlength="150" />
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-3">
+            <label for="IssueDate" class="form-label fw-bold">Veriliþ Tarihi</label>
+            <input type="date" class="form-control" id="IssueDate" name="IssueDate" />
+        </div>
+        <div class="col-md-3">
+            <label for="ExpiryDate" class="form-label fw-bold">Geçerlilik Bitiþ Tarihi</label>
+            <input type="date" class="form-control" id="ExpiryDate" name="ExpiryDate" />
+        </div>
+
+    </div> 
+    <div class="row mb-3">
+        <div class="col-md-12">
+            <label for="Notes" class="form-label fw-bold">Notlar</label>
+            <textarea class="form-control" id="Notes" name="Notes" rows="2" maxlength="1000"></textarea>
+        </div>
+
+    </div>
+
+    <div class="d-flex justify-content-end gap-2 mt-3">
+        <button type="button" class="btn btn-primary footer_btn" onclick="upsertPersonnelLicense()">Kaydet</button>
+    </div>
+</form>

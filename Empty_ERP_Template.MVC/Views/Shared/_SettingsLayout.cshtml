@@ -1,0 +1,16 @@
+﻿@model string
+
+<div class="switcher-wrapper">
+    <div class="switcher-btn">
+        <i class="bx bx-cog bx-spin"></i>
+    </div>
+    <div class="switcher-body p-3">
+        <div class="d-flex align-items-center">
+            <h6 class="mb-0 ">MODÜL AYARLARI</h6>
+            <button type="button" class="btn-close ms-auto close-switcher" aria-label="Close"></button>
+        </div>
+        <hr>
+
+        @Html.Raw(Model)
+    </div>
+</div>

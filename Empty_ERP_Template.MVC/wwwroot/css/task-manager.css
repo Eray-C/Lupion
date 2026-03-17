@@ -1,0 +1,881 @@
+.task-manager-wrapper {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.kanban-header-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+}
+
+.kanban-header-search {
+    flex: 1 1 200px;
+    min-width: 0;
+    max-width: 320px;
+}
+
+.kanban-header-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-left: auto;
+}
+
+.kanban-header-actions .epic-btn {
+    white-space: nowrap;
+    padding: 5px 12px;
+    font-size: 13px;
+}
+
+.kanban-header-actions .epic-btn i {
+    font-size: 13px;
+    margin-right: 4px;
+}
+
+.kanban-board {
+    background: white;
+    display: flex;
+    gap: 20px;
+    padding: 10px;
+    border-radius: 12px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+
+#kanbanGridContainer {
+    background: #ffffff;
+    border: 1px solid #e5e9f2;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.kanban-column {
+    background: linear-gradient(180deg, #f9f9f9, #f7f9fc);
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    height: calc(95vh - 140px);
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #e3e7ef;
+    transition: all .25s ease;
+    overflow: hidden;
+    flex: 1 1 0;
+    min-width: 0;
+    width: auto !important;
+}
+
+    .kanban-column::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .kanban-column::-webkit-scrollbar-track {
+        background: #f0f0f0;
+        border-radius: 10px;
+    }
+
+    .kanban-column::-webkit-scrollbar-thumb {
+        background: #c7c7c7;
+        border-radius: 10px;
+    }
+
+        .kanban-column::-webkit-scrollbar-thumb:hover {
+            background: #a8a8a8;
+        }
+
+
+.kanban-column-header {
+    font-weight: 600;
+    font-size: 16px;
+    padding: 2px 6px;
+    border-bottom: 1px solid #e1e5ee;
+    margin-bottom: 12px;
+    color: #2b3e5b;
+    letter-spacing: .4px;
+}
+
+.kanban-items {
+    flex: 1 1 0;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+    .kanban-items.drag-over {
+        background: #f0f6ff;
+        border: 1px dashed #2d8cf0;
+        border-radius: 10px;
+    }
+
+    .kanban-items::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .kanban-items::-webkit-scrollbar-thumb {
+        background: #cdd3dd;
+        border-radius: 10px;
+    }
+
+
+.kanban-item {
+    background: #ffffff;
+    border: none !important;
+    border-radius: 10px;
+    padding: 14px;
+    margin-bottom: 12px;
+    cursor: grab;
+    transition: all .25s ease;
+    position: relative;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    border-left: 4px solid #4a90e2;
+}
+
+    .kanban-item:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    }
+
+
+/* Title */
+.ticket-title {
+    font-weight: 600;
+    font-size: 14px;
+    color: #1f2d3d;
+    margin-bottom: 6px;
+    line-height: 1.4;
+    transition: .2s;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word;
+    white-space: normal;
+}
+
+    .ticket-title:hover {
+        color: #2d8cf0;
+    }
+
+.kanban-card-footer {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 6px;
+    margin-top: 8px;
+}
+
+.kanban-card-footer .ticket-code {
+    flex-shrink: 0;
+    max-width: 85px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.kanban-card-footer .ticket-priority {
+    flex-shrink: 0;
+}
+
+.kanban-card-footer .btn-delete-task,
+.kanban-card-footer .btn-archive-task {
+    flex-shrink: 0;
+    margin-left: 0;
+}
+
+/* Codes */
+.ticket-code {
+    padding: 4px 8px;
+    background: #eef3fa;
+    border-radius: 6px;
+    display: inline-block;
+    font-size: 12px;
+    color: #445b78;
+    font-weight: 500;
+}
+
+.ticket-priority {
+    padding: 4px 10px;
+    border-radius: 6px;
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    color: #2c3e50;
+    background: linear-gradient(120deg, #ffedd5, #ffe4c4);
+    border: 1px solid #ffc48c;
+    text-align: center;
+}
+
+/* Button icons */
+.btn-delete-task {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+    .btn-delete-task i {
+        font-size: 15px;
+    }
+
+    .btn-delete-task:hover i {
+        transform: scale(1.2);
+    }
+
+/* Attachment button */
+.btn-attachment-task i {
+    color: #2574d0;
+}
+
+.btn-attachment-task:hover i {
+    color: #0e55a2;
+}
+
+.btn-archive-task {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: .2s ease;
+    font-size: 12px;
+    color: #6c757d;
+}
+
+.btn-archive-task:hover {
+    color: #495057;
+}
+
+.btn-archive-task i {
+    font-size: 14px;
+}
+
+/* Delete button */
+.btn-delete-task[title="Delete"] i {
+    color: #da3b3b;
+}
+
+.btn-delete-task[title="Delete"]:hover i {
+    color: #a32020;
+}
+
+/* Dragging State */
+.dragging {
+    opacity: 0.35;
+    transform: scale(0.95);
+}
+
+.filter-panel {
+    width: 320px;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    position: absolute;
+    top: 60px;
+    left: 15px;
+    z-index: 999;
+    display: none;
+    height: 500px;
+}
+
+.filter-left {
+    width: 120px;
+    border-right: 1px solid #eee;
+    float: left;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.filter-right {
+    margin-left: 120px;
+    padding: 10px;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.filter-category {
+    padding: 10px;
+    cursor: pointer;
+    border-left: 3px solid transparent;
+}
+
+    .filter-category.active {
+        background: #e7f1ff;
+        border-left: 3px solid #4c9aff;
+        font-weight: bold;
+    }
+
+.filter-item {
+    padding: 6px;
+    display: flex;
+    align-items: center;
+}
+
+    .filter-item img {
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        margin-right: 8px;
+    }
+
+.btn-delete-task {
+    background: transparent;
+    border: none;
+    color: #c00;
+    cursor: pointer;
+    right: 8px;
+    top: 8px;
+    border: none;
+    background: transparent;
+    color: red;
+}
+
+    .btn-delete-task:hover {
+        color: #900;
+    }
+
+.epic-kanban-header {
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #ffffff, #f4f7fb);
+    border-radius: 10px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.09);
+    border: 1px solid #e5e9f2;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+}
+
+    .epic-kanban-header:hover {
+        box-shadow: 0 6px 22px rgba(0,0,0,0.12);
+    }
+
+/* Input group */
+.epic-input-group {
+    position: relative;
+}
+
+.epic-input-icon {
+    position: absolute;
+    left: 12px;
+    top: 10px;
+    color: #8896a8;
+    font-size: 14px;
+}
+
+.epic-input {
+    padding-left: 32px;
+    border-radius: 6px;
+    border: 1px solid #d4d9e2;
+    height: 36px;
+    transition: 0.2s ease;
+}
+
+    .epic-input:focus {
+        border-color: #4a90e2;
+        box-shadow: 0 0 5px rgba(74,144,226,0.4);
+    }
+
+/* Select */
+.epic-select {
+    border-radius: 6px;
+    border: 1px solid #d4d9e2;
+    height: 36px;
+    transition: 0.2s ease;
+}
+
+    .epic-select:focus {
+        border-color: #4a90e2;
+        box-shadow: 0 0 5px rgba(74,144,226,0.3);
+    }
+
+/* EPIC button */
+.epic-btn {
+    background: linear-gradient(135deg, #2d8cf0, #1776d2);
+    border: none;
+    padding: 4px 10px;
+    border-radius: 6px;
+    color: #fff;
+    font-weight: 500;
+    font-size: 13px;
+    transition: all .25s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.12);
+}
+
+    .epic-btn:hover {
+        background: linear-gradient(135deg, #1776d2, #0f5ba8);
+        box-shadow: 0 5px 12px rgba(0,0,0,0.20);
+    }
+
+.target-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    display: inline-block;
+    border: 2px solid #ccc;
+}
+
+    .target-dot.red {
+        background: #e74c3c;
+        border-color: #c0392b;
+    }
+
+    .target-dot.yellow {
+        background: #f1c40f;
+        border-color: #d4ac0d;
+    }
+
+    .target-dot.white {
+        background: #ffffff;
+        border-color: #bdc3c7;
+    }
+
+#filterDrawer {
+    position: fixed;
+    top: 0;
+    right: -500px;
+    width: 500px;
+    height: 100%;
+    background: #fff;
+    box-shadow: -3px 0 10px rgba(0,0,0,0.15);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    transition: right .3s ease;
+    border-left: 1px solid #ddd;
+}
+
+.drawer-open {
+    right: 0 !important;
+    display: flex !important;
+}
+
+.drawer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 16px;
+    border-bottom: 1px solid #eee;
+    flex-shrink: 0;
+    background: #fafbfc;
+}
+
+.drawer-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 0;
+}
+
+.drawer-close-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: #6b7280;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: color .2s, background .2s;
+}
+
+.drawer-close-btn:hover {
+    color: #1f2937;
+    background: #e5e7eb;
+}
+
+.drawer-close-btn i {
+    font-size: 18px;
+}
+
+.drawer-body {
+    display: flex;
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.drawer-left {
+    width: 180px;
+    border-right: 1px solid #eee;
+    padding: 15px;
+    overflow-y: auto;
+}
+
+.drawer-right {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    min-width: 0;
+}
+
+.filter-category {
+    padding: 10px;
+    cursor: pointer;
+    border-left: 3px solid transparent;
+    margin-bottom: 5px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+    .filter-category.active {
+        background: #eaf3ff;
+        border-left: 3px solid #3a7bd5;
+        font-weight: bold;
+    }
+
+.fc-badge {
+    background: #3a7bd5;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    margin-left: 5px;
+}
+
+.filter-clear {
+    color: #d9534f;
+    margin-top: 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.filter-item-label {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.filter-options-box {
+    overflow-y: scroll;
+    max-height: 600px;
+}
+
+
+.epic-grid-shell {
+    min-height: 70vh;
+}
+
+/* Sağ panel container */
+#drawerOptions {
+    padding: 8px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.filter-option-card {
+    border: 1px solid #E5E7EB;
+    border-radius: 10px;
+    padding: 10px 12px;
+    cursor: pointer;
+    transition: all .2s ease;
+    background: #fff;
+}
+
+    .filter-option-card:hover {
+        background: #F8FAFC;
+        border-color: #3B82F6;
+    }
+
+    .filter-option-card.active {
+        background: #EFF6FF;
+        border-color: #2563EB;
+    }
+
+    .filter-option-card input[type="checkbox"] {
+        margin-top: 0;
+    }
+
+.filter-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.filter-text {
+    font-weight: 600;
+    color: #1F2937;
+    user-select: none;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .kanban-column {
+        height: calc(95vh - 160px);
+    }
+}
+
+@media (max-width: 992px) {
+    .epic-kanban-header {
+        padding: 10px 14px;
+    }
+
+    .kanban-board {
+        gap: 12px;
+        padding: 8px;
+    }
+
+    .kanban-column {
+        min-width: 240px;
+        width: 240px !important;
+        padding: 12px;
+        height: calc(95vh - 150px);
+    }
+
+    .kanban-column-header {
+        font-size: 14px;
+    }
+
+    .kanban-item {
+        padding: 10px 12px;
+    }
+
+    .ticket-title {
+        font-size: 13px;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+    }
+
+    .kanban-card-footer .ticket-code {
+        max-width: 70px;
+    }
+
+    .btn-archive-task .ms-1 {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .task-manager-wrapper {
+        padding: 0 4px;
+    }
+
+    .epic-kanban-header {
+        padding: 8px 10px;
+        margin-bottom: 8px;
+    }
+
+    .kanban-header-inner {
+        gap: 8px;
+    }
+
+    .kanban-header-search {
+        flex: 1 1 100%;
+        order: 1;
+    }
+
+    .kanban-header-actions {
+        flex: 1 1 100%;
+        order: 2;
+        justify-content: flex-start;
+    }
+
+    .kanban-board {
+        gap: 10px;
+        padding: 6px;
+        margin: 0 -4px;
+    }
+
+    .kanban-column {
+        min-width: 220px;
+        width: 220px !important;
+        padding: 10px;
+        height: calc(90vh - 140px);
+        min-height: 280px;
+    }
+
+    .kanban-column-header {
+        font-size: 13px;
+        padding: 2px 4px;
+    }
+
+    .kanban-item {
+        padding: 8px 10px;
+        margin-bottom: 8px;
+    }
+
+    .ticket-code {
+        font-size: 11px;
+        padding: 3px 6px;
+    }
+
+    .ticket-priority {
+        font-size: 9px;
+        padding: 3px 6px;
+    }
+
+    .epic-btn {
+        padding: 6px 10px;
+        font-size: 13px;
+    }
+
+    .epic-btn .btn-label {
+        display: none;
+    }
+
+    .epic-btn .badge {
+        margin-left: 2px;
+    }
+
+    #filterDrawer {
+        width: 100%;
+        max-width: 100%;
+        right: -100%;
+    }
+
+    .drawer-header {
+        padding: 10px 12px;
+    }
+
+    .drawer-title {
+        font-size: 14px;
+    }
+
+    .drawer-close-btn {
+        width: 32px;
+        height: 32px;
+    }
+
+    .drawer-close-btn i {
+        font-size: 16px;
+    }
+
+    .drawer-left {
+        width: 130px;
+        padding: 10px;
+    }
+
+    .drawer-right {
+        padding: 10px 12px;
+    }
+
+    #filterDrawer .filter-category {
+        padding: 8px 10px;
+        font-size: 13px;
+        margin-bottom: 4px;
+    }
+
+    #filterDrawer .fc-badge {
+        padding: 4px 8px;
+        font-size: 10px;
+    }
+
+    #filterDrawer .filter-clear {
+        font-size: 13px;
+        margin-top: 14px;
+    }
+
+    #drawerOptions {
+        padding: 6px 10px;
+        gap: 8px;
+    }
+
+    .filter-option-card {
+        padding: 8px 10px;
+        border-radius: 8px;
+        font-size: 13px;
+    }
+
+    .filter-option-card .filter-text {
+        font-size: 13px;
+    }
+
+    .filter-option-card .filter-dot {
+        width: 8px;
+        height: 8px;
+    }
+
+    #kanbanGridContainer {
+        padding: 10px;
+    }
+
+    #task_archive_grid {
+        max-height: calc(90vh - 120px) !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .kanban-column {
+        min-width: 200px;
+        width: 200px !important;
+        height: calc(88vh - 130px);
+    }
+
+    .kanban-card-footer {
+        gap: 4px;
+        margin-top: 6px;
+    }
+
+    .kanban-card-footer .ticket-code {
+        max-width: 60px;
+        font-size: 10px;
+    }
+
+    .btn-delete-task i,
+    .btn-archive-task i {
+        font-size: 13px;
+    }
+
+    .drawer-header {
+        padding: 8px 10px;
+    }
+
+    .drawer-title {
+        font-size: 13px;
+    }
+
+    .drawer-close-btn {
+        width: 28px;
+        height: 28px;
+    }
+
+    .drawer-close-btn i {
+        font-size: 14px;
+    }
+
+    .drawer-left {
+        width: 110px;
+        padding: 8px;
+    }
+
+    .drawer-right {
+        padding: 8px 10px;
+    }
+
+    #filterDrawer .filter-category {
+        padding: 6px 8px;
+        font-size: 12px;
+    }
+
+    #filterDrawer .fc-badge {
+        padding: 3px 6px;
+        font-size: 9px;
+    }
+
+    #filterDrawer .filter-clear {
+        font-size: 12px;
+        margin-top: 10px;
+    }
+
+    .filter-option-card {
+        padding: 6px 8px;
+        border-radius: 6px;
+        font-size: 12px;
+    }
+
+    .filter-option-card .filter-text {
+        font-size: 12px;
+    }
+}

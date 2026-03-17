@@ -1,0 +1,65 @@
+@using Empty_ERP_Template.MVC.Models
+@model TripleCardLayout
+
+<div id="tripleCardMainSplitter" class="splitter vertical h-100">
+
+    <div class="splitter-panel" style="flex: 0 0 20%;">
+        <div class="card radius-5 h-100 d-flex flex-column">
+            <div class="card-header">
+                <div class="d-flex align-items-center">
+                    <h6 class="mb-0">@Model.LeftTitle</h6>
+                </div>
+            </div>
+            <div class="card-body d-flex flex-column flex-grow-1">
+                <div class="grid_container flex-grow-1">
+                    @Model.LeftContent
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="splitter-bar">
+        <div class="splitter-controls">
+            <span class="splitter-icon" data-dir="prev"></span>
+            <span class="splitter-icon" data-dir="next"></span>
+        </div>
+    </div>
+
+    <div class="splitter-panel" style="flex: 1 1 80%;">
+        <div id="tripleCardRightSplitter" class="splitter horizontal h-100">
+            <div class="splitter-panel" style="flex: 0 0 70%;">
+                <div class="card radius-5 h-100 d-flex flex-column">
+                    <div class="card-header">
+                        <div class="d-flex align-items-center">
+                            <h6 class="mb-0">@Model.RightTopTitle</h6>
+                        </div>
+                    </div>
+                    <div class="card-body flex-grow-1 d-flex flex-column">
+                        @Model.RightTopContent
+                    </div>
+                </div>
+            </div>
+
+            <div class="splitter-bar">
+                <div class="splitter-controls">
+                    <span class="splitter-icon" data-dir="prev"></span>
+                    <span class="splitter-icon" data-dir="next"></span>
+                </div>
+            </div>
+
+            <div class="splitter-panel" style="flex: 0 0 30%;">
+                <div class="card radius-5 h-100 d-flex flex-column">
+                    <div class="card-header">
+                        <div class="d-flex align-items-center">
+                            <h6 class="mb-0">@Model.RightBottomTitle</h6>
+                        </div>
+                    </div>
+                    <div class="card-body flex-grow-1 d-flex flex-column">
+                        @Model.RightBottomContent
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

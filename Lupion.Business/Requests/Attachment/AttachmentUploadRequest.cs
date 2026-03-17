@@ -17,7 +17,7 @@ public class AttachmentUploadRequest
 
     public List<string>? Comments { get; set; }
 
-    /// <summary>Her dosya iÃ§in Types tablosundan dosya tipi id (Ã¶rn. PersonnelDocumentType).</summary>
+    /// <summary>Her dosya için Types tablosundan dosya tipi id (örn. PersonnelDocumentType).</summary>
     public List<int?>? DocumentTypeIds { get; set; }
 }
 

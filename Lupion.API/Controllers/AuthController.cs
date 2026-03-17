@@ -14,24 +14,24 @@ public class AuthController(AuthService authService) : BaseController
     {
         var token = await authService.LoginAsync(loginRequest);
         var response = new LoginResponse { Token = token };
-        return Ok(response, "GiriÅŸ iÅŸlemi baÅŸarÄ±lÄ±");
+        return Ok(response, "Giriş işlemi başarılı");
     }
 
     [HttpPost("logout")]
-    public IActionResult Logout() => Ok("Ã‡Ä±kÄ±ÅŸ iÅŸlemi baÅŸarÄ±lÄ±");
+    public IActionResult Logout() => Ok("Çıkış işlemi başarılı");
 
     [HttpPost("register")]
     public async Task<IActionResult> RegisterAsync([FromBody] RegisterRequest registerRequest)
     {
         await authService.RegisterAsync(registerRequest);
 
-        return Ok("KayÄ±t baÅŸarÄ±lÄ±");
+        return Ok("Kayıt başarılı");
     }
     [HttpPut("update/{id}")]
     public async Task<IActionResult> UpdateAsync(int id, [FromBody] RegisterRequest registerRequest)
     {
         await authService.UpdateAsync(id, registerRequest);
 
-        return Ok("KayÄ±t baÅŸarÄ±lÄ±");
+        return Ok("Kayıt başarılı");
     }
 }

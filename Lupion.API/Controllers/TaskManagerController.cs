@@ -41,7 +41,7 @@ public class TaskManagerController(TaskManagerService taskManagerService, Shared
     public async Task<IActionResult> CreateAsync([FromBody] TaskRequest request)
     {
         var id = await taskManagerService.CreateAsync(request);
-        return Ok(id, "GÃ¶rev baÅŸarÄ±yla oluÅŸturuldu.");
+        return Ok(id, "Görev başarıyla oluşturuldu.");
     }
 
     [HttpGet("tasks/next-number")]
@@ -55,7 +55,7 @@ public class TaskManagerController(TaskManagerService taskManagerService, Shared
     public async Task<IActionResult> UpdateAsync(int id, [FromBody] TaskRequest request)
     {
         await taskManagerService.UpdateAsync(id, request);
-        return Ok("GÃ¶rev baÅŸarÄ±yla gÃ¼ncellendi.");
+        return Ok("Görev başarıyla güncellendi.");
     }
 
     [HttpPost("tasks/{id:int}/status")]
@@ -63,19 +63,19 @@ public class TaskManagerController(TaskManagerService taskManagerService, Shared
     {
         if (id != request.TaskId)
         {
-            return BadRequest("Ä°stek yolu ile gÃ¶vde task kimlikleri eÅŸleÅŸmiyor.");
+            return BadRequest("İstek yolu ile gövde task kimlikleri eşleşmiyor.");
         }
 
 
         await taskManagerService.UpdateStatusAsync(request);
-        return Ok("GÃ¶rev durumu gÃ¼ncellendi.");
+        return Ok("Görev durumu güncellendi.");
     }
 
     [HttpDelete("tasks/{id:int}")]
     public async Task<IActionResult> DeleteAsync(int id)
     {
         await taskManagerService.DeleteAsync(id);
-        return Ok("GÃ¶rev baÅŸarÄ±yla silindi.");
+        return Ok("Görev başarıyla silindi.");
     }
 
     [HttpGet("lookups")]
@@ -99,7 +99,7 @@ public class TaskManagerController(TaskManagerService taskManagerService, Shared
     public async Task<IActionResult> UnarchiveTask(int id)
     {
         await taskManagerService.UnarchiveAsync(id);
-        return Ok("GÃ¶rev arÅŸivden geri alÄ±ndÄ±.");
+        return Ok("Görev arşivden geri alındı.");
     }
 
 }

@@ -42,7 +42,7 @@ public class JwtUserViewBagFilter : IActionFilter
         }
         catch
         {
-            // HatalÄ± veya geÃ§ersiz token varsa sessizce geÃ§
+            // Hatalı veya geçersiz token varsa sessizce geç
         }
     }
 

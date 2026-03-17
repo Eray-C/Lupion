@@ -25,8 +25,6 @@ public class AttachmentsController(AttachmentService attachmentService) : BaseCo
     public async Task<IActionResult> GetFileUrl(int id)
     {
         var result = await attachmentService.GetPresignedUrlAsync(id);
-        if (result == null)
-            return NotFound(new { success = false, message = "Dosya bulunamadÄ±" });
 
         return Ok(new { success = true, url = result.Value.Url, fileName = result.Value.FileName });
     }
@@ -35,6 +33,6 @@ public class AttachmentsController(AttachmentService attachmentService) : BaseCo
     {
         await attachmentService.DeleteAsync(id);
 
-        return Ok("Dosya baÅŸarÄ±yla silindi!");
+        return Ok();
     }
 }

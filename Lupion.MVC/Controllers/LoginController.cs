@@ -51,7 +51,7 @@ public class LoginController(AuthService authService) : BaseController
                     Token = token
                 },
                 Success = true,
-                Message = "GiriÅŸ iÅŸlemi baÅŸarÄ±lÄ±"
+                Message = "Giriş işlemi başarılı"
             };
 
             return Ok(response);
@@ -80,7 +80,7 @@ public class LoginController(AuthService authService) : BaseController
         try
         {
             await authService.GeneratePasswordResetTokenAsync(request);
-            return Ok(new BaseResponse { Success = true, Message = "Åifre sÄ±fÄ±rlama e-postasÄ± gÃ¶nderildi" });
+            return Ok(new BaseResponse { Success = true, Message = "Şifre sıfırlama e-postası gönderildi" });
         }
         catch (Exception ex)
         {
@@ -94,7 +94,7 @@ public class LoginController(AuthService authService) : BaseController
         try
         {
             await authService.ResetPasswordAsync(request);
-            return Ok(new BaseResponse { Success = true, Message = "Åifre gÃ¼ncellendi" });
+            return Ok(new BaseResponse { Success = true, Message = "Şifre güncellendi" });
         }
         catch (Exception ex)
         {
@@ -110,7 +110,7 @@ public class LoginController(AuthService authService) : BaseController
         var response = new BaseResponse
         {
             Success = true,
-            Message = "Ã‡Ä±kÄ±ÅŸ iÅŸlemi baÅŸarÄ±lÄ±"
+            Message = "Çıkış işlemi başarılı"
         };
 
         return Ok(response);

@@ -38,13 +38,13 @@ public class PutRequestValidationFilter : IAsyncActionFilter
             return;
         }
 
-        // Body iÃ§inde Id propertyâ€™si (case-insensitive)
+        // Body içinde Id propertyâ€™si (case-insensitive)
         var idProp = bodyArg.Value.GetType()
             .GetProperty("Id", BindingFlags.Public | BindingFlags.Instance | BindingFlags.IgnoreCase);
 
         if (idProp is null)
         {
-            context.Result = new BadRequestObjectResult(new { Message = "Request iÃ§inde Id bulunamadÄ±." });
+            context.Result = new BadRequestObjectResult(new { Message = "Request içinde Id bulunamadı." });
             return;
         }
 
@@ -53,7 +53,7 @@ public class PutRequestValidationFilter : IAsyncActionFilter
 
         if (routeIdStr is null || bodyIdStr is null || !string.Equals(routeIdStr, bodyIdStr, StringComparison.Ordinal))
         {
-            context.Result = new BadRequestObjectResult(new { Message = "URL id ile body iÃ§indeki Id uyuÅŸmuyor." });
+            context.Result = new BadRequestObjectResult(new { Message = "URL id ile body içindeki Id uyuşmuyor." });
             return;
         }
 

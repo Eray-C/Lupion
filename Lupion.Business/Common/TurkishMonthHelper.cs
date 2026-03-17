@@ -4,9 +4,9 @@ public static class TurkishMonthHelper
 {
     private static readonly IReadOnlyDictionary<int, string> Names = new Dictionary<int, string>
     {
-        { 1, "Ocak" }, { 2, "Åubat" }, { 3, "Mart" }, { 4, "Nisan" }, { 5, "MayÄ±s" },
-        { 6, "Haziran" }, { 7, "Temmuz" }, { 8, "AÄŸustos" }, { 9, "EylÃ¼l" },
-        { 10, "Ekim" }, { 11, "KasÄ±m" }, { 12, "AralÄ±k" }
+        { 1, "Ocak" }, { 2, "Şubat" }, { 3, "Mart" }, { 4, "Nisan" }, { 5, "Mayıs" },
+        { 6, "Haziran" }, { 7, "Temmuz" }, { 8, "Ağustos" }, { 9, "Eylül" },
+        { 10, "Ekim" }, { 11, "Kasım" }, { 12, "Aralık" }
     };
 
     public static string GetName(int month)

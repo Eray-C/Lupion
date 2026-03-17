@@ -3,7 +3,7 @@
 namespace Lupion.Data.Enums;
 
 /// <summary>
-/// PlanlÄ± sevkiyat gÃ¼nleri. DeÄŸerler .NET DayOfWeek ile uyumlu (0 = Pazar, 6 = Cumartesi).
+/// Planlı sevkiyat günleri. Değerler .NET DayOfWeek ile uyumlu (0 = Pazar, 6 = Cumartesi).
 /// </summary>
 public enum ScheduleDay
 {
@@ -13,13 +13,13 @@ public enum ScheduleDay
     [Display(Name = "Pazartesi")]
     Pazartesi = 1,
 
-    [Display(Name = "SalÄ±")]
+    [Display(Name = "Salı")]
     Sali = 2,
 
-    [Display(Name = "Ã‡arÅŸamba")]
+    [Display(Name = "Çarşamba")]
     Carsamba = 3,
 
-    [Display(Name = "PerÅŸembe")]
+    [Display(Name = "Perşembe")]
     Persembe = 4,
 
     [Display(Name = "Cuma")]

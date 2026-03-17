@@ -7,6 +7,6 @@ public class RoleRequestValidator : AbstractValidator<RoleRequest>
 {
     public RoleRequestValidator()
     {
-        RuleFor(x => x.Name).NotEmpty().WithMessage("Rol adÄ± zorunludur.").MinimumLength(2).WithMessage("Rol adÄ± en az 2 karakter olmalÄ±dÄ±r.");
+        RuleFor(x => x.Name).NotEmpty().WithMessage("Rol adı zorunludur.").MinimumLength(2).WithMessage("Rol adı en az 2 karakter olmalıdır.");
     }
 }

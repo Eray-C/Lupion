@@ -14,7 +14,7 @@
     <input type="hidden" id="PersonnelId" name="PersonnelId" />
     <div class="row mb-3">
         <div class="col-md-6">
-            <label for="Year" class="form-label fw-bold">YÄ±l</label>
+            <label for="Year" class="form-label fw-bold">Yıl</label>
             <input type="number" class="form-control" id="Year" name="Year" min="2000" max="2100" value="@DateTime.Now.Year" required />
         </div>
         <div class="col-md-6">
@@ -31,7 +31,7 @@
         <div class="col-md-4">
             <label for="TypeId" class="form-label fw-bold">Bonus Tipi</label>
             <select class="form-select" id="TypeId" name="TypeId" required>
-                <option value="">SeÃ§iniz</option>
+                <option value="">Seçiniz</option>
                 @foreach (var item in bonusTypes)
                 {
                     <option value="@item.Id">@item.Name</option>
@@ -41,7 +41,7 @@
         <div class="col-md-4">
             <label for="CurrencyCode" class="form-label fw-bold">Para Birimi</label>
             <select class="form-select" id="CurrencyCode" name="CurrencyCode">
-                <option value="">SeÃ§iniz</option>
+                <option value="">Seçiniz</option>
                 @foreach (var item in currencies)
                 {
                     <option value="@item.Code">@item.Name</option>

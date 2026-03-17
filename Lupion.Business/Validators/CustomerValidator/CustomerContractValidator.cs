@@ -11,20 +11,20 @@ public class CustomerContractValidator : AbstractValidator<CustomerContractReque
             .GreaterThan(0);
 
         RuleFor(x => x.ContractNumber)
-            .MaximumLength(100).WithMessage("SÃ¶zleÅŸme numarasÄ± 100 karakterden uzun olamaz.")
+            .MaximumLength(100).WithMessage("Sözleşme numarası 100 karakterden uzun olamaz.")
             .When(x => !string.IsNullOrEmpty(x.ContractNumber));
 
         RuleFor(x => x.EndDate)
             .GreaterThan(x => x.StartDate)
             .When(x => x.StartDate.HasValue && x.EndDate.HasValue)
-            .WithMessage("BitiÅŸ tarihi baÅŸlangÄ±Ã§ tarihinden bÃ¼yÃ¼k olmalÄ±dÄ±r.");
+            .WithMessage("Bitiş tarihi başlangıç tarihinden büyük olmalıdır.");
 
         RuleFor(x => x.Description)
-            .MaximumLength(1000).WithMessage("AÃ§Ä±klama 1000 karakterden uzun olamaz.")
+            .MaximumLength(1000).WithMessage("Açıklama 1000 karakterden uzun olamaz.")
             .When(x => !string.IsNullOrEmpty(x.Description));
 
         RuleFor(x => x.FreightTerms)
-            .MaximumLength(500).WithMessage("Navlun ÅŸartlarÄ± 500 karakterden uzun olamaz.")
+            .MaximumLength(500).WithMessage("Navlun şartları 500 karakterden uzun olamaz.")
             .When(x => !string.IsNullOrEmpty(x.FreightTerms));
 
         RuleFor(x => x.PriceList)

@@ -9,7 +9,7 @@ public static class TaskStatusHelper
         return statuses
             .Where(status => string.Equals(status.Code, "done", StringComparison.OrdinalIgnoreCase)
                              || string.Equals(status.Name, "done", StringComparison.OrdinalIgnoreCase)
-                             || string.Equals(status.Name, "tamamlandÄ±", StringComparison.OrdinalIgnoreCase)
+                             || string.Equals(status.Name, "tamamlandı", StringComparison.OrdinalIgnoreCase)
                              || string.Equals(status.Name, "bitti", StringComparison.OrdinalIgnoreCase))
             .Select(status => status.Id)
             .ToArray();

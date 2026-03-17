@@ -95,7 +95,7 @@ public static class ServiceCollectionExtensions
             var companyCode = user.FindFirst("CompanyCode").Value;
 
             var companyService = serviceProvider.GetRequiredService<CompanyService>();
-            var company = companyService.GetCompanyByCode(companyCode) ?? throw new Exception("Tenant bulunamadÄ±");
+            var company = companyService.GetCompanyByCode(companyCode) ?? throw new Exception("Tenant bulunamadı");
 
             return company.ConnectionString;
         }

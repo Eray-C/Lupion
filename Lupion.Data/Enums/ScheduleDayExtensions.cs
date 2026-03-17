@@ -17,7 +17,7 @@ public static class ScheduleDayExtensions
         return days == null ? "" : string.Join(", ", days.OrderBy(d => d).Select(ToDisplayString));
     }
 
-    /// <summary>VirgÃ¼lle ayrÄ±lmÄ±ÅŸ string'i enum listesine Ã§evirir. Ã–rn: "1,2,3" -> [Pazartesi, SalÄ±, Ã‡arÅŸamba]</summary>
+    /// <summary>Virgülle ayrılmış string'i enum listesine çevirir. Örn: "1,2,3" -> [Pazartesi, Salı, Çarşamba]</summary>
     public static IReadOnlyList<ScheduleDay> ParseScheduleDays(string? scheduleDaysString)
     {
         if (string.IsNullOrWhiteSpace(scheduleDaysString)) return Array.Empty<ScheduleDay>();
@@ -30,14 +30,14 @@ public static class ScheduleDayExtensions
         return list;
     }
 
-    /// <summary>Enum listesini virgÃ¼lle ayrÄ±lmÄ±ÅŸ stringe Ã§evirir. Ã–rn: [Pazartesi, SalÄ±] -> "1,2"</summary>
+    /// <summary>Enum listesini virgülle ayrılmış stringe çevirir. Örn: [Pazartesi, Salı] -> "1,2"</summary>
     public static string ToScheduleDaysString(this IEnumerable<ScheduleDay> days)
     {
         if (days == null) return "";
         return string.Join(",", days.Select(d => (int)d).OrderBy(x => x));
     }
 
-    /// <summary>HaftanÄ±n gÃ¼nÃ¼ (0-6) bu plana dahil mi?</summary>
+    /// <summary>Haftanın günü (0-6) bu plana dahil mi?</summary>
     public static bool ContainsDay(string? scheduleDaysString, int dayOfWeek)
     {
         if (string.IsNullOrWhiteSpace(scheduleDaysString)) return false;
@@ -45,7 +45,7 @@ public static class ScheduleDayExtensions
         return parts.Any(p => p == dayOfWeek.ToString());
     }
 
-    /// <summary>TÃ¼m gÃ¼nlerin display name'leri (sÄ±rayla).</summary>
+    /// <summary>Tüm günlerin display name'leri (sırayla).</summary>
     public static IReadOnlyList<(int Value, string Name)> GetAllDaysWithNames()
     {
         return Enum.GetValues<ScheduleDay>()

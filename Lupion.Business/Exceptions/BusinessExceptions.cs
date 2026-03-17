@@ -9,22 +9,22 @@ public class BusinessException : Exception
 
 public class RecordNotFoundException : BusinessException
 {
-    public RecordNotFoundException() : base("KayÄ±t bulunamadÄ±!") { }
+    public RecordNotFoundException() : base("Kayıt bulunamadı!") { }
 }
 
 public class FileNotFoundException : BusinessException
 {
-    public FileNotFoundException() : base("Dosya bulunamadÄ±!") { }
+    public FileNotFoundException() : base("Dosya bulunamadı!") { }
 }
 
 public class PlateAlreadyExistsException : BusinessException
 {
-    public PlateAlreadyExistsException() : base("Bu plakaya sahip araÃ§ zaten mevcut!") { }
+    public PlateAlreadyExistsException() : base("Bu plakaya sahip araç zaten mevcut!") { }
 }
 
 public class UserRegistrationException : BusinessException
 {
-    public UserRegistrationException() : base("KullanÄ±cÄ± kaydÄ± sÄ±rasÄ±nda bir hata oluÅŸtu.") { }
+    public UserRegistrationException() : base("Kullanıcı kaydı sırasında bir hata oluştu.") { }
 }
 
 public class ConflictException : BusinessException
@@ -34,5 +34,5 @@ public class ConflictException : BusinessException
 
 public class LoginInProgressException : BusinessException
 {
-    public LoginInProgressException() : base("GiriÅŸ iÅŸlemi zaten devam ediyor. LÃ¼tfen bekleyin.") { }
+    public LoginInProgressException() : base("Giriş işlemi zaten devam ediyor. Lütfen bekleyin.") { }
 }

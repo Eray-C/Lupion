@@ -7,11 +7,11 @@ public class PersonnelBonusRequestValidator : AbstractValidator<PersonnelBonusRe
 {
     public PersonnelBonusRequestValidator()
     {
-        RuleFor(x => x.PersonnelId).GreaterThan(0).WithMessage("Personel seÃ§ilmelidir.");
-        RuleFor(x => x.TypeId).GreaterThan(0).WithMessage("Bonus tipi seÃ§ilmelidir.");
+        RuleFor(x => x.PersonnelId).GreaterThan(0).WithMessage("Personel seçilmelidir.");
+        RuleFor(x => x.TypeId).GreaterThan(0).WithMessage("Bonus tipi seçilmelidir.");
         RuleFor(x => x.Amount).GreaterThanOrEqualTo(0).WithMessage("Tutar negatif olamaz.");
-        RuleFor(x => x.Year).InclusiveBetween(2000, 2100).WithMessage("GeÃ§erli bir yÄ±l giriniz.");
-        RuleFor(x => x.Month).InclusiveBetween(1, 12).WithMessage("Ay 1-12 arasÄ±nda olmalÄ±dÄ±r.");
+        RuleFor(x => x.Year).InclusiveBetween(2000, 2100).WithMessage("Geçerli bir yıl giriniz.");
+        RuleFor(x => x.Month).InclusiveBetween(1, 12).WithMessage("Ay 1-12 arasında olmalıdır.");
         RuleFor(x => x.Notes).MaximumLength(1000).WithMessage("Not 1000 karakterden uzun olamaz.");
     }
 }

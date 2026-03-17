@@ -16,7 +16,7 @@
             <input type="date" class="form-control" id="AdvanceDate" name="AdvanceDate" required />
         </div>
         <div class="col-md-6">
-            <label for="StartDeductionDate" class="form-label fw-bold">Kesinti BaÅŸlangÄ±Ã§ Tarihi</label>
+            <label for="StartDeductionDate" class="form-label fw-bold">Kesinti Başlangıç Tarihi</label>
             <input type="date" class="form-control" id="StartDeductionDate" name="StartDeductionDate" required />
         </div>
     </div>
@@ -24,7 +24,7 @@
         <div class="col-md-6">
             <label for="CurrencyCode" class="form-label fw-bold">Kur / Para Birimi</label>
             <select class="form-select" id="CurrencyCode" name="CurrencyCode">
-                <option value="">SeÃ§iniz</option>
+                <option value="">Seçiniz</option>
                 @foreach (var item in currencies)
                 {
                     <option value="@item.Code">@item.Name</option>
@@ -39,11 +39,11 @@
 
     <div class="row mb-3">
         <div class="col-md-6">
-            <label for="DeductionMonths" class="form-label fw-bold">KaÃ§ Ay Kesinti YapÄ±lacaÄŸÄ±</label>
+            <label for="DeductionMonths" class="form-label fw-bold">Kaç Ay Kesinti Yapılacağı</label>
             <input type="number" class="form-control" id="DeductionMonths" name="DeductionMonths" min="1" required />
         </div>
         <div class="col-md-6">
-            <label for="DeductionAmountPerMonth" class="form-label fw-bold">AylÄ±k Kesinti TutarÄ±</label>
+            <label for="DeductionAmountPerMonth" class="form-label fw-bold">Aylık Kesinti Tutarı</label>
             <input type="number" step="0.01" class="form-control" id="DeductionAmountPerMonth" name="DeductionAmountPerMonth" required />
         </div>
     </div>

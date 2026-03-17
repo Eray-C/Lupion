@@ -19,21 +19,21 @@ public class CustomerController(CustomerService customerService) : BaseControlle
     public async Task<IActionResult> AddAsync([FromBody] CustomerRequest request)
     {
         var id = await customerService.AddAsync(request);
-        return Ok(id, "MÃ¼ÅŸteri baÅŸarÄ±yla kaydedildi");
+        return Ok(id, "Müşteri başarıyla kaydedildi");
     }
 
     [HttpPut("{id:int}")]
     public async Task<IActionResult> UpdateAsync(int id, [FromBody] CustomerRequest request)
     {
         await customerService.UpdateAsync(id, request);
-        return Ok("MÃ¼ÅŸteri baÅŸarÄ±yla gÃ¼ncellendi.");
+        return Ok("Müşteri başarıyla güncellendi.");
     }
 
     [HttpDelete("{id:int}")]
     public async Task<IActionResult> DeleteAsync(int id)
     {
         await customerService.DeleteAsync(id);
-        return Ok("MÃ¼ÅŸteri baÅŸarÄ±yla silindi.");
+        return Ok("Müşteri başarıyla silindi.");
     }
 
     [HttpGet("contract/{customerId:int}")]

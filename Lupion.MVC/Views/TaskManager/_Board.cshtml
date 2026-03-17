@@ -33,11 +33,11 @@
 
                     <div class="kanban-card-footer">
                         <div class="ticket-code">@(string.IsNullOrEmpty(t.TaskNumber) ? "" : t.TaskNumber)</div>
-                        <div class="ticket-priority">@(string.IsNullOrEmpty(t.PriorityName) ? "Ã–ncelik Yok" : t.PriorityName)</div>
+                        <div class="ticket-priority">@(string.IsNullOrEmpty(t.PriorityName) ? "Öncelik Yok" : t.PriorityName)</div>
                         <button class="btn-delete-task btn-attachment-task" data-id="@t.Id" onclick="openAttachmentModal('GeneralTaskAttachments',@t.Id)" title="Dosya"><i class="fa-solid fa-paperclip"></i></button>
                         @if (doneStatusIds.Contains(status.Id))
                         {
-                            <button type="button" class="btn-archive-task" data-id="@t.Id" onclick="archiveTask(@t.Id)" title="ArÅŸivle"><i class="fa-solid fa-box-archive"></i><span class="ms-1">ArÅŸivle</span></button>
+                            <button type="button" class="btn-archive-task" data-id="@t.Id" onclick="archiveTask(@t.Id)" title="Arşivle"><i class="fa-solid fa-box-archive"></i><span class="ms-1">Arşivle</span></button>
                         }
                         <button class="btn-delete-task" data-id="@t.Id" onclick="deleteTask(@t.Id)" title="Sil"><i class="fa-solid fa-trash"></i></button>
                     </div>

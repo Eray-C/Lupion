@@ -40,7 +40,7 @@ public class SettingController(UserService userService, SettingsService settings
     public async Task<IActionResult> UpdateRoleAsync(int id, [FromBody] RoleRequest request)
     {
         await settingsService.UpdateRoleAsync(id, request);
-        return Ok("Rol gÃ¼ncellendi");
+        return Ok("Rol güncellendi");
     }
 
     [HttpDelete("roles/{id:int}")]
@@ -63,6 +63,6 @@ public class SettingController(UserService userService, SettingsService settings
     public async Task<IActionResult> SaveRolePermissionsAsync([FromBody] SaveRolePermissionsRequest request)
     {
         await settingsService.SaveRolePermissionsAsync(request);
-        return Ok("Ä°zinler kaydedildi");
+        return Ok("İzinler kaydedildi");
     }
 }

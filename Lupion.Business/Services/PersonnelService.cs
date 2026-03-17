@@ -311,7 +311,7 @@ public class PersonnelService(DBContext context, DBContextFactory contextFactory
     {
         var advance = await context.PersonnelAdvances.FindAsync(request.PersonnelAdvanceId) ?? throw new RecordNotFoundException();
         if (advance.PersonnelId != request.PersonnelId) throw new RecordNotFoundException();
-        if (advance.IsCompleted) throw new InvalidOperationException("Bu avans zaten kapatÄ±lmÄ±ÅŸ.");
+        if (advance.IsCompleted) throw new InvalidOperationException("Bu avans zaten kapatılmış.");
         var amount = request.Amount <= advance.RemainingAmount ? request.Amount : advance.RemainingAmount;
         if (amount <= 0) return;
 
@@ -501,7 +501,7 @@ public class PersonnelService(DBContext context, DBContextFactory contextFactory
                 newPayroll.PeriodMonth = request.Month;
                 newPayroll.EffectiveDate = payroll.EffectiveDate ?? periodStart;
                 newPayroll.PersonnelName = !string.IsNullOrEmpty(payroll.PersonnelName) ? payroll.PersonnelName : await GetPersonnelFullNameAsync(payroll.PersonnelId);
-                newPayroll.Provider = !string.IsNullOrEmpty(payroll.Provider) ? payroll.Provider : "KaydedilmiÅŸ Ã‡alÄ±ÅŸma";
+                newPayroll.Provider = !string.IsNullOrEmpty(payroll.Provider) ? payroll.Provider : "Kaydedilmiş Çalışma";
                 newPayroll.Note = request.Note;
                 newPayroll.CreatedBy = CurrentUser.Id;
                 newPayroll.CreatedDate = DateTime.UtcNow;
@@ -640,7 +640,7 @@ public class PersonnelService(DBContext context, DBContextFactory contextFactory
             .Where(p => p.PeriodYear == request.Year && p.PeriodMonth == request.Month && !p.IsDeleted)
             .ToListAsync();
         if (payrolls.Count == 0)
-            throw new InvalidOperationException("Bu dÃ¶nem iÃ§in bordro onaylanmamÄ±ÅŸ. Ã–nce bordroyu onaylayÄ±n.");
+            throw new InvalidOperationException("Bu dönem için bordro onaylanmamış. Önce bordroyu onaylayın.");
         var existingHistory = await context.PersonnelPaymentHistory
             .Where(h => h.PeriodYear == request.Year && h.PeriodMonth == request.Month && !h.IsDeleted)
             .ToListAsync();
@@ -718,7 +718,7 @@ public class PersonnelService(DBContext context, DBContextFactory contextFactory
         var records = await context.Personnels
             .Where(p =>
                 p.PersonnelType != null &&
-                p.PersonnelType.Name == "SÃ¼rÃ¼cÃ¼"
+                p.PersonnelType.Name == "Sürücü"
             )
             .ToListAsync();
 

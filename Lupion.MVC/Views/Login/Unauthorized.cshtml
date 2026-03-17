@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Yetkisiz EriÅŸim";
+    ViewBag.Title = "Yetkisiz Erişim";
     Layout = null;
 }
 <!doctype html>
@@ -14,7 +14,7 @@
     <link href="~/assets/css/app.css" rel="stylesheet">
     <link href="~/assets/css/icons.css" rel="stylesheet">
     <link href="~/css/login.css" rel="stylesheet">
-    <title>401 - Yetkisiz EriÅŸim | Lupion ERP</title>
+    <title>401 - Yetkisiz Erişim | Lupion ERP</title>
     <style>
         .unauthorized-card {
             background-color: #fff;
@@ -64,15 +64,15 @@
                 <i class="bx bx-lock-alt"></i>
             </div>
             <div class="unauthorized-code">@(ViewBag.StatusCode ?? 401)</div>
-            <h1 class="unauthorized-title">Yetkisiz EriÅŸim</h1>
+            <h1 class="unauthorized-title">Yetkisiz Erişim</h1>
             <p class="unauthorized-text">
-                Bu sayfaya izniniz yok. LÃ¼tfen yÃ¶neticinizden izin isteyin.
+                Bu sayfaya izniniz yok. Lütfen yöneticinizden izin isteyin.
             </p>
             <a href="@Url.Action("Index", "Dashboard")" class="btn btn-cheetah btn-lg">
-                <i class="bx bx-home-circle"></i> Ana Sayfaya DÃ¶n
+                <i class="bx bx-home-circle"></i> Ana Sayfaya Dön
             </a>
             <a href="@Url.Action("Index", "Login")" class="btn btn-outline-secondary btn-lg mt-2">
-                <i class="bx bx-log-in-circle"></i> GiriÅŸ SayfasÄ±
+                <i class="bx bx-log-in-circle"></i> Giriş Sayfası
             </a>
         </div>
     </div>

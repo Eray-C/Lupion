@@ -10,7 +10,7 @@ public class PersonnelAdvancePaymentProfile : Profile
     public PersonnelAdvancePaymentProfile()
     {
         CreateMap<PersonnelAdvancePayment, PersonnelAdvancePaymentDTO>()
-            .ForMember(dest => dest.SourceInfo, opt => opt.MapFrom(src => src.PersonnelPayrollId != null ? "Bordrodan Ã¶dendi" : "Manuel"));
+            .ForMember(dest => dest.SourceInfo, opt => opt.MapFrom(src => src.PersonnelPayrollId != null ? "Bordrodan ödendi" : "Manuel"));
         CreateMap<PersonnelAdvancePaymentRequest, PersonnelAdvancePayment>();
     }
 }

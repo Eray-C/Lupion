@@ -1,7 +1,7 @@
 ﻿@using System.Text.Json
 @model Lupion.MVC.Models.TaskManagerViewModel
 @{
-    ViewBag.Title = "Ä°ÅŸ Takipi";
+    ViewBag.Title = "İş Takipi";
 }
 <link href="~/css/task-manager.css" rel="stylesheet" />
 <div class="task-manager-wrapper">
@@ -15,10 +15,10 @@
             </div>
             <div class="kanban-header-actions">
                 <button id="btnAddTask" class="btn epic-btn" onclick="openAddModal()">
-                    <i class="fa-solid fa-list-check"></i><span class="btn-label">Yeni Ä°ÅŸ Ekle</span>
+                    <i class="fa-solid fa-list-check"></i><span class="btn-label">Yeni İş Ekle</span>
                 </button>
                 <button id="btnArchive" class="btn epic-btn" onclick="toggleArchiveMode()">
-                    <i class="fa-solid fa-box-archive"></i><span class="btn-text btn-label">ArÅŸiv</span>
+                    <i class="fa-solid fa-box-archive"></i><span class="btn-text btn-label">Arşiv</span>
                 </button>
                 <button id="btnFilter" class="btn epic-btn">
                     <i class="fa-solid fa-filter"></i><span class="btn-label">Filtre</span>
@@ -46,11 +46,11 @@
     <div class="drawer-body">
         <div class="drawer-left">
             <div class="filter-category" data-type="status">Durum <span class="fc-badge"></span></div>
-            <div class="filter-category" data-type="priority">Ã–ncelik <span class="fc-badge"></span></div>
+            <div class="filter-category" data-type="priority">Öncelik <span class="fc-badge"></span></div>
             <div class="filter-clear" style="margin-top:20px;">Hepsini Temizle</div>
         </div>
         <div class="drawer-right">
-            <div id="drawerOptions">Filtre oluÅŸturmaya baÅŸlamak iÃ§in bir alan seÃ§in.</div>
+            <div id="drawerOptions">Filtre oluşturmaya başlamak için bir alan seçin.</div>
         </div>
     </div>
 </div>

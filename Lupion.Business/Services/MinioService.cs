@@ -11,7 +11,7 @@ namespace Lupion.Business.Services
         public MinioService(IConfiguration config)
         {
             _minio = new MinioClient()
-                .WithEndpoint("cheetaherp.net", 9000)
+                .WithEndpoint("217.18.210.78", 9000)
                 .WithCredentials(config["Minio:AccessKey"], config["Minio:SecretKey"])
                 .WithSSL(bool.Parse(config["Minio:UseSSL"] ?? "false"))
                 .Build();

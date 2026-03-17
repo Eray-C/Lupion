@@ -26,7 +26,7 @@ public class AttachmentProfile : Profile
                         Comment = src.Comments?.ElementAtOrDefault(i),
                         FieldName = src.FieldName,
                         FieldId = src.FieldId,
-                        BucketName = "cheetah-files",
+                        BucketName = "lupion-files",
                         ObjectName = string.Empty
                     };
 
